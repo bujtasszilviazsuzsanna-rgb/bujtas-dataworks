@@ -339,7 +339,7 @@ button {
 .report-config {
   height: 42px;
   display: grid;
-  grid-template-columns: 190px 320px 260px 370px 1fr;
+  grid-template-columns: 190px 320px 260px 1fr;
   border-bottom: 1px solid #bbb;
 }
 
@@ -362,29 +362,6 @@ button {
   border: 1px solid #999;
   background: white;
   color: #111;
-}
-
-.report-actions {
-  justify-content: flex-end;
-  gap: 7px;
-}
-
-.excel-btn {
-  border: 1px solid #999;
-  background: #f2f2f2;
-  color: #222;
-  border-radius: 3px;
-  padding: 6px 12px;
-}
-
-.excel-btn:hover {
-  background: #e7e7e7;
-}
-
-.excel-btn.primary {
-  background: #107c41;
-  color: white;
-  border-color: #0d6937;
 }
 
 /* ======================================================
@@ -995,16 +972,6 @@ button {
             <select id="workflow"></select>
           </div>
 
-          <div class="report-actions">
-            <button class="excel-btn" onclick="sortReport()">
-              Riport rendezése
-            </button>
-
-            <button class="excel-btn primary" onclick="generatePreview()">
-              Jegyzőkönyv előnézet
-            </button>
-          </div>
-
         </div>
 
         <table class="grid report-grid">
@@ -1468,26 +1435,7 @@ let reportRows =
     () => blankRow()
   );
 
-/*
-  EZ A JAVÍTÁS LÉNYEGE.
-
-  false:
-  normál szerkesztési mód, nincs merge.
-
-  true:
-  a Rendezés makró már lefutott,
-  a merge struktúra rögzített.
-*/
 let reportSorted = false;
-
-/*
-  Példa:
-  [
-    { start: 0, end: 2 },
-    { start: 3, end: 3 },
-    { start: 4, end: 6 }
-  ]
-*/
 let frozenGroups = [];
 
 /* ======================================================
@@ -1703,7 +1651,6 @@ function reportType(row) {
 
 /* ======================================================
    GROUP BUILDING
-   ONLY CALLED WHEN SORT BUTTON IS PRESSED
    ====================================================== */
 
 function sameGroup(a, b) {
@@ -1770,7 +1717,6 @@ function renderReport() {
 
 /* ======================================================
    NORMAL MODE
-   NO MERGE
    ====================================================== */
 
 function renderNormalReport() {
@@ -1883,7 +1829,6 @@ function renderNormalReport() {
 
 /* ======================================================
    SORTED / MERGED MODE
-   USES FROZEN GROUPS ONLY
    ====================================================== */
 
 function renderSortedReport() {
@@ -2113,12 +2058,6 @@ function bindReportEvents() {
               event.target.dataset.index
             );
 
-          /*
-            EAN módosítás = új szerkesztési állapot.
-
-            A VBA-ban a merge után ezt amúgy sem
-            lehetne egyszerűen soronként felülírni.
-          */
           reportSorted = false;
           frozenGroups = [];
 
@@ -2246,12 +2185,6 @@ function bindReportEvents() {
             return;
           }
 
-          /*
-            FONTOS:
-            Nem nullázzuk a reportSorted állapotot.
-
-            Ezért pipálás után a merge NEM ugrik szét.
-          */
           reportRows[index][field] =
             !reportRows[index][field];
 
@@ -2672,10 +2605,6 @@ function saveDate() {
     dateRowIndex
   ].expiry = value;
 
-  /*
-    A dátum módosítása SEM bontja fel a merge-et.
-  */
-
   closeDateDialog();
   renderReport();
 }
@@ -2841,14 +2770,8 @@ function sortReport() {
 
   reportRows = used;
 
-  /*
-    CSAK ITT építjük meg a merge csoportokat.
-  */
   buildFrozenGroups();
 
-  /*
-    CSAK ITT kapcsoljuk be a rendezett állapotot.
-  */
   reportSorted = true;
 
   renderReport();
