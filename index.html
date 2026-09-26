@@ -3,697 +3,733 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Bujtás DataWorks | Excel VBA Demo</title>
 
 <style>
-  * {
-    box-sizing: border-box;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  html, body {
-    margin: 0;
-    height: 100%;
-    font-family: Aptos, "Segoe UI", Arial, sans-serif;
-    background: #1f1f1f;
-    color: #f2f2f2;
-    overflow: hidden;
-  }
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Aptos, "Segoe UI", Arial, sans-serif;
+  background: #1e1e1e;
+  color: #f2f2f2;
+  overflow: hidden;
+}
 
-  button,
-  input,
-  select {
-    font: inherit;
-  }
+button,
+input,
+select {
+  font: inherit;
+}
 
-  /* =========================
-     APP / EXCEL SHELL
-     ========================= */
+button {
+  cursor: pointer;
+}
 
-  .excel-app {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: #1e1e1e;
-  }
+/* ======================================================
+   EXCEL SHELL
+   ====================================================== */
 
-  .titlebar {
-    height: 36px;
-    background: #202020;
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    border-bottom: 1px solid #333;
-    gap: 12px;
-    flex-shrink: 0;
-  }
+.excel-app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+}
 
-  .excel-logo {
-    width: 23px;
-    height: 23px;
-    border-radius: 4px;
-    background: #107c41;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: white;
-    font-size: 14px;
-  }
+.titlebar {
+  height: 32px;
+  flex-shrink: 0;
+  background: #171717;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid #343434;
+  gap: 10px;
+}
 
-  .workbook-name {
-    font-size: 13px;
-    color: #e8e8e8;
-    flex: 1;
-  }
+.excel-logo {
+  width: 22px;
+  height: 22px;
+  background: #107c41;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  font-size: 13px;
+}
 
-  .demo-badge {
-    background: #107c41;
-    color: white;
-    padding: 4px 9px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 600;
-  }
+.workbook-name {
+  flex: 1;
+  font-size: 13px;
+  color: #ddd;
+}
 
-  .share {
-    background: #33c481;
-    color: #10251b;
-    border: 0;
-    border-radius: 5px;
-    padding: 6px 13px;
-    cursor: default;
-  }
+.demo-badge {
+  background: #0f6f3b;
+  color: #d8ffe8;
+  border: 1px solid #14834a;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
 
-  /* =========================
-     RIBBON
-     ========================= */
+.share {
+  border: 0;
+  background: #21a366;
+  color: #0a2415;
+  padding: 5px 14px;
+  border-radius: 5px;
+}
 
-  .tabs {
-    height: 38px;
-    display: flex;
-    align-items: flex-end;
-    padding-left: 13px;
-    gap: 25px;
-    background: #202020;
-    flex-shrink: 0;
-  }
+/* ======================================================
+   QUICK ACCESS
+   ====================================================== */
 
-  .ribbon-tab {
-    padding: 8px 0 7px;
-    font-size: 14px;
-    color: #efefef;
-    cursor: default;
-  }
+.quickbar {
+  height: 30px;
+  flex-shrink: 0;
+  background: #202020;
+  border-bottom: 1px solid #343434;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 4px;
+}
 
-  .ribbon-tab.active {
-    font-weight: 700;
-    border-bottom: 3px solid #21a366;
-  }
+.quick-label {
+  font-size: 10px;
+  color: #8f8f8f;
+  margin-right: 4px;
+  letter-spacing: .2px;
+}
 
-  .ribbon {
-    height: 100px;
-    background: #272727;
-    border-top: 1px solid #373737;
-    border-bottom: 1px solid #444;
-    display: flex;
-    align-items: stretch;
-    padding: 8px 10px;
-    flex-shrink: 0;
-    overflow: hidden;
-  }
+.quick-btn {
+  height: 23px;
+  min-width: 27px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #ddd;
+  border-radius: 3px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+}
 
-  .ribbon-group {
-    min-width: 120px;
-    padding: 0 12px;
-    border-right: 1px solid #454545;
-    position: relative;
-    display: flex;
-    gap: 7px;
-    align-items: center;
-  }
+.quick-btn:hover {
+  border-color: #555;
+  background: #303030;
+}
 
-  .ribbon-group.wide {
-    min-width: 220px;
-  }
+.quick-separator {
+  width: 1px;
+  height: 18px;
+  background: #444;
+  margin: 0 5px;
+}
 
-  .ribbon-group-title {
-    position: absolute;
-    bottom: 0;
-    width: calc(100% - 24px);
-    text-align: center;
-    color: #bdbdbd;
-    font-size: 10px;
-  }
+/* ======================================================
+   RIBBON TABS
+   ====================================================== */
 
-  .big-icon {
-    width: 40px;
-    height: 48px;
-    border: 1px solid #555;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    background: #303030;
-  }
+.ribbon-tabs {
+  height: 34px;
+  background: #202020;
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  padding-left: 12px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #353535;
+}
 
-  .small-icons {
-    display: grid;
-    grid-template-columns: repeat(3, 30px);
-    gap: 5px;
-  }
+.ribbon-tab {
+  padding: 7px 0 6px;
+  color: #ededed;
+  font-size: 13px;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  user-select: none;
+}
 
-  .small-icon {
-    height: 27px;
-    background: #303030;
-    border: 1px solid #505050;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-  }
+.ribbon-tab.active {
+  border-bottom-color: #21a366;
+  font-weight: 700;
+}
 
-  .font-box {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
+/* ======================================================
+   RIBBON CONTENT
+   ====================================================== */
 
-  .font-row {
-    display: flex;
-    gap: 4px;
-  }
+.ribbon {
+  height: 82px;
+  flex-shrink: 0;
+  background: #262626;
+  border-bottom: 1px solid #424242;
+  padding: 6px 9px;
+  overflow: hidden;
+}
 
-  .fake-select {
-    background: #303030;
-    border: 1px solid #666;
-    height: 27px;
-    border-radius: 3px;
-    padding: 4px 7px;
-    min-width: 115px;
-    color: white;
-    font-size: 12px;
-  }
+.ribbon-panel {
+  display: none;
+  height: 100%;
+  align-items: stretch;
+}
 
-  .size-box {
-    min-width: 46px;
-  }
+.ribbon-panel.active {
+  display: flex;
+}
 
-  /* =========================
-     FORMULA BAR
-     ========================= */
+.ribbon-group {
+  min-width: 105px;
+  border-right: 1px solid #444;
+  padding: 0 10px 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
-  .formula-area {
-    height: 38px;
-    background: #1f1f1f;
-    display: flex;
-    border-bottom: 1px solid #454545;
-    flex-shrink: 0;
-  }
+.ribbon-group.wide {
+  min-width: 190px;
+}
 
-  .name-box {
-    width: 130px;
-    border-right: 1px solid #444;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-    background: #252525;
-    color: #ddd;
-  }
+.ribbon-group-title {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 1px;
+  text-align: center;
+  color: #999;
+  font-size: 9px;
+}
 
-  .formula-icons {
-    width: 105px;
-    border-right: 1px solid #444;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: #aaa;
-  }
+.ribbon-icon {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #4c4c4c;
+  border-radius: 3px;
+  background: #303030;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
 
-  .formula-bar {
-    flex: 1;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
-    background: #252525;
-    color: #ddd;
-    overflow: hidden;
-    white-space: nowrap;
-  }
+.ribbon-icon.big {
+  width: 38px;
+  height: 46px;
+  flex-direction: column;
+  font-size: 19px;
+}
 
-  /* =========================
-     WORKBOOK AREA
-     ========================= */
+.small-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 27px);
+  gap: 4px;
+}
 
-  .workbook {
-    flex: 1;
-    min-height: 0;
-    position: relative;
-    background: #111;
-  }
+.ribbon-select {
+  background: #303030;
+  color: #ddd;
+  border: 1px solid #555;
+  border-radius: 3px;
+  height: 25px;
+  padding: 2px 7px;
+  font-size: 11px;
+}
 
-  .sheet {
-    display: none;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background: #f6f6f6;
-    color: #111;
-  }
+.font-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-  .sheet.active {
+.font-line {
+  display: flex;
+  gap: 4px;
+}
+
+/* ======================================================
+   FORMULA BAR
+   ====================================================== */
+
+.formula-area {
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  background: #202020;
+  border-bottom: 1px solid #444;
+}
+
+.name-box {
+  width: 125px;
+  border-right: 1px solid #454545;
+  display: flex;
+  align-items: center;
+  padding: 0 9px;
+  color: #ddd;
+  font-size: 12px;
+}
+
+.formula-icons {
+  width: 92px;
+  border-right: 1px solid #454545;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #aaa;
+  font-size: 13px;
+}
+
+.formula-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 11px;
+  color: #ddd;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ======================================================
+   WORKBOOK
+   ====================================================== */
+
+.workbook {
+  flex: 1;
+  min-height: 0;
+  background: #111;
+  position: relative;
+}
+
+.sheet {
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow: auto;
+  background: white;
+  color: #111;
+}
+
+.sheet.active {
+  display: block;
+}
+
+/* ======================================================
+   REPORT
+   ====================================================== */
+
+.report-wrap {
+  min-width: 1500px;
+  min-height: 100%;
+  background: white;
+  padding-bottom: 60px;
+}
+
+.report-config {
+  height: 42px;
+  display: grid;
+  grid-template-columns: 190px 320px 260px 370px 1fr;
+  border-bottom: 1px solid #bbb;
+}
+
+.report-config > div {
+  border-right: 1px solid #c5c5c5;
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
+}
+
+.report-config .label {
+  background: #dcebed;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+.report-config select {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #999;
+  background: white;
+  color: #111;
+}
+
+.report-actions {
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.excel-btn {
+  border: 1px solid #999;
+  background: #f2f2f2;
+  color: #222;
+  border-radius: 3px;
+  padding: 6px 12px;
+}
+
+.excel-btn:hover {
+  background: #e7e7e7;
+}
+
+.excel-btn.primary {
+  background: #107c41;
+  color: white;
+  border-color: #0d6937;
+}
+
+/* ======================================================
+   TABLE GRID
+   ====================================================== */
+
+.grid {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  font-size: 12px;
+}
+
+.grid th,
+.grid td {
+  border: 1px solid #c9c9c9;
+  height: 28px;
+  padding: 3px 7px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.col-letter {
+  background: #e9e9e9 !important;
+  color: #222 !important;
+  text-align: center;
+  font-weight: 400 !important;
+  height: 22px !important;
+}
+
+.row-number {
+  width: 44px;
+  background: #ececec !important;
+  color: #333;
+  text-align: center;
+  font-weight: 400;
+}
+
+.report-header {
+  background: #d6e6e8;
+  color: #111;
+  font-weight: 700;
+  text-align: center;
+  white-space: normal !important;
+  line-height: 14px;
+}
+
+.data-row:hover td:not(.row-number) {
+  background: #f3faf6;
+}
+
+.editable {
+  background: #fffdf4;
+}
+
+.center {
+  text-align: center;
+}
+
+.ean-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+}
+
+.check-cell {
+  text-align: center;
+  font-size: 16px;
+  cursor: default;
+  user-select: none;
+}
+
+.check-cell.checked {
+  font-weight: 700;
+}
+
+.date-cell {
+  text-align: center;
+}
+
+.selected-cell {
+  outline: 2px solid #21a366;
+  outline-offset: -2px;
+}
+
+.merged-cell {
+  vertical-align: middle;
+  background: #fff;
+}
+
+/* ======================================================
+   DATA SHEET
+   ====================================================== */
+
+.data-topbar {
+  height: 42px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: #f1f1f1;
+  color: #222;
+  border-bottom: 1px solid #bbb;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 12px;
+  font-size: 12px;
+}
+
+.drag-hint {
+  background: #fff1c8;
+  border: 1px solid #d6bd69;
+  border-radius: 3px;
+  padding: 5px 8px;
+}
+
+.data-note {
+  color: #555;
+}
+
+.source-wrap {
+  min-width: 1700px;
+  min-height: 100%;
+}
+
+.source-header {
+  background: #d9ead3 !important;
+  color: #111 !important;
+  font-weight: 700;
+  cursor: grab;
+  position: sticky;
+  top: 42px;
+  z-index: 5;
+}
+
+.source-header.dragging {
+  opacity: .4;
+}
+
+.source-header.drag-over {
+  box-shadow: inset 4px 0 0 #21a366;
+}
+
+/* ======================================================
+   BOTTOM TABS
+   ====================================================== */
+
+.bottom-bar {
+  height: 34px;
+  flex-shrink: 0;
+  background: #efefef;
+  color: #222;
+  border-top: 1px solid #bdbdbd;
+  display: flex;
+  align-items: stretch;
+}
+
+.sheet-nav {
+  width: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-right: 1px solid #ccc;
+  color: #555;
+}
+
+.sheet-tab-bottom {
+  min-width: 100px;
+  padding: 7px 17px 5px;
+  border-right: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.sheet-tab-bottom:hover {
+  background: #e1e1e1;
+}
+
+.sheet-tab-bottom.active {
+  background: white;
+  font-weight: 600;
+}
+
+.sheet-tab-bottom.active::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  height: 3px;
+  background: #21a366;
+}
+
+.statusbar {
+  margin-left: auto;
+  padding: 7px 14px;
+  color: #555;
+  font-size: 11px;
+}
+
+/* ======================================================
+   DIALOGS
+   ====================================================== */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.38);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.dialog {
+  width: 430px;
+  background: #f8f8f8;
+  color: #111;
+  border: 1px solid #777;
+  box-shadow: 0 15px 45px rgba(0,0,0,.45);
+}
+
+.dialog-title {
+  background: white;
+  border-bottom: 1px solid #ddd;
+  padding: 9px 12px;
+  font-size: 13px;
+}
+
+.dialog-body {
+  padding: 22px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.dialog-icon {
+  font-size: 30px;
+}
+
+.dialog-actions {
+  padding: 12px 18px 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.dialog-actions button {
+  min-width: 85px;
+  padding: 6px 14px;
+  background: white;
+  border: 1px solid #999;
+}
+
+.date-dialog-body {
+  display: block;
+}
+
+.date-dialog-body input {
+  width: 100%;
+  margin-top: 12px;
+  height: 30px;
+  border: 1px solid #888;
+  padding: 4px 7px;
+}
+
+/* ======================================================
+   REPORT PREVIEW
+   ====================================================== */
+
+.report-preview {
+  width: min(860px, 92vw);
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.paper {
+  margin: 18px;
+  background: white;
+  border: 1px solid #aaa;
+  padding: 28px;
+  min-height: 650px;
+}
+
+.paper h2 {
+  text-align: center;
+}
+
+.paper-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.paper-box {
+  border: 1px solid #444;
+  padding: 10px;
+}
+
+.paper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.paper th,
+.paper td {
+  border: 1px solid #555;
+  padding: 8px;
+}
+
+/* ======================================================
+   MOBILE WARNING
+   ====================================================== */
+
+.desktop-warning {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .desktop-warning {
     display: block;
-  }
-
-  /* =========================
-     REPORT SHEET
-     ========================= */
-
-  .report-wrap {
-    min-width: 1450px;
-    min-height: 100%;
-    padding-bottom: 80px;
-    background: white;
-  }
-
-  .report-config {
-    display: grid;
-    grid-template-columns: 170px 280px 220px 320px 1fr;
-    height: 42px;
-    background: white;
-    border-bottom: 1px solid #aaa;
-  }
-
-  .report-config > div {
-    border-right: 1px solid #c7c7c7;
-    display: flex;
-    align-items: center;
-    padding: 5px 8px;
-  }
-
-  .report-config .label {
-    font-weight: 700;
-    background: #e6f3f5;
-  }
-
-  .report-config select {
-    width: 100%;
-    height: 29px;
-    border: 1px solid #999;
-    background: white;
-  }
-
-  .report-actions {
-    justify-content: flex-end;
-    gap: 8px;
-  }
-
-  .excel-btn {
-    border: 1px solid #999;
-    background: #f4f4f4;
-    padding: 6px 12px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-
-  .excel-btn:hover {
-    background: #e7e7e7;
-  }
-
-  .excel-btn.primary {
-    background: #107c41;
-    color: white;
-    border-color: #0c6334;
-  }
-
-  table.grid {
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 100%;
-    font-size: 13px;
-  }
-
-  .grid th,
-  .grid td {
-    border: 1px solid #cfcfcf;
-    height: 29px;
-    padding: 3px 7px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  .grid thead th {
-    position: sticky;
-    top: 0;
-    z-index: 4;
-  }
-
-  .col-letter {
-    background: #e9e9e9 !important;
-    color: #222 !important;
-    text-align: center;
-    font-weight: 400 !important;
-    height: 23px !important;
-  }
-
-  .row-number {
-    width: 44px;
-    background: #eeeeee;
-    color: #333;
-    text-align: center;
-    font-weight: 400;
-  }
-
-  .report-header {
-    background: #dff0f3;
-    color: #111;
-    font-weight: 700;
-    text-align: center;
-    white-space: normal !important;
-    line-height: 15px;
-  }
-
-  .editable {
-    background: #fffdf5;
-  }
-
-  .ean-input {
-    width: 100%;
-    border: 0;
-    outline: 0;
-    background: transparent;
-    font: inherit;
-    padding: 0;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  .check-cell {
-    cursor: default;
-    text-align: center;
-    font-size: 17px;
-    user-select: none;
-  }
-
-  .check-cell.checked {
-    font-weight: 700;
-  }
-
-  .date-cell {
-    cursor: default;
-    text-align: center;
-  }
-
-  tr.data-row:hover td:not(.row-number) {
-    background-color: #f4fbf7;
-  }
-
-  .selected-cell {
-    outline: 2px solid #21a366;
-    outline-offset: -2px;
-  }
-
-  /* =========================
-     SOURCE DATA SHEET
-     ========================= */
-
-  .data-topbar {
-    padding: 9px 13px;
-    background: #f3f3f3;
-    border-bottom: 1px solid #bbb;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    color: #222;
-    font-size: 13px;
-    position: sticky;
-    left: 0;
-    top: 0;
-    z-index: 8;
-  }
-
-  .data-note {
-    color: #555;
-  }
-
-  .source-wrap {
-    min-width: 1700px;
-    min-height: 100%;
-    background: white;
-  }
-
-  .source-grid th.source-header {
-    background: #d9ead3;
-    color: #111;
-    font-weight: 700;
-    cursor: grab;
-    position: sticky;
-    top: 42px;
-    z-index: 5;
-  }
-
-  .source-header.dragging {
-    opacity: .35;
-  }
-
-  .source-header.drag-over {
-    box-shadow: inset 4px 0 0 #21a366;
-  }
-
-  .source-grid td {
-    background: white;
-  }
-
-  .drag-hint {
-    background: #fff4cc;
-    border: 1px solid #dfc46c;
-    padding: 5px 8px;
-    border-radius: 3px;
-  }
-
-  /* =========================
-     VARIABLES SHEET
-     ========================= */
-
-  .variable-wrap {
-    min-width: 950px;
-    min-height: 100%;
-    background: white;
-    padding: 30px;
-  }
-
-  .variable-table {
-    border-collapse: collapse;
-    min-width: 720px;
-  }
-
-  .variable-table th,
-  .variable-table td {
-    border: 1px solid #c8c8c8;
-    padding: 8px 12px;
-  }
-
-  .variable-table th {
-    background: #dff0f3;
-  }
-
-  /* =========================
-     SHEET TABS
-     ========================= */
-
-  .bottom-bar {
-    height: 36px;
-    background: #efefef;
-    color: #222;
-    border-top: 1px solid #bcbcbc;
-    display: flex;
-    align-items: stretch;
-    flex-shrink: 0;
-  }
-
-  .sheet-nav-buttons {
-    width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    color: #555;
-    border-right: 1px solid #ccc;
-  }
-
-  .sheet-tab {
-    min-width: 95px;
-    padding: 8px 17px 6px;
-    text-align: center;
-    cursor: pointer;
-    border-right: 1px solid #ddd;
-    position: relative;
-  }
-
-  .sheet-tab:hover {
-    background: #e4e4e4;
-  }
-
-  .sheet-tab.active {
-    background: white;
-    font-weight: 600;
-  }
-
-  .sheet-tab.active::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 7px;
-    right: 7px;
-    height: 3px;
-    background: #21a366;
-  }
-
-  .statusbar {
-    margin-left: auto;
-    padding: 7px 15px;
-    color: #555;
-    font-size: 12px;
-  }
-
-  /* =========================
-     MODALS
-     ========================= */
-
-  .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.38);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-
-  .overlay.show {
-    display: flex;
-  }
-
-  .dialog {
-    width: 430px;
-    background: #f7f7f7;
-    color: #111;
-    border: 1px solid #777;
-    box-shadow: 0 15px 45px rgba(0,0,0,.45);
-  }
-
-  .dialog-title {
-    background: white;
-    padding: 9px 12px;
-    font-size: 13px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .dialog-body {
-    padding: 22px;
-    display: flex;
-    gap: 14px;
-    line-height: 1.45;
-    font-size: 13px;
-  }
-
-  .dialog-icon {
-    font-size: 30px;
-  }
-
-  .dialog-actions {
-    padding: 12px 18px 16px;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .dialog-actions button {
-    min-width: 85px;
-    padding: 6px 15px;
-    background: #fff;
-    border: 1px solid #999;
-  }
-
-  .date-dialog-body {
-    display: block;
-  }
-
-  .date-dialog-body input {
-    width: 100%;
-    margin-top: 12px;
-    height: 31px;
-    border: 1px solid #888;
-    padding: 5px 8px;
-  }
-
-  .report-preview {
-    width: min(850px, 92vw);
-    max-height: 90vh;
-    overflow: auto;
-  }
-
-  .paper {
-    margin: 18px;
-    background: white;
-    border: 1px solid #aaa;
-    padding: 30px;
-    min-height: 650px;
-    font-family: Arial, sans-serif;
-  }
-
-  .paper h2 {
+    z-index: 5000;
+    background: #111;
+    color: white;
+    padding: 40px 25px;
     text-align: center;
   }
-
-  .paper-meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin: 25px 0;
-  }
-
-  .paper-box {
-    border: 1px solid #444;
-    padding: 10px;
-  }
-
-  .paper table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-
-  .paper td,
-  .paper th {
-    border: 1px solid #555;
-    padding: 8px;
-  }
-
-  /* =========================
-     RESPONSIVE WARNING
-     ========================= */
-
-  .desktop-warning {
-    display: none;
-  }
-
-  @media (max-width: 900px) {
-    .desktop-warning {
-      display: block;
-      position: fixed;
-      inset: 0;
-      z-index: 5000;
-      background: #111;
-      color: white;
-      padding: 40px 25px;
-      text-align: center;
-    }
-  }
+}
 </style>
 </head>
 
@@ -706,105 +742,296 @@
 
 <div class="excel-app">
 
-  <!-- TITLE BAR -->
   <div class="titlebar">
     <div class="excel-logo">X</div>
+
     <div class="workbook-name">
       Automated Goods Discrepancy &amp; Damage Reporting System.xlsm
     </div>
+
     <div class="demo-badge">INTERACTIVE DEMO</div>
     <button class="share">Megosztás ▾</button>
   </div>
 
+  <!-- QUICK ACCESS -->
+  <div class="quickbar">
+    <span class="quick-label">Gyorselérési eszköztár</span>
+
+    <button class="quick-btn" onclick="sortReport()" title="Riport rendezése">
+      ↕ <span>Rendezés</span>
+    </button>
+
+    <button class="quick-btn" onclick="generatePreview()" title="Jegyzőkönyv előnézet">
+      ▤ <span>Jegyzőkönyv</span>
+    </button>
+
+    <div class="quick-separator"></div>
+
+    <button class="quick-btn" title="Mentés dekoráció">
+      💾
+    </button>
+
+    <button class="quick-btn" title="Visszavonás dekoráció">
+      ↶
+    </button>
+
+    <button class="quick-btn" title="Ismét dekoráció">
+      ↷
+    </button>
+  </div>
+
   <!-- RIBBON TABS -->
-  <div class="tabs">
-    <div class="ribbon-tab">Fájl</div>
-    <div class="ribbon-tab active">Kezdőlap</div>
-    <div class="ribbon-tab">Beszúrás</div>
-    <div class="ribbon-tab">Rajzolás</div>
-    <div class="ribbon-tab">Lapelrendezés</div>
-    <div class="ribbon-tab">Képletek</div>
-    <div class="ribbon-tab">Adatok</div>
-    <div class="ribbon-tab">Véleményezés</div>
-    <div class="ribbon-tab">Nézet</div>
-    <div class="ribbon-tab">Fejlesztőeszközök</div>
-    <div class="ribbon-tab">Súgó</div>
+  <div class="ribbon-tabs">
+    <div class="ribbon-tab" data-ribbon="file">Fájl</div>
+    <div class="ribbon-tab active" data-ribbon="home">Kezdőlap</div>
+    <div class="ribbon-tab" data-ribbon="insert">Beszúrás</div>
+    <div class="ribbon-tab" data-ribbon="draw">Rajzolás</div>
+    <div class="ribbon-tab" data-ribbon="layout">Lapelrendezés</div>
+    <div class="ribbon-tab" data-ribbon="formulas">Képletek</div>
+    <div class="ribbon-tab" data-ribbon="data">Adatok</div>
+    <div class="ribbon-tab" data-ribbon="review">Véleményezés</div>
+    <div class="ribbon-tab" data-ribbon="view">Nézet</div>
+    <div class="ribbon-tab" data-ribbon="developer">Fejlesztőeszközök</div>
+    <div class="ribbon-tab" data-ribbon="help">Súgó</div>
   </div>
 
   <!-- RIBBON -->
   <div class="ribbon">
 
-    <div class="ribbon-group">
-      <div class="big-icon">📋</div>
-      <div class="small-icons">
-        <div class="small-icon">✂</div>
-        <div class="small-icon">▣</div>
-        <div class="small-icon">🖌</div>
-      </div>
-      <div class="ribbon-group-title">Vágólap</div>
-    </div>
+    <!-- HOME -->
+    <div class="ribbon-panel active" id="ribbon-home">
 
-    <div class="ribbon-group wide">
-      <div class="font-box">
-        <div class="font-row">
-          <div class="fake-select">Aptos ▾</div>
-          <div class="fake-select size-box">11 ▾</div>
+      <div class="ribbon-group">
+        <div class="ribbon-icon big">📋</div>
+
+        <div class="small-grid">
+          <div class="ribbon-icon">✂</div>
+          <div class="ribbon-icon">▣</div>
+          <div class="ribbon-icon">🖌</div>
         </div>
 
-        <div class="font-row">
-          <div class="small-icon"><b>F</b></div>
-          <div class="small-icon"><i>D</i></div>
-          <div class="small-icon"><u>A</u></div>
-          <div class="small-icon">▦</div>
-          <div class="small-icon">🖍</div>
-          <div class="small-icon">A</div>
+        <div class="ribbon-group-title">Vágólap</div>
+      </div>
+
+      <div class="ribbon-group wide">
+
+        <div class="font-stack">
+
+          <div class="font-line">
+            <div class="ribbon-select" style="width:120px;">Aptos ▾</div>
+            <div class="ribbon-select">11 ▾</div>
+          </div>
+
+          <div class="font-line">
+            <div class="ribbon-icon"><b>F</b></div>
+            <div class="ribbon-icon"><i>D</i></div>
+            <div class="ribbon-icon"><u>A</u></div>
+            <div class="ribbon-icon">▦</div>
+            <div class="ribbon-icon">🖍</div>
+          </div>
+
         </div>
+
+        <div class="ribbon-group-title">Betűtípus</div>
       </div>
 
-      <div class="ribbon-group-title">Betűtípus</div>
-    </div>
+      <div class="ribbon-group wide">
 
-    <div class="ribbon-group wide">
-      <div class="small-icons">
-        <div class="small-icon">≡</div>
-        <div class="small-icon">☰</div>
-        <div class="small-icon">≣</div>
-        <div class="small-icon">↤</div>
-        <div class="small-icon">↔</div>
-        <div class="small-icon">↦</div>
+        <div class="small-grid">
+          <div class="ribbon-icon">≡</div>
+          <div class="ribbon-icon">☰</div>
+          <div class="ribbon-icon">≣</div>
+          <div class="ribbon-icon">↤</div>
+          <div class="ribbon-icon">↔</div>
+          <div class="ribbon-icon">↦</div>
+        </div>
+
+        <div class="ribbon-select">Sortöréssel több sorba</div>
+
+        <div class="ribbon-group-title">Igazítás</div>
       </div>
 
-      <div class="fake-select">Sortöréssel több sorba</div>
-      <div class="ribbon-group-title">Igazítás</div>
-    </div>
+      <div class="ribbon-group">
 
-    <div class="ribbon-group">
-      <div class="fake-select">Általános ▾</div>
-      <div class="small-icons">
-        <div class="small-icon">%</div>
-        <div class="small-icon">,00</div>
-        <div class="small-icon">◀0</div>
+        <div class="ribbon-select">Általános ▾</div>
+
+        <div class="small-grid">
+          <div class="ribbon-icon">%</div>
+          <div class="ribbon-icon">,00</div>
+          <div class="ribbon-icon">◀0</div>
+        </div>
+
+        <div class="ribbon-group-title">Szám</div>
       </div>
-      <div class="ribbon-group-title">Szám</div>
-    </div>
 
-    <div class="ribbon-group wide">
-      <div class="big-icon">🟥</div>
-      <div class="big-icon">🖌</div>
-      <div class="big-icon">▦</div>
-      <div class="ribbon-group-title">Stílusok</div>
-    </div>
+      <div class="ribbon-group wide">
 
-    <div class="ribbon-group wide">
-      <div class="small-icons">
-        <div class="small-icon">＋</div>
-        <div class="small-icon">⌫</div>
-        <div class="small-icon">▤</div>
-        <div class="small-icon">Σ</div>
-        <div class="small-icon">A↕</div>
-        <div class="small-icon">⌕</div>
+        <div class="ribbon-icon big">▦</div>
+        <div class="ribbon-icon big">🖌</div>
+        <div class="ribbon-icon big">▤</div>
+
+        <div class="ribbon-group-title">Stílusok</div>
       </div>
-      <div class="ribbon-group-title">Szerkesztés</div>
+
+    </div>
+
+    <!-- FILE -->
+    <div class="ribbon-panel" id="ribbon-file">
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">📄</div>
+        <div class="ribbon-icon big">📂</div>
+        <div class="ribbon-icon big">💾</div>
+        <div class="ribbon-group-title">Fájlműveletek</div>
+      </div>
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">🖨</div>
+        <div class="ribbon-icon big">📤</div>
+        <div class="ribbon-group-title">Nyomtatás és export</div>
+      </div>
+
+    </div>
+
+    <!-- INSERT -->
+    <div class="ribbon-panel" id="ribbon-insert">
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">▦</div>
+        <div class="ribbon-icon big">📊</div>
+        <div class="ribbon-icon big">🖼</div>
+        <div class="ribbon-group-title">Beszúrás</div>
+      </div>
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">T</div>
+        <div class="ribbon-icon big">🔗</div>
+        <div class="ribbon-group-title">Szöveg és hivatkozások</div>
+      </div>
+
+    </div>
+
+    <!-- DRAW -->
+    <div class="ribbon-panel" id="ribbon-draw">
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">✏️</div>
+        <div class="ribbon-icon big">🖊</div>
+        <div class="ribbon-icon big">🖍</div>
+        <div class="ribbon-group-title">Rajzeszközök</div>
+      </div>
+
+    </div>
+
+    <!-- LAYOUT -->
+    <div class="ribbon-panel" id="ribbon-layout">
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">📄</div>
+        <div class="ribbon-icon big">↔</div>
+        <div class="ribbon-icon big">↕</div>
+        <div class="ribbon-group-title">Oldalbeállítás</div>
+      </div>
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">▣</div>
+        <div class="ribbon-icon big">100%</div>
+        <div class="ribbon-group-title">Méretezés</div>
+      </div>
+
+    </div>
+
+    <!-- FORMULAS -->
+    <div class="ribbon-panel" id="ribbon-formulas">
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">fx</div>
+        <div class="ribbon-icon big">Σ</div>
+        <div class="ribbon-group-title">Függvénytár</div>
+      </div>
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">A1</div>
+        <div class="ribbon-icon big">≡</div>
+        <div class="ribbon-group-title">Definiált nevek</div>
+      </div>
+
+    </div>
+
+    <!-- DATA -->
+    <div class="ribbon-panel" id="ribbon-data">
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">↕</div>
+        <div class="ribbon-icon big">⚗</div>
+        <div class="ribbon-icon big">⌕</div>
+        <div class="ribbon-group-title">Rendezés és szűrés</div>
+      </div>
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">⟳</div>
+        <div class="ribbon-icon big">🔗</div>
+        <div class="ribbon-group-title">Lekérdezések és kapcsolatok</div>
+      </div>
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">✓</div>
+        <div class="ribbon-icon big">⚠</div>
+        <div class="ribbon-group-title">Adateszközök</div>
+      </div>
+
+    </div>
+
+    <!-- REVIEW -->
+    <div class="ribbon-panel" id="ribbon-review">
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">✓</div>
+        <div class="ribbon-icon big">💬</div>
+        <div class="ribbon-group-title">Ellenőrzés</div>
+      </div>
+
+    </div>
+
+    <!-- VIEW -->
+    <div class="ribbon-panel" id="ribbon-view">
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">▦</div>
+        <div class="ribbon-icon big">100%</div>
+        <div class="ribbon-icon big">🔍</div>
+        <div class="ribbon-group-title">Munkafüzet nézetek</div>
+      </div>
+
+    </div>
+
+    <!-- DEVELOPER -->
+    <div class="ribbon-panel" id="ribbon-developer">
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">VB</div>
+        <div class="ribbon-icon big">▶</div>
+        <div class="ribbon-icon big">■</div>
+        <div class="ribbon-group-title">Kód</div>
+      </div>
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">▣</div>
+        <div class="ribbon-icon big">⚙</div>
+        <div class="ribbon-group-title">Vezérlők</div>
+      </div>
+
+    </div>
+
+    <!-- HELP -->
+    <div class="ribbon-panel" id="ribbon-help">
+
+      <div class="ribbon-group wide">
+        <div class="ribbon-icon big">?</div>
+        <div class="ribbon-icon big">💡</div>
+        <div class="ribbon-group-title">Súgó</div>
+      </div>
+
     </div>
 
   </div>
@@ -819,33 +1046,48 @@
   <!-- WORKBOOK -->
   <div class="workbook">
 
-    <!-- =========================
-         RIPORT
-         ========================= -->
+    <!-- ==================================================
+         RIPORT SHEET
+         ================================================== -->
     <div class="sheet active" id="sheet-riport">
 
       <div class="report-wrap">
 
         <div class="report-config">
 
-          <div class="label">Eset helye / Case Area</div>
+          <div class="label">
+            Eset helye / Case Area
+          </div>
 
           <div>
             <select id="caseArea">
-              <option value="Áruátvétel / Inbound">Áruátvétel / Inbound</option>
-              <option value="Raktár / Warehouse">Raktár / Warehouse</option>
-              <option value="Áru kiadás / Outbound">Áru kiadás / Outbound</option>
+              <option value="Áruátvétel / Inbound">
+                Áruátvétel / Inbound
+              </option>
+
+              <option value="Raktár / Warehouse">
+                Raktár / Warehouse
+              </option>
+
+              <option value="Áru kiadás / Outbound">
+                Áru kiadás / Outbound
+              </option>
             </select>
           </div>
 
-          <div class="label">Választható munkafolyamat</div>
+          <div class="label">
+            Választható munkafolyamat
+          </div>
 
           <div>
             <select id="workflow"></select>
           </div>
 
           <div class="report-actions">
-            <button class="excel-btn" onclick="sortReport()">Riport rendezése</button>
+            <button class="excel-btn" onclick="sortReport()">
+              Riport rendezése
+            </button>
+
             <button class="excel-btn primary" onclick="generatePreview()">
               Jegyzőkönyv előnézet
             </button>
@@ -857,12 +1099,12 @@
 
           <colgroup>
             <col style="width:44px">
-            <col style="width:120px">
+            <col style="width:125px">
             <col style="width:70px">
-            <col style="width:260px">
-            <col style="width:175px">
-            <col style="width:165px">
-            <col style="width:155px">
+            <col style="width:250px">
+            <col style="width:180px">
+            <col style="width:170px">
+            <col style="width:160px">
             <col style="width:150px">
             <col style="width:90px">
             <col style="width:90px">
@@ -873,6 +1115,7 @@
           </colgroup>
 
           <thead>
+
             <tr>
               <th class="col-letter"></th>
               <th class="col-letter">A</th>
@@ -892,20 +1135,60 @@
 
             <tr>
               <th class="row-number">2</th>
-              <th class="report-header">SAP Material</th>
-              <th class="report-header">Qty</th>
-              <th class="report-header">Material Description</th>
-              <th class="report-header">Manufacturer Part Number</th>
-              <th class="report-header">EAN / UPC</th>
-              <th class="report-header">DelNote Vendor</th>
-              <th class="report-header">Serial Number</th>
-              <th class="report-header">Többlet</th>
-              <th class="report-header">Hiány</th>
-              <th class="report-header">Raklap sérült</th>
-              <th class="report-header">Doboz sérült</th>
-              <th class="report-header">Termék sérült</th>
-              <th class="report-header">Lejárati dátum</th>
+
+              <th class="report-header">
+                SAP Material
+              </th>
+
+              <th class="report-header">
+                Qty
+              </th>
+
+              <th class="report-header">
+                Material Description
+              </th>
+
+              <th class="report-header">
+                Manufacturer Part Number
+              </th>
+
+              <th class="report-header">
+                EAN / UPC
+              </th>
+
+              <th class="report-header">
+                DelNote Vendor
+              </th>
+
+              <th class="report-header">
+                Serial Number
+              </th>
+
+              <th class="report-header">
+                Többlet
+              </th>
+
+              <th class="report-header">
+                Hiány
+              </th>
+
+              <th class="report-header">
+                Raklap sérült
+              </th>
+
+              <th class="report-header">
+                Doboz sérült
+              </th>
+
+              <th class="report-header">
+                Termék sérült
+              </th>
+
+              <th class="report-header">
+                Lejárati dátum
+              </th>
             </tr>
+
           </thead>
 
           <tbody id="reportBody"></tbody>
@@ -915,9 +1198,9 @@
       </div>
     </div>
 
-    <!-- =========================
-         ADAT
-         ========================= -->
+    <!-- ==================================================
+         ADAT SHEET
+         ================================================== -->
     <div class="sheet" id="sheet-adat">
 
       <div class="source-wrap">
@@ -926,11 +1209,11 @@
           <strong>Dummy SAP export</strong>
 
           <span class="drag-hint">
-            ↔ Fogd meg bármelyik fejlécet és húzd másik helyre
+            ↔ Húzd át az oszlopfejléceket másik helyre
           </span>
 
           <span class="data-note">
-            Az EAN-keresés nem fix oszloppozíciót használ.
+            A keresés fejlécnév alapján működik, nem fix oszlopszám alapján.
           </span>
         </div>
 
@@ -948,84 +1231,22 @@
       </div>
     </div>
 
-    <!-- =========================
-         VÁLTOZÓ
-         ========================= -->
-    <div class="sheet" id="sheet-valtozo">
-
-      <div class="variable-wrap">
-
-        <h2>Változó</h2>
-
-        <p>
-          A munkafüzet vezérlőlistáinak demonstrációs változata.
-        </p>
-
-        <table class="variable-table">
-          <thead>
-            <tr>
-              <th>Eset helye</th>
-              <th>Engedélyezett munkafolyamat</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>Áruátvétel / Inbound</td>
-              <td>Feltételes átvétel</td>
-            </tr>
-            <tr>
-              <td>Áruátvétel / Inbound</td>
-              <td>Tételes átvétel / Itemised</td>
-            </tr>
-            <tr>
-              <td>Áruátvétel / Inbound</td>
-              <td>Betárolás / Intake</td>
-            </tr>
-
-            <tr>
-              <td>Raktár / Warehouse</td>
-              <td>Árumozgatás / Goods move</td>
-            </tr>
-            <tr>
-              <td>Raktár / Warehouse</td>
-              <td>Cycle-Count</td>
-            </tr>
-            <tr>
-              <td>Raktár / Warehouse</td>
-              <td>Címkézés / Labelling</td>
-            </tr>
-
-            <tr>
-              <td>Áru kiadás / Outbound</td>
-              <td>Kiszedés / Picking</td>
-            </tr>
-            <tr>
-              <td>Áru kiadás / Outbound</td>
-              <td>Csomagolás / Packaging</td>
-            </tr>
-            <tr>
-              <td>Áru kiadás / Outbound</td>
-              <td>Áru kiadás / Dispatch</td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
-    </div>
-
   </div>
 
-  <!-- BOTTOM SHEET BAR -->
+  <!-- BOTTOM SHEET TABS -->
   <div class="bottom-bar">
 
-    <div class="sheet-nav-buttons">
+    <div class="sheet-nav">
       ＋ ◀ ▶
     </div>
 
-    <div class="sheet-tab active" data-sheet="riport">Riport</div>
-    <div class="sheet-tab" data-sheet="adat">Adat</div>
-    <div class="sheet-tab" data-sheet="valtozo">Változó</div>
+    <div class="sheet-tab-bottom active" data-sheet="riport">
+      Riport
+    </div>
+
+    <div class="sheet-tab-bottom" data-sheet="adat">
+      Adat
+    </div>
 
     <div class="statusbar">
       Bujtás DataWorks • Interactive portfolio demo
@@ -1035,9 +1256,11 @@
 
 </div>
 
-<!-- ERROR DIALOG -->
+<!-- ERROR / INFO -->
 <div class="overlay" id="errorOverlay">
+
   <div class="dialog">
+
     <div class="dialog-title">
       Microsoft Excel
     </div>
@@ -1050,11 +1273,14 @@
     <div class="dialog-actions">
       <button onclick="closeError()">OK</button>
     </div>
+
   </div>
+
 </div>
 
-<!-- DATE DIALOG -->
+<!-- DATE -->
 <div class="overlay" id="dateOverlay">
+
   <div class="dialog">
 
     <div class="dialog-title">
@@ -1076,15 +1302,16 @@
 
     </div>
 
-    <div class="dialog-actions" style="gap:8px;">
+    <div class="dialog-actions">
       <button onclick="closeDateDialog()">Mégse</button>
       <button onclick="saveDate()">OK</button>
     </div>
 
   </div>
+
 </div>
 
-<!-- REPORT PREVIEW -->
+<!-- PREVIEW -->
 <div class="overlay" id="previewOverlay">
 
   <div class="dialog report-preview">
@@ -1128,12 +1355,16 @@
 
       </table>
 
-      <div class="paper-box" style="margin-top:25px;">
+      <div class="paper-box" style="margin-top:24px;">
         <strong>Megjegyzés / Notes</strong>
-        <div id="previewNotes" style="margin-top:10px; white-space:pre-line;"></div>
+
+        <div
+          id="previewNotes"
+          style="margin-top:10px; white-space:pre-line;"
+        ></div>
       </div>
 
-      <div style="margin-top:30px;">
+      <div style="margin-top:28px;">
         <strong>Dátum-Idő / Date-Time:</strong>
         <span id="previewDate"></span>
       </div>
@@ -1151,7 +1382,7 @@
 <script>
 
 /* ======================================================
-   DUMMY SAP DATA
+   SOURCE COLUMNS
    ====================================================== */
 
 const sourceColumns = [
@@ -1168,7 +1399,12 @@ const sourceColumns = [
   { key: "unit", label: "Base Unit" }
 ];
 
-let columnOrder = sourceColumns.map(x => x.key);
+let columnOrder =
+  sourceColumns.map(item => item.key);
+
+/* ======================================================
+   SOURCE DATA
+   ====================================================== */
 
 const sourceData = [
   {
@@ -1343,29 +1579,37 @@ const sourceData = [
 ];
 
 /* ======================================================
-   REPORT DATA
+   REPORT ROW FACTORY
    ====================================================== */
+
+function blankRow() {
+  return {
+    material: "",
+    qty: "",
+    description: "",
+    mpn: "",
+    ean: "",
+    delivery: "",
+    sn: "",
+    surplus: false,
+    missing: false,
+    pallet: false,
+    box: false,
+    product: false,
+    expiry: ""
+  };
+}
 
 const REPORT_ROWS = 24;
 
-let reportRows = Array.from({length: REPORT_ROWS}, () => ({
-  material: "",
-  qty: "",
-  description: "",
-  mpn: "",
-  ean: "",
-  delivery: "",
-  sn: "",
-  surplus: false,
-  missing: false,
-  pallet: false,
-  box: false,
-  product: false,
-  expiry: ""
-}));
+let reportRows =
+  Array.from(
+    { length: REPORT_ROWS },
+    () => blankRow()
+  );
 
 /* ======================================================
-   VBA HEADER ALIASES
+   HEADER ALIASES
    ====================================================== */
 
 const headerAliases = {
@@ -1395,7 +1639,8 @@ const headerAliases = {
 };
 
 function normalizeHeader(value) {
-  return String(value)
+
+  return String(value ?? "")
     .replace(/\u00A0/g, " ")
     .replace(/\r/g, " ")
     .replace(/\n/g, " ")
@@ -1412,36 +1657,55 @@ function detectRequiredColumns() {
 
   const result = {};
 
-  for (const field of Object.keys(headerAliases)) {
+  for (
+    const field of Object.keys(headerAliases)
+  ) {
 
     const hits = [];
 
-    columnOrder.forEach((key, index) => {
+    columnOrder.forEach(
+      (key, index) => {
 
-      const column = sourceColumns.find(c => c.key === key);
+        const column =
+          sourceColumns.find(
+            item => item.key === key
+          );
 
-      if (!column) return;
+        if (!column) {
+          return;
+        }
 
-      const normalized = normalizeHeader(column.label);
+        const normalized =
+          normalizeHeader(column.label);
 
-      if (headerAliases[field].includes(normalized)) {
-        hits.push(index);
+        if (
+          headerAliases[field]
+            .includes(normalized)
+        ) {
+          hits.push(index);
+        }
+
       }
-
-    });
+    );
 
     if (hits.length === 0) {
+
       throw new Error(
         "Nem találom együtt a szükséges fejléceket az Adat lapon: " +
         "Material, Material Description, Manufacturer Part Number, " +
         "EAN/UPC, DelNote Vendor."
       );
+
     }
 
     if (hits.length > 1) {
+
       throw new Error(
-        "A(z) " + field + " fejléc többször szerepel az Adat lapon."
+        "A(z) " +
+        field +
+        " fejléc többször szerepel az Adat lapon."
       );
+
     }
 
     result[field] = hits[0];
@@ -1451,13 +1715,16 @@ function detectRequiredColumns() {
 }
 
 /* ======================================================
-   SOURCE TABLE AS REAL POSITIONAL DATA
+   RENDERED SOURCE DATA
    ====================================================== */
 
 function getRenderedSourceRows() {
 
-  return sourceData.map(record =>
-    columnOrder.map(key => record[key])
+  return sourceData.map(
+    record =>
+      columnOrder.map(
+        key => record[key]
+      )
   );
 }
 
@@ -1467,37 +1734,62 @@ function getRenderedSourceRows() {
 
 function lookupEAN(ean) {
 
-  const columns = detectRequiredColumns();
-  const rows = getRenderedSourceRows();
+  const columns =
+    detectRequiredColumns();
+
+  const rows =
+    getRenderedSourceRows();
 
   let found = null;
 
   for (const row of rows) {
 
-    const sourceEAN = String(row[columns.ean]).trim();
+    const sourceEAN =
+      String(
+        row[columns.ean]
+      ).trim();
 
-    if (sourceEAN !== ean) continue;
+    if (sourceEAN !== ean) {
+      continue;
+    }
 
     const candidate = {
-      material: row[columns.material],
-      description: row[columns.description],
-      mpn: row[columns.mpn],
-      delivery: row[columns.delivery]
+      material:
+        row[columns.material],
+
+      description:
+        row[columns.description],
+
+      mpn:
+        row[columns.mpn],
+
+      delivery:
+        row[columns.delivery]
     };
 
     if (!found) {
+
       found = candidate;
+
     } else {
 
       if (
-        String(found.material) !== String(candidate.material) ||
-        String(found.description) !== String(candidate.description) ||
-        String(found.mpn) !== String(candidate.mpn) ||
-        String(found.delivery) !== String(candidate.delivery)
+        String(found.material) !==
+          String(candidate.material) ||
+
+        String(found.description) !==
+          String(candidate.description) ||
+
+        String(found.mpn) !==
+          String(candidate.mpn) ||
+
+        String(found.delivery) !==
+          String(candidate.delivery)
       ) {
 
         throw new Error(
-          "Az " + ean +
+          "Az " +
+          ean +
           " EAN több sorban eltérő adatokkal szerepel az Adat lapon."
         );
 
@@ -1511,82 +1803,257 @@ function lookupEAN(ean) {
 }
 
 /* ======================================================
+   REPORT TYPE
+   ====================================================== */
+
+function reportType(row) {
+
+  if (row.missing) {
+    return 1;
+  }
+
+  if (row.surplus) {
+    return 2;
+  }
+
+  if (
+    row.pallet ||
+    row.box ||
+    row.product
+  ) {
+    return 3;
+  }
+
+  if (row.expiry) {
+    return 4;
+  }
+
+  return 5;
+}
+
+/* ======================================================
+   GROUP KEY
+   ====================================================== */
+
+function sameGroup(a, b) {
+
+  if (!a.ean || !b.ean) {
+    return false;
+  }
+
+  return (
+    reportType(a) === reportType(b) &&
+    String(a.ean) === String(b.ean) &&
+    String(a.delivery) === String(b.delivery) &&
+    String(a.material) === String(b.material)
+  );
+}
+
+/* ======================================================
    REPORT RENDER
    ====================================================== */
 
 function renderReport() {
 
-  const body = document.getElementById("reportBody");
+  const body =
+    document.getElementById("reportBody");
 
   body.innerHTML = "";
 
-  reportRows.forEach((row, index) => {
+  let index = 0;
 
-    const tr = document.createElement("tr");
-    tr.className = "data-row";
+  while (index < reportRows.length) {
 
-    tr.innerHTML = `
-      <td class="row-number">${index + 3}</td>
+    const first =
+      reportRows[index];
 
-      <td data-cell="${index}-material">${escapeHTML(row.material)}</td>
+    let groupEnd = index;
 
-      <td class="center" data-cell="${index}-qty">
-        ${escapeHTML(row.qty)}
-      </td>
+    if (first.ean) {
 
-      <td data-cell="${index}-description">
-        ${escapeHTML(row.description)}
-      </td>
+      while (
+        groupEnd + 1 < reportRows.length &&
+        sameGroup(
+          first,
+          reportRows[groupEnd + 1]
+        )
+      ) {
 
-      <td data-cell="${index}-mpn">
-        ${escapeHTML(row.mpn)}
-      </td>
+        groupEnd++;
 
-      <td class="editable">
-        <input
-          class="ean-input"
-          value="${escapeAttr(row.ean)}"
-          data-index="${index}"
-          placeholder="EAN"
+      }
+
+    }
+
+    const groupSize =
+      groupEnd - index + 1;
+
+    let totalQty = 0;
+
+    for (
+      let q = index;
+      q <= groupEnd;
+      q++
+    ) {
+
+      const value =
+        Number(reportRows[q].qty);
+
+      if (!Number.isNaN(value)) {
+        totalQty += value;
+      }
+
+    }
+
+    for (
+      let rowIndex = index;
+      rowIndex <= groupEnd;
+      rowIndex++
+    ) {
+
+      const row =
+        reportRows[rowIndex];
+
+      const tr =
+        document.createElement("tr");
+
+      tr.className = "data-row";
+
+      let html = `
+        <td class="row-number">
+          ${rowIndex + 3}
+        </td>
+      `;
+
+      if (rowIndex === index) {
+
+        html += `
+          <td
+            rowspan="${groupSize}"
+            class="${groupSize > 1 ? "merged-cell" : ""}"
+          >
+            ${escapeHTML(row.material)}
+          </td>
+
+          <td
+            rowspan="${groupSize}"
+            class="center ${groupSize > 1 ? "merged-cell" : ""}"
+          >
+            ${
+              escapeHTML(
+                groupSize > 1
+                  ? totalQty
+                  : row.qty
+              )
+            }
+          </td>
+
+          <td
+            rowspan="${groupSize}"
+            class="${groupSize > 1 ? "merged-cell" : ""}"
+          >
+            ${escapeHTML(row.description)}
+          </td>
+
+          <td
+            rowspan="${groupSize}"
+            class="${groupSize > 1 ? "merged-cell" : ""}"
+          >
+            ${escapeHTML(row.mpn)}
+          </td>
+
+          <td
+            rowspan="${groupSize}"
+            class="editable ${groupSize > 1 ? "merged-cell" : ""}"
+          >
+            <input
+              class="ean-input"
+              value="${escapeAttr(row.ean)}"
+              data-index="${rowIndex}"
+              placeholder="EAN"
+            >
+          </td>
+
+          <td
+            rowspan="${groupSize}"
+            class="${groupSize > 1 ? "merged-cell" : ""}"
+          >
+            ${escapeHTML(row.delivery)}
+          </td>
+        `;
+
+      }
+
+      html += `
+        <td class="editable">
+          <input
+            class="ean-input"
+            value="${escapeAttr(row.sn)}"
+            data-sn-index="${rowIndex}"
+            placeholder="SN"
+          >
+        </td>
+
+        ${checkCell(
+          rowIndex,
+          "surplus",
+          row.surplus
+        )}
+
+        ${checkCell(
+          rowIndex,
+          "missing",
+          row.missing
+        )}
+
+        ${checkCell(
+          rowIndex,
+          "pallet",
+          row.pallet
+        )}
+
+        ${checkCell(
+          rowIndex,
+          "box",
+          row.box
+        )}
+
+        ${checkCell(
+          rowIndex,
+          "product",
+          row.product
+        )}
+
+        <td
+          class="date-cell editable"
+          data-date-index="${rowIndex}"
+          title="Dupla kattintás"
         >
-      </td>
+          ${escapeHTML(row.expiry)}
+        </td>
+      `;
 
-      <td data-cell="${index}-delivery">
-        ${escapeHTML(row.delivery)}
-      </td>
+      tr.innerHTML = html;
 
-      <td class="editable">
-        <input
-          class="ean-input"
-          value="${escapeAttr(row.sn)}"
-          data-sn-index="${index}"
-          placeholder="SN"
-        >
-      </td>
+      body.appendChild(tr);
+    }
 
-      ${checkCell(index, "surplus", row.surplus)}
-      ${checkCell(index, "missing", row.missing)}
-      ${checkCell(index, "pallet", row.pallet)}
-      ${checkCell(index, "box", row.box)}
-      ${checkCell(index, "product", row.product)}
-
-      <td
-        class="date-cell editable"
-        data-date-index="${index}"
-        title="Dupla kattintás"
-      >
-        ${escapeHTML(row.expiry)}
-      </td>
-    `;
-
-    body.appendChild(tr);
-
-  });
+    index =
+      groupEnd + 1;
+  }
 
   bindReportEvents();
 }
 
-function checkCell(index, field, checked) {
+/* ======================================================
+   CHECK CELL
+   ====================================================== */
+
+function checkCell(
+  index,
+  field,
+  checked
+) {
 
   return `
     <td
@@ -1598,128 +2065,187 @@ function checkCell(index, field, checked) {
       ${checked ? "✓" : ""}
     </td>
   `;
-
 }
+
+/* ======================================================
+   REPORT EVENTS
+   ====================================================== */
 
 function bindReportEvents() {
 
-  document.querySelectorAll(".ean-input[data-index]").forEach(input => {
+  document
+    .querySelectorAll(
+      ".ean-input[data-index]"
+    )
+    .forEach(input => {
 
-    input.addEventListener("input", event => {
+      input.addEventListener(
+        "change",
+        event => {
 
-      const index = Number(event.target.dataset.index);
+          const index =
+            Number(
+              event.target.dataset.index
+            );
 
-      reportRows[index].ean = event.target.value.trim();
+          reportRows[index].ean =
+            event.target.value.trim();
 
-      clearLookupFields(index);
+          clearLookupFields(index);
 
-      if (!reportRows[index].ean) {
-        renderReport();
-        return;
-      }
+          if (!reportRows[index].ean) {
+            renderReport();
+            return;
+          }
 
-      try {
+          try {
 
-        const result = lookupEAN(reportRows[index].ean);
+            const result =
+              lookupEAN(
+                reportRows[index].ean
+              );
 
-        if (result) {
+            if (result) {
 
-          reportRows[index].material = result.material;
-          reportRows[index].qty = 1;
-          reportRows[index].description = result.description;
-          reportRows[index].mpn = result.mpn;
-          reportRows[index].delivery = result.delivery;
+              reportRows[index].material =
+                result.material;
+
+              reportRows[index].qty =
+                1;
+
+              reportRows[index].description =
+                result.description;
+
+              reportRows[index].mpn =
+                result.mpn;
+
+              reportRows[index].delivery =
+                result.delivery;
+
+            }
+
+          } catch (error) {
+
+            showError(
+              "EAN-keresési hiba: " +
+              error.message
+            );
+
+          }
+
+          renderReport();
 
         }
-
-      } catch (error) {
-
-        showError(
-          "EAN-keresési hiba: " + error.message
-        );
-
-      }
-
-      renderReport();
-
-      const inputs = document.querySelectorAll(
-        ".ean-input[data-index]"
-      );
-
-      if (inputs[index]) {
-        inputs[index].focus();
-        inputs[index].setSelectionRange(
-          inputs[index].value.length,
-          inputs[index].value.length
-        );
-      }
-
-    });
-
-  });
-
-  document.querySelectorAll(".ean-input[data-sn-index]").forEach(input => {
-
-    input.addEventListener("input", event => {
-
-      const index = Number(event.target.dataset.snIndex);
-
-      reportRows[index].sn = event.target.value;
-
-    });
-
-  });
-
-  document.querySelectorAll(".check-cell").forEach(cell => {
-
-    cell.addEventListener("dblclick", () => {
-
-      const index = Number(cell.dataset.checkIndex);
-      const field = cell.dataset.checkField;
-
-      if (field === "missing" && reportRows[index].surplus) {
-
-        showError(
-          "A " + (index + 3) +
-          ". sor egyszerre hiány és többlet nem lehet."
-        );
-
-        return;
-      }
-
-      if (field === "surplus" && reportRows[index].missing) {
-
-        showError(
-          "A " + (index + 3) +
-          ". sor egyszerre hiány és többlet nem lehet."
-        );
-
-        return;
-      }
-
-      reportRows[index][field] =
-        !reportRows[index][field];
-
-      renderReport();
-
-    });
-
-  });
-
-  document.querySelectorAll(".date-cell").forEach(cell => {
-
-    cell.addEventListener("dblclick", () => {
-
-      openDateDialog(
-        Number(cell.dataset.dateIndex)
       );
 
     });
 
-  });
+  document
+    .querySelectorAll(
+      ".ean-input[data-sn-index]"
+    )
+    .forEach(input => {
+
+      input.addEventListener(
+        "input",
+        event => {
+
+          const index =
+            Number(
+              event.target.dataset.snIndex
+            );
+
+          reportRows[index].sn =
+            event.target.value;
+
+        }
+      );
+
+    });
+
+  document
+    .querySelectorAll(
+      ".check-cell"
+    )
+    .forEach(cell => {
+
+      cell.addEventListener(
+        "dblclick",
+        () => {
+
+          const index =
+            Number(
+              cell.dataset.checkIndex
+            );
+
+          const field =
+            cell.dataset.checkField;
+
+          if (
+            field === "missing" &&
+            reportRows[index].surplus
+          ) {
+
+            showError(
+              "A " +
+              (index + 3) +
+              ". sor egyszerre hiány és többlet."
+            );
+
+            return;
+          }
+
+          if (
+            field === "surplus" &&
+            reportRows[index].missing
+          ) {
+
+            showError(
+              "A " +
+              (index + 3) +
+              ". sor egyszerre hiány és többlet."
+            );
+
+            return;
+          }
+
+          reportRows[index][field] =
+            !reportRows[index][field];
+
+          renderReport();
+
+        }
+      );
+
+    });
+
+  document
+    .querySelectorAll(
+      ".date-cell"
+    )
+    .forEach(cell => {
+
+      cell.addEventListener(
+        "dblclick",
+        () => {
+
+          openDateDialog(
+            Number(
+              cell.dataset.dateIndex
+            )
+          );
+
+        }
+      );
+
+    });
 
   bindCellSelection();
 }
+
+/* ======================================================
+   CLEAR AUTO FIELDS
+   ====================================================== */
 
 function clearLookupFields(index) {
 
@@ -1731,156 +2257,235 @@ function clearLookupFields(index) {
 }
 
 /* ======================================================
-   SOURCE TABLE
+   SOURCE RENDER
    ====================================================== */
 
 function renderSource() {
 
-  const letterRow =
-    document.getElementById("sourceLetters");
+  const letters =
+    document.getElementById(
+      "sourceLetters"
+    );
 
-  const headerRow =
-    document.getElementById("sourceHeaders");
+  const headers =
+    document.getElementById(
+      "sourceHeaders"
+    );
 
   const body =
-    document.getElementById("sourceBody");
+    document.getElementById(
+      "sourceBody"
+    );
 
-  letterRow.innerHTML = `<th class="row-number"></th>`;
-  headerRow.innerHTML = `<th class="row-number">1</th>`;
+  letters.innerHTML =
+    `<th class="row-number"></th>`;
+
+  headers.innerHTML =
+    `<th class="row-number">1</th>`;
+
   body.innerHTML = "";
 
-  columnOrder.forEach((key, index) => {
+  columnOrder.forEach(
+    (key, index) => {
 
-    const letter = columnLetter(index + 1);
-
-    letterRow.insertAdjacentHTML(
-      "beforeend",
-      `<th class="col-letter">${letter}</th>`
-    );
-
-    const column =
-      sourceColumns.find(c => c.key === key);
-
-    headerRow.insertAdjacentHTML(
-      "beforeend",
-      `
-      <th
-        class="source-header"
-        draggable="true"
-        data-key="${key}"
-      >
-        ${escapeHTML(column.label)}
-      </th>
-      `
-    );
-
-  });
-
-  sourceData.forEach((record, rowIndex) => {
-
-    const tr = document.createElement("tr");
-
-    tr.innerHTML =
-      `<td class="row-number">${rowIndex + 2}</td>`;
-
-    columnOrder.forEach(key => {
-
-      tr.insertAdjacentHTML(
+      letters.insertAdjacentHTML(
         "beforeend",
-        `<td>${escapeHTML(record[key])}</td>`
+        `
+        <th class="col-letter">
+          ${columnLetter(index + 1)}
+        </th>
+        `
       );
 
-    });
+      const column =
+        sourceColumns.find(
+          item => item.key === key
+        );
 
-    body.appendChild(tr);
+      headers.insertAdjacentHTML(
+        "beforeend",
+        `
+        <th
+          class="source-header"
+          draggable="true"
+          data-key="${key}"
+        >
+          ${escapeHTML(column.label)}
+        </th>
+        `
+      );
 
-  });
+    }
+  );
+
+  sourceData.forEach(
+    (record, rowIndex) => {
+
+      const tr =
+        document.createElement("tr");
+
+      tr.innerHTML =
+        `
+        <td class="row-number">
+          ${rowIndex + 2}
+        </td>
+        `;
+
+      columnOrder.forEach(
+        key => {
+
+          tr.insertAdjacentHTML(
+            "beforeend",
+            `
+            <td>
+              ${escapeHTML(record[key])}
+            </td>
+            `
+          );
+
+        }
+      );
+
+      body.appendChild(tr);
+
+    }
+  );
 
   bindDragEvents();
 }
 
 /* ======================================================
-   DRAG COLUMNS
+   COLUMN DRAG
    ====================================================== */
 
 let draggedColumn = null;
 
 function bindDragEvents() {
 
-  document.querySelectorAll(".source-header")
+  document
+    .querySelectorAll(
+      ".source-header"
+    )
     .forEach(header => {
 
-      header.addEventListener("dragstart", () => {
+      header.addEventListener(
+        "dragstart",
+        () => {
 
-        draggedColumn = header.dataset.key;
-        header.classList.add("dragging");
+          draggedColumn =
+            header.dataset.key;
 
-      });
+          header.classList.add(
+            "dragging"
+          );
 
-      header.addEventListener("dragend", () => {
-
-        draggedColumn = null;
-
-        document.querySelectorAll(".source-header")
-          .forEach(h => {
-            h.classList.remove("dragging");
-            h.classList.remove("drag-over");
-          });
-
-      });
-
-      header.addEventListener("dragover", event => {
-
-        event.preventDefault();
-
-        if (
-          draggedColumn &&
-          draggedColumn !== header.dataset.key
-        ) {
-          header.classList.add("drag-over");
         }
+      );
 
-      });
+      header.addEventListener(
+        "dragend",
+        () => {
 
-      header.addEventListener("dragleave", () => {
+          draggedColumn = null;
 
-        header.classList.remove("drag-over");
+          document
+            .querySelectorAll(
+              ".source-header"
+            )
+            .forEach(item => {
 
-      });
+              item.classList.remove(
+                "dragging"
+              );
 
-      header.addEventListener("drop", event => {
+              item.classList.remove(
+                "drag-over"
+              );
 
-        event.preventDefault();
+            });
 
-        const targetColumn =
-          header.dataset.key;
-
-        if (
-          !draggedColumn ||
-          draggedColumn === targetColumn
-        ) {
-          return;
         }
+      );
 
-        const from =
-          columnOrder.indexOf(draggedColumn);
+      header.addEventListener(
+        "dragover",
+        event => {
 
-        const to =
-          columnOrder.indexOf(targetColumn);
+          event.preventDefault();
 
-        columnOrder.splice(from, 1);
-        columnOrder.splice(to, 0, draggedColumn);
+          if (
+            draggedColumn &&
+            draggedColumn !==
+              header.dataset.key
+          ) {
 
-        renderSource();
+            header.classList.add(
+              "drag-over"
+            );
 
-      });
+          }
+
+        }
+      );
+
+      header.addEventListener(
+        "dragleave",
+        () => {
+
+          header.classList.remove(
+            "drag-over"
+          );
+
+        }
+      );
+
+      header.addEventListener(
+        "drop",
+        event => {
+
+          event.preventDefault();
+
+          const target =
+            header.dataset.key;
+
+          if (
+            !draggedColumn ||
+            draggedColumn === target
+          ) {
+            return;
+          }
+
+          const from =
+            columnOrder.indexOf(
+              draggedColumn
+            );
+
+          const to =
+            columnOrder.indexOf(
+              target
+            );
+
+          columnOrder.splice(
+            from,
+            1
+          );
+
+          columnOrder.splice(
+            to,
+            0,
+            draggedColumn
+          );
+
+          renderSource();
+
+        }
+      );
 
     });
-
 }
 
 /* ======================================================
-   WORKFLOW DROPDOWN
+   WORKFLOW
    ====================================================== */
 
 const workflows = {
@@ -1908,29 +2513,35 @@ const workflows = {
 function updateWorkflowOptions() {
 
   const area =
-    document.getElementById("caseArea").value;
+    document.getElementById(
+      "caseArea"
+    ).value;
 
   const select =
-    document.getElementById("workflow");
+    document.getElementById(
+      "workflow"
+    );
 
   select.innerHTML = "";
 
-  workflows[area].forEach(item => {
+  workflows[area]
+    .forEach(item => {
 
-    const option =
-      document.createElement("option");
+      const option =
+        document.createElement(
+          "option"
+        );
 
-    option.value = item;
-    option.textContent = item;
+      option.value = item;
+      option.textContent = item;
 
-    select.appendChild(option);
+      select.appendChild(option);
 
-  });
-
+    });
 }
 
 /* ======================================================
-   DATE DIALOG
+   DATE
    ====================================================== */
 
 let dateRowIndex = null;
@@ -1939,41 +2550,61 @@ function openDateDialog(index) {
 
   dateRowIndex = index;
 
-  document.getElementById("dateInput").value =
+  document.getElementById(
+    "dateInput"
+  ).value =
     reportRows[index].expiry || "";
 
-  document.getElementById("dateOverlay")
+  document
+    .getElementById(
+      "dateOverlay"
+    )
     .classList.add("show");
 
-  setTimeout(() => {
-    document.getElementById("dateInput").focus();
-  }, 20);
-
+  setTimeout(
+    () => {
+      document
+        .getElementById(
+          "dateInput"
+        )
+        .focus();
+    },
+    20
+  );
 }
 
 function closeDateDialog() {
 
   dateRowIndex = null;
 
-  document.getElementById("dateOverlay")
+  document
+    .getElementById(
+      "dateOverlay"
+    )
     .classList.remove("show");
-
 }
 
 function saveDate() {
 
-  if (dateRowIndex === null) return;
+  if (dateRowIndex === null) {
+    return;
+  }
 
   let value =
-    document.getElementById("dateInput").value.trim();
+    document.getElementById(
+      "dateInput"
+    ).value.trim();
 
   if (value.endsWith(".")) {
-    value = value.slice(0, -1);
+    value =
+      value.slice(0, -1);
   }
 
   if (!value) {
 
-    reportRows[dateRowIndex].expiry = "";
+    reportRows[
+      dateRowIndex
+    ].expiry = "";
 
     closeDateDialog();
     renderReport();
@@ -1981,7 +2612,7 @@ function saveDate() {
     return;
   }
 
-  if (!isValidHungarianDate(value)) {
+  if (!isValidDate(value)) {
 
     showError(
       "Így add meg: 2026.10.15"
@@ -1990,83 +2621,89 @@ function saveDate() {
     return;
   }
 
-  reportRows[dateRowIndex].expiry = value;
+  reportRows[
+    dateRowIndex
+  ].expiry = value;
 
   closeDateDialog();
   renderReport();
-
 }
 
-function isValidHungarianDate(value) {
+function isValidDate(value) {
 
   const match =
     /^(\d{4})\.(\d{1,2})\.(\d{1,2})$/
       .exec(value);
 
-  if (!match) return false;
+  if (!match) {
+    return false;
+  }
 
-  const year = Number(match[1]);
-  const month = Number(match[2]);
-  const day = Number(match[3]);
+  const year =
+    Number(match[1]);
 
-  if (year < 1900 || year > 9999) return false;
-  if (month < 1 || month > 12) return false;
-  if (day < 1 || day > 31) return false;
+  const month =
+    Number(match[2]);
+
+  const day =
+    Number(match[3]);
+
+  if (
+    year < 1900 ||
+    year > 9999
+  ) {
+    return false;
+  }
+
+  if (
+    month < 1 ||
+    month > 12
+  ) {
+    return false;
+  }
+
+  if (
+    day < 1 ||
+    day > 31
+  ) {
+    return false;
+  }
 
   const date =
-    new Date(year, month - 1, day);
+    new Date(
+      year,
+      month - 1,
+      day
+    );
 
   return (
     date.getFullYear() === year &&
     date.getMonth() === month - 1 &&
     date.getDate() === day
   );
-
 }
 
 /* ======================================================
-   REPORT CLASSIFICATION
-   Mirrors VBA priority
-   ====================================================== */
-
-function reportType(row) {
-
-  if (row.missing) return 1;
-  if (row.surplus) return 2;
-
-  if (
-    row.pallet ||
-    row.box ||
-    row.product
-  ) {
-    return 3;
-  }
-
-  if (row.expiry) return 4;
-
-  return 5;
-}
-
-/* ======================================================
-   SORT REPORT
+   SORT / MERGE LOGIC
    ====================================================== */
 
 function sortReport() {
 
-  const filled =
-    reportRows.filter(row =>
-      row.ean ||
-      row.material ||
-      row.sn ||
-      row.surplus ||
-      row.missing ||
-      row.pallet ||
-      row.box ||
-      row.product ||
-      row.expiry
+  const used =
+    reportRows.filter(
+      row =>
+        row.ean ||
+        row.material ||
+        row.sn ||
+        row.surplus ||
+        row.missing ||
+        row.pallet ||
+        row.box ||
+        row.product ||
+        row.expiry
     );
 
-  if (!filled.length) {
+  if (!used.length) {
 
     showError(
       "Nincs rendezhető tétel."
@@ -2075,11 +2712,11 @@ function sortReport() {
     return;
   }
 
-  for (let i = 0; i < filled.length; i++) {
+  for (const row of used) {
 
     if (
-      filled[i].missing &&
-      filled[i].surplus
+      row.missing &&
+      row.surplus
     ) {
 
       showError(
@@ -2091,74 +2728,83 @@ function sortReport() {
 
   }
 
-  filled.sort((a, b) => {
+  used.sort(
+    (a, b) => {
 
-    const typeDiff =
-      reportType(a) - reportType(b);
+      const typeDiff =
+        reportType(a) -
+        reportType(b);
 
-    if (typeDiff !== 0) {
-      return typeDiff;
+      if (typeDiff !== 0) {
+        return typeDiff;
+      }
+
+      const eanDiff =
+        String(a.ean)
+          .localeCompare(
+            String(b.ean)
+          );
+
+      if (eanDiff !== 0) {
+        return eanDiff;
+      }
+
+      const deliveryDiff =
+        String(a.delivery)
+          .localeCompare(
+            String(b.delivery)
+          );
+
+      if (deliveryDiff !== 0) {
+        return deliveryDiff;
+      }
+
+      return String(a.material)
+        .localeCompare(
+          String(b.material)
+        );
+
     }
+  );
 
-    const eanDiff =
-      String(a.ean).localeCompare(String(b.ean));
+  while (
+    used.length <
+    REPORT_ROWS
+  ) {
 
-    if (eanDiff !== 0) {
-      return eanDiff;
-    }
-
-    return String(a.delivery)
-      .localeCompare(String(b.delivery));
-
-  });
-
-  while (filled.length < REPORT_ROWS) {
-
-    filled.push({
-      material: "",
-      qty: "",
-      description: "",
-      mpn: "",
-      ean: "",
-      delivery: "",
-      sn: "",
-      surplus: false,
-      missing: false,
-      pallet: false,
-      box: false,
-      product: false,
-      expiry: ""
-    });
+    used.push(
+      blankRow()
+    );
 
   }
 
-  reportRows = filled;
+  reportRows = used;
 
   renderReport();
 
   showInfo(
     "Rendezés kész."
   );
-
 }
 
 /* ======================================================
-   REPORT PREVIEW
+   PREVIEW
    ====================================================== */
 
 function generatePreview() {
 
   const used =
-    reportRows.filter(row =>
-      row.material &&
-      (
-        row.surplus ||
-        row.missing ||
-        row.pallet ||
-        row.box ||
-        row.product ||
-        row.expiry
-      )
+    reportRows.filter(
+      row =>
+        row.material &&
+        (
+          row.surplus ||
+          row.missing ||
+          row.pallet ||
+          row.box ||
+          row.product ||
+          row.expiry
+        )
     );
 
   if (!used.length) {
@@ -2170,162 +2816,343 @@ function generatePreview() {
     return;
   }
 
-  const previewRows =
-    document.getElementById("previewRows");
+  const grouped = [];
 
-  previewRows.innerHTML = "";
+  for (let i = 0; i < used.length; i++) {
 
-  const notes = [];
+    const row = used[i];
 
-  used.slice(0, 5).forEach(row => {
+    let found =
+      grouped.find(
+        item =>
+          item.material === row.material &&
+          item.delivery === row.delivery &&
+          item.type === reportType(row)
+      );
 
-    previewRows.insertAdjacentHTML(
-      "beforeend",
-      `
-      <tr>
-        <td>${escapeHTML(row.material)}</td>
-        <td>${escapeHTML(row.qty || 1)}</td>
-        <td>${escapeHTML(row.delivery)}</td>
-      </tr>
-      `
-    );
+    if (!found) {
 
-    const detail = [];
+      found = {
+        material: row.material,
+        delivery: row.delivery,
+        qty: 0,
+        type: reportType(row),
+        notes: []
+      };
+
+      grouped.push(found);
+    }
+
+    found.qty +=
+      Number(row.qty || 1);
+
+    const details = [];
 
     if (row.surplus) {
-      detail.push("többlet");
+      details.push("többlet");
     }
 
     if (row.missing) {
-      detail.push("hiány");
+      details.push("hiány");
     }
 
     if (row.pallet) {
-      detail.push("raklap sérült");
-    }
-
-    if (row.box) {
-      detail.push("doboz sérült");
-    }
-
-    if (row.product) {
-      detail.push("termék sérült");
-    }
-
-    if (row.expiry) {
-      detail.push(
-        "lejárat: " + row.expiry
+      details.push(
+        "raklap sérült"
       );
     }
 
-    let text =
-      row.material + ": ";
-
-    if (row.sn) {
-      text += "SN " + row.sn + " ";
+    if (row.box) {
+      details.push(
+        "doboz sérült"
+      );
     }
 
-    text += "(" + detail.join(", ") + ")";
+    if (row.product) {
+      details.push(
+        "termék sérült"
+      );
+    }
 
-    notes.push(text);
+    if (row.expiry) {
+      details.push(
+        "lejárat: " +
+        row.expiry
+      );
+    }
 
-  });
+    let note = "";
 
-  document.getElementById("previewArea")
-    .textContent =
-    document.getElementById("caseArea").value;
+    if (row.sn) {
+      note +=
+        "SN " +
+        row.sn +
+        " ";
+    }
 
-  document.getElementById("previewWorkflow")
-    .textContent =
-    document.getElementById("workflow").value;
+    note +=
+      "(" +
+      details.join(", ") +
+      ")";
 
-  document.getElementById("previewNotes")
-    .textContent =
+    found.notes.push(note);
+  }
+
+  const previewRows =
+    document.getElementById(
+      "previewRows"
+    );
+
+  previewRows.innerHTML = "";
+
+  grouped
+    .slice(0, 5)
+    .forEach(item => {
+
+      previewRows.insertAdjacentHTML(
+        "beforeend",
+        `
+        <tr>
+          <td>
+            ${escapeHTML(item.material)}
+          </td>
+
+          <td>
+            ${escapeHTML(item.qty)}
+          </td>
+
+          <td>
+            ${escapeHTML(item.delivery)}
+          </td>
+        </tr>
+        `
+      );
+
+    });
+
+  const notes =
+    grouped
+      .slice(0, 5)
+      .map(
+        item =>
+          item.material +
+          ": " +
+          item.notes.join("; ")
+      );
+
+  document.getElementById(
+    "previewArea"
+  ).textContent =
+    document.getElementById(
+      "caseArea"
+    ).value;
+
+  document.getElementById(
+    "previewWorkflow"
+  ).textContent =
+    document.getElementById(
+      "workflow"
+    ).value;
+
+  document.getElementById(
+    "previewNotes"
+  ).textContent =
     notes.join("\n");
 
-  document.getElementById("previewDate")
-    .textContent =
-    new Date().toLocaleString("hu-HU");
+  document.getElementById(
+    "previewDate"
+  ).textContent =
+    new Date()
+      .toLocaleString("hu-HU");
 
-  document.getElementById("previewOverlay")
+  document
+    .getElementById(
+      "previewOverlay"
+    )
     .classList.add("show");
-
 }
 
 function closePreview() {
 
-  document.getElementById("previewOverlay")
+  document
+    .getElementById(
+      "previewOverlay"
+    )
     .classList.remove("show");
-
 }
 
 /* ======================================================
-   SHEET NAVIGATION
+   RIBBON NAV
    ====================================================== */
 
-document.querySelectorAll(".sheet-tab")
+document
+  .querySelectorAll(
+    ".ribbon-tab"
+  )
   .forEach(tab => {
 
-    tab.addEventListener("click", () => {
+    tab.addEventListener(
+      "click",
+      () => {
 
-      document.querySelectorAll(".sheet-tab")
-        .forEach(t =>
-          t.classList.remove("active")
+        document
+          .querySelectorAll(
+            ".ribbon-tab"
+          )
+          .forEach(item => {
+
+            item.classList.remove(
+              "active"
+            );
+
+          });
+
+        tab.classList.add(
+          "active"
         );
 
-      tab.classList.add("active");
+        document
+          .querySelectorAll(
+            ".ribbon-panel"
+          )
+          .forEach(panel => {
 
-      document.querySelectorAll(".sheet")
-        .forEach(sheet =>
-          sheet.classList.remove("active")
-        );
+            panel.classList.remove(
+              "active"
+            );
 
-      document.getElementById(
-        "sheet-" + tab.dataset.sheet
-      ).classList.add("active");
+          });
 
-    });
+        const id =
+          "ribbon-" +
+          tab.dataset.ribbon;
+
+        const panel =
+          document.getElementById(id);
+
+        if (panel) {
+
+          panel.classList.add(
+            "active"
+          );
+
+        }
+
+      }
+    );
 
   });
 
 /* ======================================================
-   CELL SELECTION FEEL
+   SHEET NAV
+   ====================================================== */
+
+document
+  .querySelectorAll(
+    ".sheet-tab-bottom"
+  )
+  .forEach(tab => {
+
+    tab.addEventListener(
+      "click",
+      () => {
+
+        document
+          .querySelectorAll(
+            ".sheet-tab-bottom"
+          )
+          .forEach(item => {
+
+            item.classList.remove(
+              "active"
+            );
+
+          });
+
+        tab.classList.add(
+          "active"
+        );
+
+        document
+          .querySelectorAll(
+            ".sheet"
+          )
+          .forEach(sheet => {
+
+            sheet.classList.remove(
+              "active"
+            );
+
+          });
+
+        document
+          .getElementById(
+            "sheet-" +
+            tab.dataset.sheet
+          )
+          .classList.add(
+            "active"
+          );
+
+      }
+    );
+
+  });
+
+/* ======================================================
+   CELL SELECTION
    ====================================================== */
 
 function bindCellSelection() {
 
-  document.querySelectorAll(
-    ".report-grid td"
-  ).forEach(cell => {
+  document
+    .querySelectorAll(
+      ".report-grid td"
+    )
+    .forEach(cell => {
 
-    cell.addEventListener("click", () => {
+      cell.addEventListener(
+        "click",
+        () => {
 
-      document.querySelectorAll(
-        ".selected-cell"
-      ).forEach(c =>
-        c.classList.remove("selected-cell")
+          document
+            .querySelectorAll(
+              ".selected-cell"
+            )
+            .forEach(item => {
+
+              item.classList.remove(
+                "selected-cell"
+              );
+
+            });
+
+          cell.classList.add(
+            "selected-cell"
+          );
+
+          const row =
+            cell.parentElement
+              .rowIndex + 1;
+
+          const col =
+            cell.cellIndex;
+
+          document.getElementById(
+            "nameBox"
+          ).textContent =
+            columnLetter(col) +
+            row;
+
+          document.getElementById(
+            "formulaBar"
+          ).textContent =
+            cell.innerText.trim();
+
+        }
       );
 
-      cell.classList.add("selected-cell");
-
-      const row =
-        cell.parentElement.rowIndex + 1;
-
-      const col =
-        cell.cellIndex;
-
-      document.getElementById("nameBox")
-        .textContent =
-        columnLetter(col) + row;
-
-      document.getElementById("formulaBar")
-        .textContent =
-        cell.innerText.trim();
-
     });
-
-  });
-
 }
 
 /* ======================================================
@@ -2334,29 +3161,39 @@ function bindCellSelection() {
 
 function showError(message) {
 
-  document.getElementById("errorText")
-    .textContent = message;
+  document.getElementById(
+    "errorText"
+  ).textContent =
+    message;
 
-  document.getElementById("errorOverlay")
+  document
+    .getElementById(
+      "errorOverlay"
+    )
     .classList.add("show");
-
 }
 
 function showInfo(message) {
 
-  document.getElementById("errorText")
-    .textContent = message;
+  document.getElementById(
+    "errorText"
+  ).textContent =
+    message;
 
-  document.getElementById("errorOverlay")
+  document
+    .getElementById(
+      "errorOverlay"
+    )
     .classList.add("show");
-
 }
 
 function closeError() {
 
-  document.getElementById("errorOverlay")
+  document
+    .getElementById(
+      "errorOverlay"
+    )
     .classList.remove("show");
-
 }
 
 /* ======================================================
@@ -2373,11 +3210,15 @@ function columnLetter(number) {
 
     result =
       String.fromCharCode(
-        65 + number % 26
-      ) + result;
+        65 +
+        number % 26
+      ) +
+      result;
 
     number =
-      Math.floor(number / 26);
+      Math.floor(
+        number / 26
+      );
 
   }
 
@@ -2386,7 +3227,9 @@ function columnLetter(number) {
 
 function escapeHTML(value) {
 
-  return String(value ?? "")
+  return String(
+    value ?? ""
+  )
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -2399,10 +3242,13 @@ function escapeAttr(value) {
 }
 
 /* ======================================================
-   INITIALIZE
+   INIT
    ====================================================== */
 
-document.getElementById("caseArea")
+document
+  .getElementById(
+    "caseArea"
+  )
   .addEventListener(
     "change",
     updateWorkflowOptions
