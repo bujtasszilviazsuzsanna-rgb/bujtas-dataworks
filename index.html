@@ -94,7 +94,7 @@ button {
    ====================================================== */
 
 .quickbar {
-  height: 30px;
+  height: 29px;
   flex-shrink: 0;
   background: #202020;
   border-bottom: 1px solid #343434;
@@ -108,11 +108,10 @@ button {
   font-size: 10px;
   color: #8f8f8f;
   margin-right: 4px;
-  letter-spacing: .2px;
 }
 
 .quick-btn {
-  height: 23px;
+  height: 22px;
   min-width: 27px;
   border: 1px solid transparent;
   background: transparent;
@@ -132,7 +131,7 @@ button {
 
 .quick-separator {
   width: 1px;
-  height: 18px;
+  height: 17px;
   background: #444;
   margin: 0 5px;
 }
@@ -142,7 +141,7 @@ button {
    ====================================================== */
 
 .ribbon-tabs {
-  height: 34px;
+  height: 33px;
   background: #202020;
   display: flex;
   align-items: flex-end;
@@ -153,7 +152,7 @@ button {
 }
 
 .ribbon-tab {
-  padding: 7px 0 6px;
+  padding: 7px 0 5px;
   color: #ededed;
   font-size: 13px;
   border-bottom: 3px solid transparent;
@@ -171,11 +170,11 @@ button {
    ====================================================== */
 
 .ribbon {
-  height: 82px;
+  height: 78px;
   flex-shrink: 0;
   background: #262626;
   border-bottom: 1px solid #424242;
-  padding: 6px 9px;
+  padding: 5px 9px;
   overflow: hidden;
 }
 
@@ -192,7 +191,7 @@ button {
 .ribbon-group {
   min-width: 105px;
   border-right: 1px solid #444;
-  padding: 0 10px 15px;
+  padding: 0 10px 14px;
   position: relative;
   display: flex;
   align-items: center;
@@ -214,8 +213,8 @@ button {
 }
 
 .ribbon-icon {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border: 1px solid #4c4c4c;
   border-radius: 3px;
   background: #303030;
@@ -223,19 +222,18 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .ribbon-icon.big {
-  width: 38px;
-  height: 46px;
-  flex-direction: column;
-  font-size: 19px;
+  width: 37px;
+  height: 43px;
+  font-size: 18px;
 }
 
 .small-grid {
   display: grid;
-  grid-template-columns: repeat(3, 27px);
+  grid-template-columns: repeat(3, 26px);
   gap: 4px;
 }
 
@@ -244,7 +242,7 @@ button {
   color: #ddd;
   border: 1px solid #555;
   border-radius: 3px;
-  height: 25px;
+  height: 24px;
   padding: 2px 7px;
   font-size: 11px;
 }
@@ -265,7 +263,7 @@ button {
    ====================================================== */
 
 .formula-area {
-  height: 34px;
+  height: 33px;
   flex-shrink: 0;
   display: flex;
   background: #202020;
@@ -390,7 +388,7 @@ button {
 }
 
 /* ======================================================
-   TABLE GRID
+   GRID
    ====================================================== */
 
 .grid {
@@ -594,7 +592,7 @@ button {
 }
 
 /* ======================================================
-   DIALOGS
+   DIALOG
    ====================================================== */
 
 .overlay {
@@ -710,10 +708,6 @@ button {
   padding: 8px;
 }
 
-/* ======================================================
-   MOBILE WARNING
-   ====================================================== */
-
 .desktop-warning {
   display: none;
 }
@@ -753,34 +747,24 @@ button {
     <button class="share">Megosztás ▾</button>
   </div>
 
-  <!-- QUICK ACCESS -->
   <div class="quickbar">
     <span class="quick-label">Gyorselérési eszköztár</span>
 
-    <button class="quick-btn" onclick="sortReport()" title="Riport rendezése">
-      ↕ <span>Rendezés</span>
+    <button class="quick-btn" onclick="sortReport()">
+      ↕ Rendezés
     </button>
 
-    <button class="quick-btn" onclick="generatePreview()" title="Jegyzőkönyv előnézet">
-      ▤ <span>Jegyzőkönyv</span>
+    <button class="quick-btn" onclick="generatePreview()">
+      ▤ Jegyzőkönyv
     </button>
 
     <div class="quick-separator"></div>
 
-    <button class="quick-btn" title="Mentés dekoráció">
-      💾
-    </button>
-
-    <button class="quick-btn" title="Visszavonás dekoráció">
-      ↶
-    </button>
-
-    <button class="quick-btn" title="Ismét dekoráció">
-      ↷
-    </button>
+    <button class="quick-btn">💾</button>
+    <button class="quick-btn">↶</button>
+    <button class="quick-btn">↷</button>
   </div>
 
-  <!-- RIBBON TABS -->
   <div class="ribbon-tabs">
     <div class="ribbon-tab" data-ribbon="file">Fájl</div>
     <div class="ribbon-tab active" data-ribbon="home">Kezdőlap</div>
@@ -795,12 +779,9 @@ button {
     <div class="ribbon-tab" data-ribbon="help">Súgó</div>
   </div>
 
-  <!-- RIBBON -->
   <div class="ribbon">
 
-    <!-- HOME -->
     <div class="ribbon-panel active" id="ribbon-home">
-
       <div class="ribbon-group">
         <div class="ribbon-icon big">📋</div>
 
@@ -814,7 +795,6 @@ button {
       </div>
 
       <div class="ribbon-group wide">
-
         <div class="font-stack">
 
           <div class="font-line">
@@ -852,7 +832,6 @@ button {
       </div>
 
       <div class="ribbon-group">
-
         <div class="ribbon-select">Általános ▾</div>
 
         <div class="small-grid">
@@ -865,19 +844,15 @@ button {
       </div>
 
       <div class="ribbon-group wide">
-
         <div class="ribbon-icon big">▦</div>
         <div class="ribbon-icon big">🖌</div>
         <div class="ribbon-icon big">▤</div>
 
         <div class="ribbon-group-title">Stílusok</div>
       </div>
-
     </div>
 
-    <!-- FILE -->
     <div class="ribbon-panel" id="ribbon-file">
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">📄</div>
         <div class="ribbon-icon big">📂</div>
@@ -890,77 +865,44 @@ button {
         <div class="ribbon-icon big">📤</div>
         <div class="ribbon-group-title">Nyomtatás és export</div>
       </div>
-
     </div>
 
-    <!-- INSERT -->
     <div class="ribbon-panel" id="ribbon-insert">
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">▦</div>
         <div class="ribbon-icon big">📊</div>
         <div class="ribbon-icon big">🖼</div>
         <div class="ribbon-group-title">Beszúrás</div>
       </div>
-
-      <div class="ribbon-group wide">
-        <div class="ribbon-icon big">T</div>
-        <div class="ribbon-icon big">🔗</div>
-        <div class="ribbon-group-title">Szöveg és hivatkozások</div>
-      </div>
-
     </div>
 
-    <!-- DRAW -->
     <div class="ribbon-panel" id="ribbon-draw">
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">✏️</div>
         <div class="ribbon-icon big">🖊</div>
         <div class="ribbon-icon big">🖍</div>
         <div class="ribbon-group-title">Rajzeszközök</div>
       </div>
-
     </div>
 
-    <!-- LAYOUT -->
     <div class="ribbon-panel" id="ribbon-layout">
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">📄</div>
         <div class="ribbon-icon big">↔</div>
         <div class="ribbon-icon big">↕</div>
         <div class="ribbon-group-title">Oldalbeállítás</div>
       </div>
-
-      <div class="ribbon-group wide">
-        <div class="ribbon-icon big">▣</div>
-        <div class="ribbon-icon big">100%</div>
-        <div class="ribbon-group-title">Méretezés</div>
-      </div>
-
     </div>
 
-    <!-- FORMULAS -->
     <div class="ribbon-panel" id="ribbon-formulas">
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">fx</div>
         <div class="ribbon-icon big">Σ</div>
         <div class="ribbon-group-title">Függvénytár</div>
       </div>
-
-      <div class="ribbon-group wide">
-        <div class="ribbon-icon big">A1</div>
-        <div class="ribbon-icon big">≡</div>
-        <div class="ribbon-group-title">Definiált nevek</div>
-      </div>
-
     </div>
 
-    <!-- DATA -->
     <div class="ribbon-panel" id="ribbon-data">
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">↕</div>
         <div class="ribbon-icon big">⚗</div>
@@ -971,84 +913,54 @@ button {
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">⟳</div>
         <div class="ribbon-icon big">🔗</div>
-        <div class="ribbon-group-title">Lekérdezések és kapcsolatok</div>
+        <div class="ribbon-group-title">Kapcsolatok</div>
       </div>
-
-      <div class="ribbon-group wide">
-        <div class="ribbon-icon big">✓</div>
-        <div class="ribbon-icon big">⚠</div>
-        <div class="ribbon-group-title">Adateszközök</div>
-      </div>
-
     </div>
 
-    <!-- REVIEW -->
     <div class="ribbon-panel" id="ribbon-review">
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">✓</div>
         <div class="ribbon-icon big">💬</div>
         <div class="ribbon-group-title">Ellenőrzés</div>
       </div>
-
     </div>
 
-    <!-- VIEW -->
     <div class="ribbon-panel" id="ribbon-view">
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">▦</div>
         <div class="ribbon-icon big">100%</div>
         <div class="ribbon-icon big">🔍</div>
-        <div class="ribbon-group-title">Munkafüzet nézetek</div>
+        <div class="ribbon-group-title">Nézet</div>
       </div>
-
     </div>
 
-    <!-- DEVELOPER -->
     <div class="ribbon-panel" id="ribbon-developer">
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">VB</div>
         <div class="ribbon-icon big">▶</div>
         <div class="ribbon-icon big">■</div>
         <div class="ribbon-group-title">Kód</div>
       </div>
-
-      <div class="ribbon-group wide">
-        <div class="ribbon-icon big">▣</div>
-        <div class="ribbon-icon big">⚙</div>
-        <div class="ribbon-group-title">Vezérlők</div>
-      </div>
-
     </div>
 
-    <!-- HELP -->
     <div class="ribbon-panel" id="ribbon-help">
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">?</div>
         <div class="ribbon-icon big">💡</div>
         <div class="ribbon-group-title">Súgó</div>
       </div>
-
     </div>
 
   </div>
 
-  <!-- FORMULA BAR -->
   <div class="formula-area">
     <div class="name-box" id="nameBox">A1</div>
     <div class="formula-icons">✕ ✓ <b>fx</b></div>
     <div class="formula-bar" id="formulaBar">Eset helye</div>
   </div>
 
-  <!-- WORKBOOK -->
   <div class="workbook">
 
-    <!-- ==================================================
-         RIPORT SHEET
-         ================================================== -->
     <div class="sheet active" id="sheet-riport">
 
       <div class="report-wrap">
@@ -1135,58 +1047,19 @@ button {
 
             <tr>
               <th class="row-number">2</th>
-
-              <th class="report-header">
-                SAP Material
-              </th>
-
-              <th class="report-header">
-                Qty
-              </th>
-
-              <th class="report-header">
-                Material Description
-              </th>
-
-              <th class="report-header">
-                Manufacturer Part Number
-              </th>
-
-              <th class="report-header">
-                EAN / UPC
-              </th>
-
-              <th class="report-header">
-                DelNote Vendor
-              </th>
-
-              <th class="report-header">
-                Serial Number
-              </th>
-
-              <th class="report-header">
-                Többlet
-              </th>
-
-              <th class="report-header">
-                Hiány
-              </th>
-
-              <th class="report-header">
-                Raklap sérült
-              </th>
-
-              <th class="report-header">
-                Doboz sérült
-              </th>
-
-              <th class="report-header">
-                Termék sérült
-              </th>
-
-              <th class="report-header">
-                Lejárati dátum
-              </th>
+              <th class="report-header">SAP Material</th>
+              <th class="report-header">Qty</th>
+              <th class="report-header">Material Description</th>
+              <th class="report-header">Manufacturer Part Number</th>
+              <th class="report-header">EAN / UPC</th>
+              <th class="report-header">DelNote Vendor</th>
+              <th class="report-header">Serial Number</th>
+              <th class="report-header">Többlet</th>
+              <th class="report-header">Hiány</th>
+              <th class="report-header">Raklap sérült</th>
+              <th class="report-header">Doboz sérült</th>
+              <th class="report-header">Termék sérült</th>
+              <th class="report-header">Lejárati dátum</th>
             </tr>
 
           </thead>
@@ -1198,9 +1071,6 @@ button {
       </div>
     </div>
 
-    <!-- ==================================================
-         ADAT SHEET
-         ================================================== -->
     <div class="sheet" id="sheet-adat">
 
       <div class="source-wrap">
@@ -1218,14 +1088,12 @@ button {
         </div>
 
         <table class="grid source-grid">
-
           <thead>
             <tr id="sourceLetters"></tr>
             <tr id="sourceHeaders"></tr>
           </thead>
 
           <tbody id="sourceBody"></tbody>
-
         </table>
 
       </div>
@@ -1233,7 +1101,6 @@ button {
 
   </div>
 
-  <!-- BOTTOM SHEET TABS -->
   <div class="bottom-bar">
 
     <div class="sheet-nav">
@@ -1256,7 +1123,6 @@ button {
 
 </div>
 
-<!-- ERROR / INFO -->
 <div class="overlay" id="errorOverlay">
 
   <div class="dialog">
@@ -1278,7 +1144,6 @@ button {
 
 </div>
 
-<!-- DATE -->
 <div class="overlay" id="dateOverlay">
 
   <div class="dialog">
@@ -1311,7 +1176,6 @@ button {
 
 </div>
 
-<!-- PREVIEW -->
 <div class="overlay" id="previewOverlay">
 
   <div class="dialog report-preview">
@@ -1382,7 +1246,7 @@ button {
 <script>
 
 /* ======================================================
-   SOURCE COLUMNS
+   SOURCE
    ====================================================== */
 
 const sourceColumns = [
@@ -1401,10 +1265,6 @@ const sourceColumns = [
 
 let columnOrder =
   sourceColumns.map(item => item.key);
-
-/* ======================================================
-   SOURCE DATA
-   ====================================================== */
 
 const sourceData = [
   {
@@ -1579,7 +1439,7 @@ const sourceData = [
 ];
 
 /* ======================================================
-   REPORT ROW FACTORY
+   REPORT STATE
    ====================================================== */
 
 function blankRow() {
@@ -1607,6 +1467,28 @@ let reportRows =
     { length: REPORT_ROWS },
     () => blankRow()
   );
+
+/*
+  EZ A JAVÍTÁS LÉNYEGE.
+
+  false:
+  normál szerkesztési mód, nincs merge.
+
+  true:
+  a Rendezés makró már lefutott,
+  a merge struktúra rögzített.
+*/
+let reportSorted = false;
+
+/*
+  Példa:
+  [
+    { start: 0, end: 2 },
+    { start: 3, end: 3 },
+    { start: 4, end: 6 }
+  ]
+*/
+let frozenGroups = [];
 
 /* ======================================================
    HEADER ALIASES
@@ -1648,10 +1530,6 @@ function normalizeHeader(value) {
     .toLowerCase()
     .replace(/\s+/g, " ");
 }
-
-/* ======================================================
-   HEADER DETECTION
-   ====================================================== */
 
 function detectRequiredColumns() {
 
@@ -1714,10 +1592,6 @@ function detectRequiredColumns() {
   return result;
 }
 
-/* ======================================================
-   RENDERED SOURCE DATA
-   ====================================================== */
-
 function getRenderedSourceRows() {
 
   return sourceData.map(
@@ -1727,10 +1601,6 @@ function getRenderedSourceRows() {
       )
   );
 }
-
-/* ======================================================
-   EAN LOOKUP
-   ====================================================== */
 
 function lookupEAN(ean) {
 
@@ -1803,7 +1673,7 @@ function lookupEAN(ean) {
 }
 
 /* ======================================================
-   REPORT TYPE
+   TYPE
    ====================================================== */
 
 function reportType(row) {
@@ -1832,7 +1702,8 @@ function reportType(row) {
 }
 
 /* ======================================================
-   GROUP KEY
+   GROUP BUILDING
+   ONLY CALLED WHEN SORT BUTTON IS PRESSED
    ====================================================== */
 
 function sameGroup(a, b) {
@@ -1849,65 +1720,221 @@ function sameGroup(a, b) {
   );
 }
 
+function buildFrozenGroups() {
+
+  frozenGroups = [];
+
+  let index = 0;
+
+  while (index < reportRows.length) {
+
+    let end = index;
+
+    if (reportRows[index].ean) {
+
+      while (
+        end + 1 < reportRows.length &&
+        sameGroup(
+          reportRows[index],
+          reportRows[end + 1]
+        )
+      ) {
+        end++;
+      }
+
+    }
+
+    frozenGroups.push({
+      start: index,
+      end: end
+    });
+
+    index =
+      end + 1;
+  }
+}
+
 /* ======================================================
    REPORT RENDER
    ====================================================== */
 
 function renderReport() {
 
+  if (reportSorted) {
+    renderSortedReport();
+  } else {
+    renderNormalReport();
+  }
+
+}
+
+/* ======================================================
+   NORMAL MODE
+   NO MERGE
+   ====================================================== */
+
+function renderNormalReport() {
+
   const body =
-    document.getElementById("reportBody");
+    document.getElementById(
+      "reportBody"
+    );
 
   body.innerHTML = "";
 
-  let index = 0;
+  reportRows.forEach(
+    (row, index) => {
 
-  while (index < reportRows.length) {
+      const tr =
+        document.createElement("tr");
 
-    const first =
-      reportRows[index];
+      tr.className =
+        "data-row";
 
-    let groupEnd = index;
+      tr.innerHTML = `
+        <td class="row-number">
+          ${index + 3}
+        </td>
 
-    if (first.ean) {
+        <td>
+          ${escapeHTML(row.material)}
+        </td>
 
-      while (
-        groupEnd + 1 < reportRows.length &&
-        sameGroup(
-          first,
-          reportRows[groupEnd + 1]
-        )
-      ) {
+        <td class="center">
+          ${escapeHTML(row.qty)}
+        </td>
 
-        groupEnd++;
+        <td>
+          ${escapeHTML(row.description)}
+        </td>
 
-      }
+        <td>
+          ${escapeHTML(row.mpn)}
+        </td>
+
+        <td class="editable">
+          <input
+            class="ean-input"
+            value="${escapeAttr(row.ean)}"
+            data-index="${index}"
+            placeholder="EAN"
+          >
+        </td>
+
+        <td>
+          ${escapeHTML(row.delivery)}
+        </td>
+
+        <td class="editable">
+          <input
+            class="ean-input"
+            value="${escapeAttr(row.sn)}"
+            data-sn-index="${index}"
+            placeholder="SN"
+          >
+        </td>
+
+        ${checkCell(
+          index,
+          "surplus",
+          row.surplus
+        )}
+
+        ${checkCell(
+          index,
+          "missing",
+          row.missing
+        )}
+
+        ${checkCell(
+          index,
+          "pallet",
+          row.pallet
+        )}
+
+        ${checkCell(
+          index,
+          "box",
+          row.box
+        )}
+
+        ${checkCell(
+          index,
+          "product",
+          row.product
+        )}
+
+        <td
+          class="date-cell editable"
+          data-date-index="${index}"
+          title="Dupla kattintás"
+        >
+          ${escapeHTML(row.expiry)}
+        </td>
+      `;
+
+      body.appendChild(tr);
 
     }
+  );
 
-    const groupSize =
-      groupEnd - index + 1;
+  bindReportEvents();
+}
+
+/* ======================================================
+   SORTED / MERGED MODE
+   USES FROZEN GROUPS ONLY
+   ====================================================== */
+
+function renderSortedReport() {
+
+  const body =
+    document.getElementById(
+      "reportBody"
+    );
+
+  body.innerHTML = "";
+
+  for (
+    const group of frozenGroups
+  ) {
+
+    const start =
+      group.start;
+
+    const end =
+      group.end;
+
+    const first =
+      reportRows[start];
+
+    const size =
+      end - start + 1;
 
     let totalQty = 0;
 
     for (
-      let q = index;
-      q <= groupEnd;
-      q++
+      let i = start;
+      i <= end;
+      i++
     ) {
 
       const value =
-        Number(reportRows[q].qty);
+        Number(
+          reportRows[i].qty
+        );
 
-      if (!Number.isNaN(value)) {
+      if (
+        !Number.isNaN(value)
+      ) {
         totalQty += value;
       }
 
     }
 
     for (
-      let rowIndex = index;
-      rowIndex <= groupEnd;
+      let rowIndex = start;
+      rowIndex <= end;
       rowIndex++
     ) {
 
@@ -1915,9 +1942,12 @@ function renderReport() {
         reportRows[rowIndex];
 
       const tr =
-        document.createElement("tr");
+        document.createElement(
+          "tr"
+        );
 
-      tr.className = "data-row";
+      tr.className =
+        "data-row";
 
       let html = `
         <td class="row-number">
@@ -1925,63 +1955,64 @@ function renderReport() {
         </td>
       `;
 
-      if (rowIndex === index) {
+      if (
+        rowIndex === start
+      ) {
 
         html += `
           <td
-            rowspan="${groupSize}"
-            class="${groupSize > 1 ? "merged-cell" : ""}"
+            rowspan="${size}"
+            class="${size > 1 ? "merged-cell" : ""}"
           >
-            ${escapeHTML(row.material)}
+            ${escapeHTML(first.material)}
           </td>
 
           <td
-            rowspan="${groupSize}"
-            class="center ${groupSize > 1 ? "merged-cell" : ""}"
+            rowspan="${size}"
+            class="center ${size > 1 ? "merged-cell" : ""}"
           >
             ${
               escapeHTML(
-                groupSize > 1
+                size > 1
                   ? totalQty
-                  : row.qty
+                  : first.qty
               )
             }
           </td>
 
           <td
-            rowspan="${groupSize}"
-            class="${groupSize > 1 ? "merged-cell" : ""}"
+            rowspan="${size}"
+            class="${size > 1 ? "merged-cell" : ""}"
           >
-            ${escapeHTML(row.description)}
+            ${escapeHTML(first.description)}
           </td>
 
           <td
-            rowspan="${groupSize}"
-            class="${groupSize > 1 ? "merged-cell" : ""}"
+            rowspan="${size}"
+            class="${size > 1 ? "merged-cell" : ""}"
           >
-            ${escapeHTML(row.mpn)}
+            ${escapeHTML(first.mpn)}
           </td>
 
           <td
-            rowspan="${groupSize}"
-            class="editable ${groupSize > 1 ? "merged-cell" : ""}"
+            rowspan="${size}"
+            class="editable ${size > 1 ? "merged-cell" : ""}"
           >
             <input
               class="ean-input"
-              value="${escapeAttr(row.ean)}"
-              data-index="${rowIndex}"
+              value="${escapeAttr(first.ean)}"
+              data-index="${start}"
               placeholder="EAN"
             >
           </td>
 
           <td
-            rowspan="${groupSize}"
-            class="${groupSize > 1 ? "merged-cell" : ""}"
+            rowspan="${size}"
+            class="${size > 1 ? "merged-cell" : ""}"
           >
-            ${escapeHTML(row.delivery)}
+            ${escapeHTML(first.delivery)}
           </td>
         `;
-
       }
 
       html += `
@@ -2038,15 +2069,13 @@ function renderReport() {
       body.appendChild(tr);
     }
 
-    index =
-      groupEnd + 1;
   }
 
   bindReportEvents();
 }
 
 /* ======================================================
-   CHECK CELL
+   CELLS
    ====================================================== */
 
 function checkCell(
@@ -2067,10 +2096,6 @@ function checkCell(
   `;
 }
 
-/* ======================================================
-   REPORT EVENTS
-   ====================================================== */
-
 function bindReportEvents() {
 
   document
@@ -2088,12 +2113,25 @@ function bindReportEvents() {
               event.target.dataset.index
             );
 
+          /*
+            EAN módosítás = új szerkesztési állapot.
+
+            A VBA-ban a merge után ezt amúgy sem
+            lehetne egyszerűen soronként felülírni.
+          */
+          reportSorted = false;
+          frozenGroups = [];
+
           reportRows[index].ean =
             event.target.value.trim();
 
-          clearLookupFields(index);
+          clearLookupFields(
+            index
+          );
 
-          if (!reportRows[index].ean) {
+          if (
+            !reportRows[index].ean
+          ) {
             renderReport();
             return;
           }
@@ -2121,7 +2159,6 @@ function bindReportEvents() {
 
               reportRows[index].delivery =
                 result.delivery;
-
             }
 
           } catch (error) {
@@ -2209,6 +2246,12 @@ function bindReportEvents() {
             return;
           }
 
+          /*
+            FONTOS:
+            Nem nullázzuk a reportSorted állapotot.
+
+            Ezért pipálás után a merge NEM ugrik szét.
+          */
           reportRows[index][field] =
             !reportRows[index][field];
 
@@ -2243,10 +2286,6 @@ function bindReportEvents() {
   bindCellSelection();
 }
 
-/* ======================================================
-   CLEAR AUTO FIELDS
-   ====================================================== */
-
 function clearLookupFields(index) {
 
   reportRows[index].material = "";
@@ -2257,7 +2296,7 @@ function clearLookupFields(index) {
 }
 
 /* ======================================================
-   SOURCE RENDER
+   SOURCE TABLE
    ====================================================== */
 
 function renderSource() {
@@ -2322,7 +2361,9 @@ function renderSource() {
     (record, rowIndex) => {
 
       const tr =
-        document.createElement("tr");
+        document.createElement(
+          "tr"
+        );
 
       tr.innerHTML =
         `
@@ -2355,7 +2396,7 @@ function renderSource() {
 }
 
 /* ======================================================
-   COLUMN DRAG
+   DRAG
    ====================================================== */
 
 let draggedColumn = null;
@@ -2586,7 +2627,9 @@ function closeDateDialog() {
 
 function saveDate() {
 
-  if (dateRowIndex === null) {
+  if (
+    dateRowIndex === null
+  ) {
     return;
   }
 
@@ -2595,7 +2638,9 @@ function saveDate() {
       "dateInput"
     ).value.trim();
 
-  if (value.endsWith(".")) {
+  if (
+    value.endsWith(".")
+  ) {
     value =
       value.slice(0, -1);
   }
@@ -2612,7 +2657,9 @@ function saveDate() {
     return;
   }
 
-  if (!isValidDate(value)) {
+  if (
+    !isValidDate(value)
+  ) {
 
     showError(
       "Így add meg: 2026.10.15"
@@ -2624,6 +2671,10 @@ function saveDate() {
   reportRows[
     dateRowIndex
   ].expiry = value;
+
+  /*
+    A dátum módosítása SEM bontja fel a merge-et.
+  */
 
   closeDateDialog();
   renderReport();
@@ -2684,7 +2735,7 @@ function isValidDate(value) {
 }
 
 /* ======================================================
-   SORT / MERGE LOGIC
+   SORT
    ====================================================== */
 
 function sortReport() {
@@ -2712,15 +2763,19 @@ function sortReport() {
     return;
   }
 
-  for (const row of used) {
+  for (
+    let i = 0;
+    i < used.length;
+    i++
+  ) {
 
     if (
-      row.missing &&
-      row.surplus
+      used[i].missing &&
+      used[i].surplus
     ) {
 
       showError(
-        "Egy sor egyszerre hiány és többlet."
+        "A sor egyszerre hiány és többlet."
       );
 
       return;
@@ -2735,7 +2790,9 @@ function sortReport() {
         reportType(a) -
         reportType(b);
 
-      if (typeDiff !== 0) {
+      if (
+        typeDiff !== 0
+      ) {
         return typeDiff;
       }
 
@@ -2745,7 +2802,9 @@ function sortReport() {
             String(b.ean)
           );
 
-      if (eanDiff !== 0) {
+      if (
+        eanDiff !== 0
+      ) {
         return eanDiff;
       }
 
@@ -2755,7 +2814,9 @@ function sortReport() {
             String(b.delivery)
           );
 
-      if (deliveryDiff !== 0) {
+      if (
+        deliveryDiff !== 0
+      ) {
         return deliveryDiff;
       }
 
@@ -2779,6 +2840,16 @@ function sortReport() {
   }
 
   reportRows = used;
+
+  /*
+    CSAK ITT építjük meg a merge csoportokat.
+  */
+  buildFrozenGroups();
+
+  /*
+    CSAK ITT kapcsoljuk be a rendezett állapotot.
+  */
+  reportSorted = true;
 
   renderReport();
 
@@ -2818,9 +2889,9 @@ function generatePreview() {
 
   const grouped = [];
 
-  for (let i = 0; i < used.length; i++) {
-
-    const row = used[i];
+  for (
+    const row of used
+  ) {
 
     let found =
       grouped.find(
@@ -3000,11 +3071,9 @@ document
             ".ribbon-tab"
           )
           .forEach(item => {
-
             item.classList.remove(
               "active"
             );
-
           });
 
         tab.classList.add(
@@ -3016,26 +3085,21 @@ document
             ".ribbon-panel"
           )
           .forEach(panel => {
-
             panel.classList.remove(
               "active"
             );
-
           });
 
-        const id =
-          "ribbon-" +
-          tab.dataset.ribbon;
-
         const panel =
-          document.getElementById(id);
+          document.getElementById(
+            "ribbon-" +
+            tab.dataset.ribbon
+          );
 
         if (panel) {
-
           panel.classList.add(
             "active"
           );
-
         }
 
       }
@@ -3062,11 +3126,9 @@ document
             ".sheet-tab-bottom"
           )
           .forEach(item => {
-
             item.classList.remove(
               "active"
             );
-
           });
 
         tab.classList.add(
@@ -3078,11 +3140,9 @@ document
             ".sheet"
           )
           .forEach(sheet => {
-
             sheet.classList.remove(
               "active"
             );
-
           });
 
         document
@@ -3120,29 +3180,14 @@ function bindCellSelection() {
               ".selected-cell"
             )
             .forEach(item => {
-
               item.classList.remove(
                 "selected-cell"
               );
-
             });
 
           cell.classList.add(
             "selected-cell"
           );
-
-          const row =
-            cell.parentElement
-              .rowIndex + 1;
-
-          const col =
-            cell.cellIndex;
-
-          document.getElementById(
-            "nameBox"
-          ).textContent =
-            columnLetter(col) +
-            row;
 
           document.getElementById(
             "formulaBar"
@@ -3204,7 +3249,9 @@ function columnLetter(number) {
 
   let result = "";
 
-  while (number > 0) {
+  while (
+    number > 0
+  ) {
 
     number--;
 
