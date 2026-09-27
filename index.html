@@ -21,8 +21,6 @@ html, body {
 button, input, select { font: inherit; }
 button { cursor: pointer; }
 
-/* EXCEL SHELL */
-
 .excel-app {
   height: 100vh;
   display: flex;
@@ -54,10 +52,15 @@ button { cursor: pointer; }
   font-size: 13px;
 }
 
-.workbook-name {
-  flex: 1;
-  font-size: 13px;
-  color: #ddd;
+.workbook-name { flex: 1; font-size: 13px; color: #ddd; }
+
+.language-select {
+  background: #303030;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 12px;
 }
 
 .demo-badge {
@@ -78,8 +81,6 @@ button { cursor: pointer; }
   border-radius: 5px;
 }
 
-/* QUICK ACCESS */
-
 .quickbar {
   height: 29px;
   flex-shrink: 0;
@@ -91,11 +92,7 @@ button { cursor: pointer; }
   gap: 4px;
 }
 
-.quick-label {
-  font-size: 10px;
-  color: #8f8f8f;
-  margin-right: 4px;
-}
+.quick-label { font-size: 10px; color: #8f8f8f; margin-right: 4px; }
 
 .quick-btn {
   height: 22px;
@@ -111,19 +108,8 @@ button { cursor: pointer; }
   font-size: 11px;
 }
 
-.quick-btn:hover {
-  border-color: #555;
-  background: #303030;
-}
-
-.quick-separator {
-  width: 1px;
-  height: 17px;
-  background: #444;
-  margin: 0 5px;
-}
-
-/* RIBBON TABS */
+.quick-btn:hover { border-color: #555; background: #303030; }
+.quick-separator { width: 1px; height: 17px; background: #444; margin: 0 5px; }
 
 .ribbon-tabs {
   height: 33px;
@@ -145,12 +131,7 @@ button { cursor: pointer; }
   user-select: none;
 }
 
-.ribbon-tab.active {
-  border-bottom-color: #21a366;
-  font-weight: 700;
-}
-
-/* RIBBON CONTENT */
+.ribbon-tab.active { border-bottom-color: #21a366; font-weight: 700; }
 
 .ribbon {
   height: 78px;
@@ -161,12 +142,7 @@ button { cursor: pointer; }
   overflow: hidden;
 }
 
-.ribbon-panel {
-  display: none;
-  height: 100%;
-  align-items: stretch;
-}
-
+.ribbon-panel { display: none; height: 100%; align-items: stretch; }
 .ribbon-panel.active { display: flex; }
 
 .ribbon-group {
@@ -204,17 +180,8 @@ button { cursor: pointer; }
   font-size: 14px;
 }
 
-.ribbon-icon.big {
-  width: 37px;
-  height: 43px;
-  font-size: 18px;
-}
-
-.small-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 26px);
-  gap: 4px;
-}
+.ribbon-icon.big { width: 37px; height: 43px; font-size: 18px; }
+.small-grid { display: grid; grid-template-columns: repeat(3, 26px); gap: 4px; }
 
 .ribbon-select {
   background: #303030;
@@ -226,18 +193,8 @@ button { cursor: pointer; }
   font-size: 11px;
 }
 
-.font-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.font-line {
-  display: flex;
-  gap: 4px;
-}
-
-/* FORMULA BAR */
+.font-stack { display: flex; flex-direction: column; gap: 5px; }
+.font-line { display: flex; gap: 4px; }
 
 .formula-area {
   height: 33px;
@@ -278,14 +235,7 @@ button { cursor: pointer; }
   white-space: nowrap;
 }
 
-/* WORKBOOK */
-
-.workbook {
-  flex: 1;
-  min-height: 0;
-  background: #111;
-  position: relative;
-}
+.workbook { flex: 1; min-height: 0; background: #111; position: relative; }
 
 .sheet {
   width: 100%;
@@ -297,8 +247,6 @@ button { cursor: pointer; }
 }
 
 .sheet.active { display: block; }
-
-/* REPORT */
 
 .report-wrap {
   min-width: 1500px;
@@ -321,11 +269,7 @@ button { cursor: pointer; }
   padding: 5px 8px;
 }
 
-.report-config .label {
-  background: #dcebed;
-  font-weight: 700;
-  line-height: 17px;
-}
+.report-config .label { background: #dcebed; font-weight: 700; line-height: 17px; }
 
 .report-config select {
   width: 100%;
@@ -334,8 +278,6 @@ button { cursor: pointer; }
   background: white;
   color: #111;
 }
-
-/* GRID */
 
 .grid {
   border-collapse: collapse;
@@ -378,10 +320,7 @@ button { cursor: pointer; }
   line-height: 14px;
 }
 
-.data-row:hover td:not(.row-number) {
-  background: #f3faf6;
-}
-
+.data-row:hover td:not(.row-number) { background: #f3faf6; }
 .editable { background: #fffdf4; }
 .center { text-align: center; }
 
@@ -403,18 +342,8 @@ button { cursor: pointer; }
 
 .check-cell.checked { font-weight: 700; }
 .date-cell { text-align: center; }
-
-.selected-cell {
-  outline: 2px solid #21a366;
-  outline-offset: -2px;
-}
-
-.merged-cell {
-  vertical-align: middle;
-  background: #fff;
-}
-
-/* DATA SHEET */
+.selected-cell { outline: 2px solid #21a366; outline-offset: -2px; }
+.merged-cell { vertical-align: middle; background: #fff; }
 
 .data-topbar {
   height: 42px;
@@ -440,11 +369,7 @@ button { cursor: pointer; }
 }
 
 .data-note { color: #555; }
-
-.source-wrap {
-  min-width: 1700px;
-  min-height: 100%;
-}
+.source-wrap { min-width: 1700px; min-height: 100%; }
 
 .source-header {
   background: #d9ead3 !important;
@@ -457,12 +382,7 @@ button { cursor: pointer; }
 }
 
 .source-header.dragging { opacity: .4; }
-
-.source-header.drag-over {
-  box-shadow: inset 4px 0 0 #21a366;
-}
-
-/* BOTTOM TABS */
+.source-header.drag-over { box-shadow: inset 4px 0 0 #21a366; }
 
 .bottom-bar {
   height: 34px;
@@ -493,11 +413,7 @@ button { cursor: pointer; }
 }
 
 .sheet-tab-bottom:hover { background: #e1e1e1; }
-
-.sheet-tab-bottom.active {
-  background: white;
-  font-weight: 600;
-}
+.sheet-tab-bottom.active { background: white; font-weight: 600; }
 
 .sheet-tab-bottom.active::after {
   content: "";
@@ -509,14 +425,7 @@ button { cursor: pointer; }
   background: #21a366;
 }
 
-.statusbar {
-  margin-left: auto;
-  padding: 7px 14px;
-  color: #555;
-  font-size: 11px;
-}
-
-/* DIALOG */
+.statusbar { margin-left: auto; padding: 7px 14px; color: #555; font-size: 11px; }
 
 .overlay {
   position: fixed;
@@ -580,8 +489,6 @@ button { cursor: pointer; }
   padding: 4px 7px;
 }
 
-/* REPORT PREVIEW */
-
 .report-preview {
   width: min(860px, 92vw);
   max-height: 90vh;
@@ -618,23 +525,10 @@ button { cursor: pointer; }
   white-space: nowrap;
 }
 
-.preview-navigation button:disabled {
-  opacity: .45;
-  cursor: default;
-}
-
+.preview-navigation button:disabled { opacity: .45; cursor: default; }
 .preview-page-label { text-align: center; }
-
-.preview-page-label small {
-  display: block;
-  margin-top: 4px;
-}
-
-.preview-type {
-  text-align: center;
-  font-weight: 700;
-}
-
+.preview-page-label small { display: block; margin-top: 4px; }
+.preview-type { text-align: center; font-weight: 700; }
 .paper td, #previewNotes { overflow-wrap: anywhere; }
 
 .paper-meta {
@@ -644,21 +538,9 @@ button { cursor: pointer; }
   margin: 24px 0;
 }
 
-.paper-box {
-  border: 1px solid #444;
-  padding: 10px;
-}
-
-.paper table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.paper th, .paper td {
-  border: 1px solid #555;
-  padding: 8px;
-}
-
+.paper-box { border: 1px solid #444; padding: 10px; }
+.paper table { width: 100%; border-collapse: collapse; }
+.paper th, .paper td { border: 1px solid #555; padding: 8px; }
 .desktop-warning { display: none; }
 
 @media (max-width: 900px) {
@@ -690,6 +572,13 @@ button { cursor: pointer; }
     <div class="workbook-name">
       Automated Goods Discrepancy &amp; Damage Reporting System.xlsm
     </div>
+
+    <label for="languageSelect">🌐</label>
+    <select id="languageSelect" class="language-select" aria-label="Language / Nyelv">
+      <option value="hu">Magyar</option>
+      <option value="en">English</option>
+    </select>
+
     <div class="demo-badge">INTERACTIVE DEMO</div>
     <button class="share">Megosztás ▾</button>
   </div>
@@ -719,8 +608,8 @@ button { cursor: pointer; }
   </div>
 
   <div class="ribbon">
-
     <div class="ribbon-panel active" id="ribbon-home">
+
       <div class="ribbon-group">
         <div class="ribbon-icon big">📋</div>
         <div class="small-grid">
@@ -875,7 +764,6 @@ button { cursor: pointer; }
         <div class="ribbon-group-title">Súgó</div>
       </div>
     </div>
-
   </div>
 
   <div class="formula-area">
@@ -898,9 +786,7 @@ button { cursor: pointer; }
             </select>
           </div>
           <div class="label">Választható munkafolyamat</div>
-          <div>
-            <select id="workflow"></select>
-          </div>
+          <div><select id="workflow"></select></div>
         </div>
 
         <table class="grid report-grid">
@@ -920,7 +806,6 @@ button { cursor: pointer; }
             <col style="width:110px">
             <col style="width:130px">
           </colgroup>
-
           <thead>
             <tr>
               <th class="col-letter"></th>
@@ -955,10 +840,8 @@ button { cursor: pointer; }
               <th class="report-header">Lejárati dátum</th>
             </tr>
           </thead>
-
           <tbody id="reportBody"></tbody>
         </table>
-
       </div>
     </div>
 
@@ -966,14 +849,11 @@ button { cursor: pointer; }
       <div class="source-wrap">
         <div class="data-topbar">
           <strong>Dummy SAP export</strong>
-          <span class="drag-hint">
-            ↔ Húzd át az oszlopfejléceket másik helyre
-          </span>
+          <span class="drag-hint">↔ Húzd át az oszlopfejléceket másik helyre</span>
           <span class="data-note">
             A keresés fejlécnév alapján működik, nem fix oszlopszám alapján.
           </span>
         </div>
-
         <table class="grid source-grid">
           <thead>
             <tr id="sourceLetters"></tr>
@@ -989,11 +869,8 @@ button { cursor: pointer; }
     <div class="sheet-nav">＋ ◀ ▶</div>
     <div class="sheet-tab-bottom active" data-sheet="riport">Riport</div>
     <div class="sheet-tab-bottom" data-sheet="adat">Adat</div>
-    <div class="statusbar">
-      Bujtás DataWorks • Interactive portfolio demo
-    </div>
+    <div class="statusbar">Bujtás DataWorks • Interactive portfolio demo</div>
   </div>
-
 </div>
 
 <div class="overlay" id="errorOverlay">
@@ -1028,22 +905,15 @@ button { cursor: pointer; }
 
 <div class="overlay" id="previewOverlay">
   <div class="dialog report-preview">
-
-    <div class="dialog-title">
-      Árukezelési Jegyzőkönyv • Preview
-    </div>
+    <div class="dialog-title">Árukezelési Jegyzőkönyv • Preview</div>
 
     <nav class="preview-navigation" aria-label="Jegyzőkönyv lapozása">
-      <button id="previewPrevious" onclick="changePreviewPage(-1)">
-        ‹ Előző
-      </button>
+      <button id="previewPrevious" onclick="changePreviewPage(-1)">‹ Előző</button>
       <div class="preview-page-label" aria-live="polite" aria-atomic="true">
         <strong id="previewTypeName"></strong>
         <small id="previewPageNumber"></small>
       </div>
-      <button id="previewNext" onclick="changePreviewPage(1)">
-        Következő ›
-      </button>
+      <button id="previewNext" onclick="changePreviewPage(1)">Következő ›</button>
     </nav>
 
     <div class="paper">
@@ -1078,10 +948,7 @@ button { cursor: pointer; }
 
       <div class="paper-box" style="margin-top:24px;">
         <strong>Megjegyzés / Notes</strong>
-        <div
-          id="previewNotes"
-          style="margin-top:10px; white-space:pre-line;"
-        ></div>
+        <div id="previewNotes" style="margin-top:10px;white-space:pre-line;"></div>
       </div>
 
       <div style="margin-top:28px;">
@@ -1093,198 +960,106 @@ button { cursor: pointer; }
     <div class="dialog-actions">
       <button onclick="closePreview()">Bezárás</button>
     </div>
-
   </div>
 </div>
 
 <script>
-/* SOURCE */
+/* SOURCE DATA */
 
 const sourceColumns = [
-  { key: "plant", label: "Plant" },
-  { key: "storage", label: "Storage Location" },
-  { key: "material", label: "Material" },
-  { key: "batch", label: "Batch" },
-  { key: "description", label: "Material Description" },
-  { key: "manufacturer", label: "Manufacturer" },
-  { key: "mpn", label: "Manufacturer Part Number" },
-  { key: "ean", label: "EAN/UPC" },
-  { key: "delivery", label: "DelNote Vendor" },
-  { key: "quantity", label: "Received Qty" },
-  { key: "unit", label: "Base Unit" }
+  {key:"plant",label:"Plant"},
+  {key:"storage",label:"Storage Location"},
+  {key:"material",label:"Material"},
+  {key:"batch",label:"Batch"},
+  {key:"description",label:"Material Description"},
+  {key:"manufacturer",label:"Manufacturer"},
+  {key:"mpn",label:"Manufacturer Part Number"},
+  {key:"ean",label:"EAN/UPC"},
+  {key:"delivery",label:"DelNote Vendor"},
+  {key:"quantity",label:"Received Qty"},
+  {key:"unit",label:"Base Unit"}
 ];
 
 let columnOrder = sourceColumns.map(item => item.key);
 
 const sourceData = [
   {
-    plant: "1000",
-    storage: "IN01",
-    material: "8000131",
-    batch: "B260901",
-    description: "Demo Industrial Sensor",
-    manufacturer: "DemoTech",
-    mpn: "DT-SEN-131",
-    ean: "5990000000131",
-    delivery: "DN-DEMO-0017",
-    quantity: "20",
-    unit: "PC"
+    plant:"1000",storage:"IN01",material:"8000131",batch:"B260901",
+    description:"Demo Industrial Sensor",manufacturer:"DemoTech",
+    mpn:"DT-SEN-131",ean:"5990000000131",delivery:"DN-DEMO-0017",
+    quantity:"20",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN01",
-    material: "8000144",
-    batch: "B260902",
-    description: "Demo Control Module",
-    manufacturer: "Sample Electronics",
-    mpn: "SE-CM-144",
-    ean: "5990000000144",
-    delivery: "DN-DEMO-0017",
-    quantity: "18",
-    unit: "PC"
+    plant:"1000",storage:"IN01",material:"8000144",batch:"B260902",
+    description:"Demo Control Module",manufacturer:"Sample Electronics",
+    mpn:"SE-CM-144",ean:"5990000000144",delivery:"DN-DEMO-0017",
+    quantity:"18",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN02",
-    material: "8000145",
-    batch: "B260903",
-    description: "Demo Power Supply",
-    manufacturer: "DemoTech",
-    mpn: "DT-PS-145",
-    ean: "5990000000145",
-    delivery: "DN-DEMO-0017",
-    quantity: "16",
-    unit: "PC"
+    plant:"1000",storage:"IN02",material:"8000145",batch:"B260903",
+    description:"Demo Power Supply",manufacturer:"DemoTech",
+    mpn:"DT-PS-145",ean:"5990000000145",delivery:"DN-DEMO-0017",
+    quantity:"16",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN02",
-    material: "8000146",
-    batch: "B260904",
-    description: "Demo Communication Unit",
-    manufacturer: "Sample Electronics",
-    mpn: "SE-CU-146",
-    ean: "5990000000146",
-    delivery: "DN-DEMO-0017",
-    quantity: "12",
-    unit: "PC"
+    plant:"1000",storage:"IN02",material:"8000146",batch:"B260904",
+    description:"Demo Communication Unit",manufacturer:"Sample Electronics",
+    mpn:"SE-CU-146",ean:"5990000000146",delivery:"DN-DEMO-0017",
+    quantity:"12",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN02",
-    material: "8000147",
-    batch: "B260905",
-    description: "Demo Interface Module",
-    manufacturer: "Northstar Components",
-    mpn: "NC-IM-147",
-    ean: "5990000000147",
-    delivery: "DN-DEMO-0017",
-    quantity: "10",
-    unit: "PC"
+    plant:"1000",storage:"IN02",material:"8000147",batch:"B260905",
+    description:"Demo Interface Module",manufacturer:"Northstar Components",
+    mpn:"NC-IM-147",ean:"5990000000147",delivery:"DN-DEMO-0017",
+    quantity:"10",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN03",
-    material: "8000148",
-    batch: "B260906",
-    description: "Demo Switching Device",
-    manufacturer: "Northstar Components",
-    mpn: "NC-SW-148",
-    ean: "5990000000148",
-    delivery: "DN-DEMO-0017",
-    quantity: "8",
-    unit: "PC"
+    plant:"1000",storage:"IN03",material:"8000148",batch:"B260906",
+    description:"Demo Switching Device",manufacturer:"Northstar Components",
+    mpn:"NC-SW-148",ean:"5990000000148",delivery:"DN-DEMO-0017",
+    quantity:"8",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN03",
-    material: "8000149",
-    batch: "B260907",
-    description: "Demo Electronic Controller",
-    manufacturer: "DataWorks Demo Supplier",
-    mpn: "DW-EC-149",
-    ean: "5990000000149",
-    delivery: "DN-DEMO-0017",
-    quantity: "22",
-    unit: "PC"
+    plant:"1000",storage:"IN03",material:"8000149",batch:"B260907",
+    description:"Demo Electronic Controller",manufacturer:"DataWorks Demo Supplier",
+    mpn:"DW-EC-149",ean:"5990000000149",delivery:"DN-DEMO-0017",
+    quantity:"22",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN03",
-    material: "8000150",
-    batch: "B260908",
-    description: "Demo Input Module",
-    manufacturer: "DataWorks Demo Supplier",
-    mpn: "DW-IN-150",
-    ean: "5990000000150",
-    delivery: "DN-DEMO-0018",
-    quantity: "17",
-    unit: "PC"
+    plant:"1000",storage:"IN03",material:"8000150",batch:"B260908",
+    description:"Demo Input Module",manufacturer:"DataWorks Demo Supplier",
+    mpn:"DW-IN-150",ean:"5990000000150",delivery:"DN-DEMO-0018",
+    quantity:"17",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN03",
-    material: "8000151",
-    batch: "B260909",
-    description: "Demo Output Module",
-    manufacturer: "DemoTech",
-    mpn: "DT-OUT-151",
-    ean: "5990000000151",
-    delivery: "DN-DEMO-0018",
-    quantity: "25",
-    unit: "PC"
+    plant:"1000",storage:"IN03",material:"8000151",batch:"B260909",
+    description:"Demo Output Module",manufacturer:"DemoTech",
+    mpn:"DT-OUT-151",ean:"5990000000151",delivery:"DN-DEMO-0018",
+    quantity:"25",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN04",
-    material: "8000152",
-    batch: "B260910",
-    description: "Demo Terminal Unit",
-    manufacturer: "DemoTech",
-    mpn: "DT-TU-152",
-    ean: "5990000000152",
-    delivery: "DN-DEMO-0018",
-    quantity: "28",
-    unit: "PC"
+    plant:"1000",storage:"IN04",material:"8000152",batch:"B260910",
+    description:"Demo Terminal Unit",manufacturer:"DemoTech",
+    mpn:"DT-TU-152",ean:"5990000000152",delivery:"DN-DEMO-0018",
+    quantity:"28",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN04",
-    material: "8000153",
-    batch: "B260911",
-    description: "Demo Processing Unit",
-    manufacturer: "Sample Electronics",
-    mpn: "SE-PU-153",
-    ean: "5990000000153",
-    delivery: "DN-DEMO-0018",
-    quantity: "31",
-    unit: "PC"
+    plant:"1000",storage:"IN04",material:"8000153",batch:"B260911",
+    description:"Demo Processing Unit",manufacturer:"Sample Electronics",
+    mpn:"SE-PU-153",ean:"5990000000153",delivery:"DN-DEMO-0018",
+    quantity:"31",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN04",
-    material: "8000154",
-    batch: "B260912",
-    description: "Demo Industrial Gateway",
-    manufacturer: "Sample Electronics",
-    mpn: "SE-GW-154",
-    ean: "5990000000154",
-    delivery: "DN-DEMO-0018",
-    quantity: "14",
-    unit: "PC"
+    plant:"1000",storage:"IN04",material:"8000154",batch:"B260912",
+    description:"Demo Industrial Gateway",manufacturer:"Sample Electronics",
+    mpn:"SE-GW-154",ean:"5990000000154",delivery:"DN-DEMO-0018",
+    quantity:"14",unit:"PC"
   },
   {
-    plant: "1000",
-    storage: "IN05",
-    material: "8000155",
-    batch: "B260913",
-    description: "Demo Controller Board",
-    manufacturer: "Northstar Components",
-    mpn: "NC-CB-155",
-    ean: "5990000000155",
-    delivery: "DN-DEMO-0018",
-    quantity: "9",
-    unit: "PC"
+    plant:"1000",storage:"IN05",material:"8000155",batch:"B260913",
+    description:"Demo Controller Board",manufacturer:"Northstar Components",
+    mpn:"NC-CB-155",ean:"5990000000155",delivery:"DN-DEMO-0018",
+    quantity:"9",unit:"PC"
   }
 ];
 
@@ -1292,45 +1067,34 @@ const sourceData = [
 
 function blankRow() {
   return {
-    material: "",
-    qty: "",
-    description: "",
-    mpn: "",
-    ean: "",
-    delivery: "",
-    sn: "",
-    surplus: false,
-    missing: false,
-    pallet: false,
-    box: false,
-    product: false,
-    expiry: ""
+    material:"",qty:"",description:"",mpn:"",ean:"",delivery:"",sn:"",
+    surplus:false,missing:false,pallet:false,box:false,product:false,expiry:""
   };
 }
 
 const REPORT_ROWS = 24;
-let reportRows = Array.from({ length: REPORT_ROWS }, () => blankRow());
+let reportRows = Array.from({length:REPORT_ROWS}, () => blankRow());
 let reportSorted = false;
 let frozenGroups = [];
 
-/* HEADER ALIASES */
+/* HEADER RECOGNITION */
 
 const headerAliases = {
-  material: ["material", "sap material"],
-  description: ["material description"],
-  mpn: ["manufacturer part number"],
-  ean: ["ean/upc", "ean", "ean / upc"],
-  delivery: ["delnote vendor", "delivery note vendor"]
+  material:["material","sap material"],
+  description:["material description"],
+  mpn:["manufacturer part number"],
+  ean:["ean/upc","ean","ean / upc"],
+  delivery:["delnote vendor","delivery note vendor"]
 };
 
 function normalizeHeader(value) {
   return String(value ?? "")
-    .replace(/\u00A0/g, " ")
-    .replace(/\r/g, " ")
-    .replace(/\n/g, " ")
+    .replace(/\u00A0/g," ")
+    .replace(/\r/g," ")
+    .replace(/\n/g," ")
     .trim()
     .toLowerCase()
-    .replace(/\s+/g, " ");
+    .replace(/\s+/g," ");
 }
 
 function detectRequiredColumns() {
@@ -1339,13 +1103,11 @@ function detectRequiredColumns() {
   for (const field of Object.keys(headerAliases)) {
     const hits = [];
 
-    columnOrder.forEach((key, index) => {
+    columnOrder.forEach((key,index) => {
       const column = sourceColumns.find(item => item.key === key);
       if (!column) return;
 
-      const normalized = normalizeHeader(column.label);
-
-      if (headerAliases[field].includes(normalized)) {
+      if (headerAliases[field].includes(normalizeHeader(column.label))) {
         hits.push(index);
       }
     });
@@ -1371,9 +1133,7 @@ function detectRequiredColumns() {
 }
 
 function getRenderedSourceRows() {
-  return sourceData.map(
-    record => columnOrder.map(key => record[key])
-  );
+  return sourceData.map(record => columnOrder.map(key => record[key]));
 }
 
 function lookupEAN(ean) {
@@ -1382,38 +1142,34 @@ function lookupEAN(ean) {
   let found = null;
 
   for (const row of rows) {
-    const sourceEAN = String(row[columns.ean]).trim();
-
-    if (sourceEAN !== ean) continue;
+    if (String(row[columns.ean]).trim() !== ean) continue;
 
     const candidate = {
-      material: row[columns.material],
-      description: row[columns.description],
-      mpn: row[columns.mpn],
-      delivery: row[columns.delivery]
+      material:row[columns.material],
+      description:row[columns.description],
+      mpn:row[columns.mpn],
+      delivery:row[columns.delivery]
     };
 
     if (!found) {
       found = candidate;
-    } else {
-      if (
-        String(found.material) !== String(candidate.material) ||
-        String(found.description) !== String(candidate.description) ||
-        String(found.mpn) !== String(candidate.mpn) ||
-        String(found.delivery) !== String(candidate.delivery)
-      ) {
-        throw new Error(
-          "Az " + ean +
-          " EAN több sorban eltérő adatokkal szerepel az Adat lapon."
-        );
-      }
+    } else if (
+      String(found.material) !== String(candidate.material) ||
+      String(found.description) !== String(candidate.description) ||
+      String(found.mpn) !== String(candidate.mpn) ||
+      String(found.delivery) !== String(candidate.delivery)
+    ) {
+      throw new Error(
+        "Az " + ean +
+        " EAN több sorban eltérő adatokkal szerepel az Adat lapon."
+      );
     }
   }
 
   return found;
 }
 
-/* A munkalap korábbi rendezési sorrendje megmarad. */
+/* WORKSHEET SORTING AND FROZEN GROUPS */
 
 function reportType(row) {
   if (row.missing) return 1;
@@ -1423,9 +1179,7 @@ function reportType(row) {
   return 5;
 }
 
-/* FROZEN MERGE GROUPS */
-
-function sameGroup(a, b) {
+function sameGroup(a,b) {
   if (!a.ean || !b.ean) return false;
 
   return (
@@ -1446,32 +1200,29 @@ function buildFrozenGroups() {
     if (reportRows[index].ean) {
       while (
         end + 1 < reportRows.length &&
-        sameGroup(reportRows[index], reportRows[end + 1])
+        sameGroup(reportRows[index],reportRows[end + 1])
       ) {
         end++;
       }
     }
 
-    frozenGroups.push({ start: index, end: end });
+    frozenGroups.push({start:index,end:end});
     index = end + 1;
   }
 }
 
-/* REPORT RENDER */
+/* REPORT RENDERING */
 
 function renderReport() {
-  if (reportSorted) {
-    renderSortedReport();
-  } else {
-    renderNormalReport();
-  }
+  if (reportSorted) renderSortedReport();
+  else renderNormalReport();
 }
 
 function renderNormalReport() {
   const body = document.getElementById("reportBody");
   body.innerHTML = "";
 
-  reportRows.forEach((row, index) => {
+  reportRows.forEach((row,index) => {
     const tr = document.createElement("tr");
     tr.className = "data-row";
 
@@ -1481,38 +1232,22 @@ function renderNormalReport() {
       <td class="center">${escapeHTML(row.qty)}</td>
       <td>${escapeHTML(row.description)}</td>
       <td>${escapeHTML(row.mpn)}</td>
-
       <td class="editable">
-        <input
-          class="ean-input"
-          value="${escapeAttr(row.ean)}"
-          data-index="${index}"
-          placeholder="EAN"
-        >
+        <input class="ean-input" value="${escapeAttr(row.ean)}"
+          data-index="${index}" placeholder="EAN">
       </td>
-
       <td>${escapeHTML(row.delivery)}</td>
-
       <td class="editable">
-        <input
-          class="ean-input"
-          value="${escapeAttr(row.sn)}"
-          data-sn-index="${index}"
-          placeholder="SN"
-        >
+        <input class="ean-input" value="${escapeAttr(row.sn)}"
+          data-sn-index="${index}" placeholder="SN">
       </td>
-
-      ${checkCell(index, "surplus", row.surplus)}
-      ${checkCell(index, "missing", row.missing)}
-      ${checkCell(index, "pallet", row.pallet)}
-      ${checkCell(index, "box", row.box)}
-      ${checkCell(index, "product", row.product)}
-
-      <td
-        class="date-cell editable"
-        data-date-index="${index}"
-        title="Dupla kattintás"
-      >${escapeHTML(row.expiry)}</td>
+      ${checkCell(index,"surplus",row.surplus)}
+      ${checkCell(index,"missing",row.missing)}
+      ${checkCell(index,"pallet",row.pallet)}
+      ${checkCell(index,"box",row.box)}
+      ${checkCell(index,"product",row.product)}
+      <td class="date-cell editable" data-date-index="${index}"
+        title="Dupla kattintás">${escapeHTML(row.expiry)}</td>
     `;
 
     body.appendChild(tr);
@@ -1530,7 +1265,6 @@ function renderSortedReport() {
     const end = group.end;
     const first = reportRows[start];
     const size = end - start + 1;
-
     let totalQty = 0;
 
     for (let i = start; i <= end; i++) {
@@ -1543,72 +1277,44 @@ function renderSortedReport() {
       const tr = document.createElement("tr");
       tr.className = "data-row";
 
-      let html = `
-        <td class="row-number">${rowIndex + 3}</td>
-      `;
+      let html = `<td class="row-number">${rowIndex + 3}</td>`;
 
       if (rowIndex === start) {
         html += `
-          <td
-            rowspan="${size}"
-            class="${size > 1 ? "merged-cell" : ""}"
-          >${escapeHTML(first.material)}</td>
-
-          <td
-            rowspan="${size}"
-            class="center ${size > 1 ? "merged-cell" : ""}"
-          >${escapeHTML(size > 1 ? totalQty : first.qty)}</td>
-
-          <td
-            rowspan="${size}"
-            class="${size > 1 ? "merged-cell" : ""}"
-          >${escapeHTML(first.description)}</td>
-
-          <td
-            rowspan="${size}"
-            class="${size > 1 ? "merged-cell" : ""}"
-          >${escapeHTML(first.mpn)}</td>
-
-          <td
-            rowspan="${size}"
-            class="editable ${size > 1 ? "merged-cell" : ""}"
-          >
-            <input
-              class="ean-input"
-              value="${escapeAttr(first.ean)}"
-              data-index="${start}"
-              placeholder="EAN"
-            >
+          <td rowspan="${size}" class="${size > 1 ? "merged-cell" : ""}">
+            ${escapeHTML(first.material)}
           </td>
-
-          <td
-            rowspan="${size}"
-            class="${size > 1 ? "merged-cell" : ""}"
-          >${escapeHTML(first.delivery)}</td>
+          <td rowspan="${size}" class="center ${size > 1 ? "merged-cell" : ""}">
+            ${escapeHTML(size > 1 ? totalQty : first.qty)}
+          </td>
+          <td rowspan="${size}" class="${size > 1 ? "merged-cell" : ""}">
+            ${escapeHTML(first.description)}
+          </td>
+          <td rowspan="${size}" class="${size > 1 ? "merged-cell" : ""}">
+            ${escapeHTML(first.mpn)}
+          </td>
+          <td rowspan="${size}" class="editable ${size > 1 ? "merged-cell" : ""}">
+            <input class="ean-input" value="${escapeAttr(first.ean)}"
+              data-index="${start}" placeholder="EAN">
+          </td>
+          <td rowspan="${size}" class="${size > 1 ? "merged-cell" : ""}">
+            ${escapeHTML(first.delivery)}
+          </td>
         `;
       }
 
       html += `
         <td class="editable">
-          <input
-            class="ean-input"
-            value="${escapeAttr(row.sn)}"
-            data-sn-index="${rowIndex}"
-            placeholder="SN"
-          >
+          <input class="ean-input" value="${escapeAttr(row.sn)}"
+            data-sn-index="${rowIndex}" placeholder="SN">
         </td>
-
-        ${checkCell(rowIndex, "surplus", row.surplus)}
-        ${checkCell(rowIndex, "missing", row.missing)}
-        ${checkCell(rowIndex, "pallet", row.pallet)}
-        ${checkCell(rowIndex, "box", row.box)}
-        ${checkCell(rowIndex, "product", row.product)}
-
-        <td
-          class="date-cell editable"
-          data-date-index="${rowIndex}"
-          title="Dupla kattintás"
-        >${escapeHTML(row.expiry)}</td>
+        ${checkCell(rowIndex,"surplus",row.surplus)}
+        ${checkCell(rowIndex,"missing",row.missing)}
+        ${checkCell(rowIndex,"pallet",row.pallet)}
+        ${checkCell(rowIndex,"box",row.box)}
+        ${checkCell(rowIndex,"product",row.product)}
+        <td class="date-cell editable" data-date-index="${rowIndex}"
+          title="Dupla kattintás">${escapeHTML(row.expiry)}</td>
       `;
 
       tr.innerHTML = html;
@@ -1619,27 +1325,20 @@ function renderSortedReport() {
   bindReportEvents();
 }
 
-/* CELLS */
-
-function checkCell(index, field, checked) {
+function checkCell(index,field,checked) {
   return `
-    <td
-      class="check-cell editable ${checked ? "checked" : ""}"
-      data-check-index="${index}"
-      data-check-field="${field}"
-      title="Dupla kattintás"
-    >${checked ? "✓" : ""}</td>
+    <td class="check-cell editable ${checked ? "checked" : ""}"
+      data-check-index="${index}" data-check-field="${field}"
+      title="Dupla kattintás">${checked ? "✓" : ""}</td>
   `;
 }
 
 function bindReportEvents() {
   document.querySelectorAll(".ean-input[data-index]").forEach(input => {
-    input.addEventListener("change", event => {
+    input.addEventListener("change",event => {
       const index = Number(event.target.dataset.index);
-
       reportSorted = false;
       frozenGroups = [];
-
       reportRows[index].ean = event.target.value.trim();
       clearLookupFields(index);
 
@@ -1650,7 +1349,6 @@ function bindReportEvents() {
 
       try {
         const result = lookupEAN(reportRows[index].ean);
-
         if (result) {
           reportRows[index].material = result.material;
           reportRows[index].qty = 1;
@@ -1667,23 +1365,20 @@ function bindReportEvents() {
   });
 
   document.querySelectorAll(".ean-input[data-sn-index]").forEach(input => {
-    input.addEventListener("input", event => {
-      const index = Number(event.target.dataset.snIndex);
-      reportRows[index].sn = event.target.value;
+    input.addEventListener("input",event => {
+      reportRows[Number(event.target.dataset.snIndex)].sn = event.target.value;
     });
   });
 
   document.querySelectorAll(".check-cell").forEach(cell => {
-    cell.addEventListener("dblclick", () => {
+    cell.addEventListener("dblclick",() => {
       const index = Number(cell.dataset.checkIndex);
       const field = cell.dataset.checkField;
 
-      if (field === "missing" && reportRows[index].surplus) {
-        showError("A " + (index + 3) + ". sor egyszerre hiány és többlet.");
-        return;
-      }
-
-      if (field === "surplus" && reportRows[index].missing) {
+      if (
+        (field === "missing" && reportRows[index].surplus) ||
+        (field === "surplus" && reportRows[index].missing)
+      ) {
         showError("A " + (index + 3) + ". sor egyszerre hiány és többlet.");
         return;
       }
@@ -1694,7 +1389,7 @@ function bindReportEvents() {
   });
 
   document.querySelectorAll(".date-cell").forEach(cell => {
-    cell.addEventListener("dblclick", () => {
+    cell.addEventListener("dblclick",() => {
       openDateDialog(Number(cell.dataset.dateIndex));
     });
   });
@@ -1710,7 +1405,7 @@ function clearLookupFields(index) {
   reportRows[index].delivery = "";
 }
 
-/* SOURCE TABLE */
+/* SOURCE TABLE AND DRAG-AND-DROP */
 
 function renderSource() {
   const letters = document.getElementById("sourceLetters");
@@ -1721,33 +1416,27 @@ function renderSource() {
   headers.innerHTML = `<th class="row-number">1</th>`;
   body.innerHTML = "";
 
-  columnOrder.forEach((key, index) => {
+  columnOrder.forEach((key,index) => {
     letters.insertAdjacentHTML(
-      "beforeend",
-      `<th class="col-letter">${columnLetter(index + 1)}</th>`
+      "beforeend",`<th class="col-letter">${columnLetter(index + 1)}</th>`
     );
 
     const column = sourceColumns.find(item => item.key === key);
 
     headers.insertAdjacentHTML(
       "beforeend",
-      `<th
-        class="source-header"
-        draggable="true"
-        data-key="${key}"
-      >${escapeHTML(column.label)}</th>`
+      `<th class="source-header" draggable="true" data-key="${key}">
+        ${escapeHTML(column.label)}
+      </th>`
     );
   });
 
-  sourceData.forEach((record, rowIndex) => {
+  sourceData.forEach((record,rowIndex) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `<td class="row-number">${rowIndex + 2}</td>`;
 
     columnOrder.forEach(key => {
-      tr.insertAdjacentHTML(
-        "beforeend",
-        `<td>${escapeHTML(record[key])}</td>`
-      );
+      tr.insertAdjacentHTML("beforeend",`<td>${escapeHTML(record[key])}</td>`);
     });
 
     body.appendChild(tr);
@@ -1756,72 +1445,59 @@ function renderSource() {
   bindDragEvents();
 }
 
-/* DRAG */
-
 let draggedColumn = null;
 
 function bindDragEvents() {
   document.querySelectorAll(".source-header").forEach(header => {
-    header.addEventListener("dragstart", () => {
+    header.addEventListener("dragstart",() => {
       draggedColumn = header.dataset.key;
       header.classList.add("dragging");
     });
 
-    header.addEventListener("dragend", () => {
+    header.addEventListener("dragend",() => {
       draggedColumn = null;
-
       document.querySelectorAll(".source-header").forEach(item => {
         item.classList.remove("dragging");
         item.classList.remove("drag-over");
       });
     });
 
-    header.addEventListener("dragover", event => {
+    header.addEventListener("dragover",event => {
       event.preventDefault();
-
       if (draggedColumn && draggedColumn !== header.dataset.key) {
         header.classList.add("drag-over");
       }
     });
 
-    header.addEventListener("dragleave", () => {
+    header.addEventListener("dragleave",() => {
       header.classList.remove("drag-over");
     });
 
-    header.addEventListener("drop", event => {
+    header.addEventListener("drop",event => {
       event.preventDefault();
       const target = header.dataset.key;
-
       if (!draggedColumn || draggedColumn === target) return;
 
       const from = columnOrder.indexOf(draggedColumn);
       const to = columnOrder.indexOf(target);
-
-      columnOrder.splice(from, 1);
-      columnOrder.splice(to, 0, draggedColumn);
-
+      columnOrder.splice(from,1);
+      columnOrder.splice(to,0,draggedColumn);
       renderSource();
     });
   });
 }
 
-/* WORKFLOW */
+/* WORKFLOWS */
 
 const workflows = {
-  "Áruátvétel / Inbound": [
-    "Feltételes átvétel",
-    "Tételes átvétel / Itemised",
-    "Betárolás / Intake"
+  "Áruátvétel / Inbound":[
+    "Feltételes átvétel","Tételes átvétel / Itemised","Betárolás / Intake"
   ],
-  "Raktár / Warehouse": [
-    "Árumozgatás / Goods move",
-    "Cycle-Count",
-    "Címkézés / Labelling"
+  "Raktár / Warehouse":[
+    "Árumozgatás / Goods move","Cycle-Count","Címkézés / Labelling"
   ],
-  "Áru kiadás / Outbound": [
-    "Kiszedés / Picking",
-    "Csomagolás / Packaging",
-    "Áru kiadás / Dispatch"
+  "Áru kiadás / Outbound":[
+    "Kiszedés / Picking","Csomagolás / Packaging","Áru kiadás / Dispatch"
   ]
 };
 
@@ -1838,7 +1514,7 @@ function updateWorkflowOptions() {
   });
 }
 
-/* DATE */
+/* EXPIRY DATE */
 
 let dateRowIndex = null;
 
@@ -1846,10 +1522,7 @@ function openDateDialog(index) {
   dateRowIndex = index;
   document.getElementById("dateInput").value = reportRows[index].expiry || "";
   document.getElementById("dateOverlay").classList.add("show");
-
-  setTimeout(() => {
-    document.getElementById("dateInput").focus();
-  }, 20);
+  setTimeout(() => document.getElementById("dateInput").focus(),20);
 }
 
 function closeDateDialog() {
@@ -1861,10 +1534,7 @@ function saveDate() {
   if (dateRowIndex === null) return;
 
   let value = document.getElementById("dateInput").value.trim();
-
-  if (value.endsWith(".")) {
-    value = value.slice(0, -1);
-  }
+  if (value.endsWith(".")) value = value.slice(0,-1);
 
   if (!value) {
     reportRows[dateRowIndex].expiry = "";
@@ -1895,7 +1565,7 @@ function isValidDate(value) {
   if (month < 1 || month > 12) return false;
   if (day < 1 || day > 31) return false;
 
-  const date = new Date(year, month - 1, day);
+  const date = new Date(year,month - 1,day);
 
   return (
     date.getFullYear() === year &&
@@ -1908,15 +1578,8 @@ function isValidDate(value) {
 
 function sortReport() {
   const used = reportRows.filter(row =>
-    row.ean ||
-    row.material ||
-    row.sn ||
-    row.surplus ||
-    row.missing ||
-    row.pallet ||
-    row.box ||
-    row.product ||
-    row.expiry
+    row.ean || row.material || row.sn || row.surplus || row.missing ||
+    row.pallet || row.box || row.product || row.expiry
   );
 
   if (!used.length) {
@@ -1924,14 +1587,14 @@ function sortReport() {
     return;
   }
 
-  for (let i = 0; i < used.length; i++) {
-    if (used[i].missing && used[i].surplus) {
+  for (const row of used) {
+    if (row.missing && row.surplus) {
       showError("A sor egyszerre hiány és többlet.");
       return;
     }
   }
 
-  used.sort((a, b) => {
+  used.sort((a,b) => {
     const typeDiff = reportType(a) - reportType(b);
     if (typeDiff !== 0) return typeDiff;
 
@@ -1944,9 +1607,7 @@ function sortReport() {
     return String(a.material).localeCompare(String(b.material));
   });
 
-  while (used.length < REPORT_ROWS) {
-    used.push(blankRow());
-  }
+  while (used.length < REPORT_ROWS) used.push(blankRow());
 
   reportRows = used;
   buildFrozenGroups();
@@ -1955,10 +1616,7 @@ function sortReport() {
   showInfo("Rendezés kész.");
 }
 
-/* PREVIEW
-   A jegyzőkönyvek csoportosítása a fagyasztott munkalapcsoportoktól független.
-   Hiány = 1, Többlet = 2, Sérülés = 4, Lejárat = 8.
-*/
+/* REPORT PREVIEW */
 
 const PREVIEW_PAGE_SIZE = 5;
 let previewPages = [];
@@ -1974,31 +1632,23 @@ function previewTypeMask(row) {
 }
 
 function previewTypeName(mask) {
-  return [
-    [1, "Hiány"],
-    [2, "Többlet"],
-    [4, "Sérülés"],
-    [8, "Lejárat"]
-  ]
+  return [[1,"Hiány"],[2,"Többlet"],[4,"Sérülés"],[8,"Lejárat"]]
     .filter(([bit]) => mask & bit)
-    .map(([, label]) => label)
+    .map(([,label]) => label)
     .join(" + ");
 }
 
 function previewRowNote(row) {
-  const details = [];
+  const parts = [];
+  if (row.missing) parts.push("hiány");
+  if (row.surplus) parts.push("többlet");
+  if (row.pallet) parts.push("raklap sérült");
+  if (row.box) parts.push("doboz sérült");
+  if (row.product) parts.push("termék sérült");
+  if (row.expiry) parts.push("lejárat: " + row.expiry);
 
-  if (row.missing) details.push("hiány");
-  if (row.surplus) details.push("többlet");
-  if (row.pallet) details.push("raklap sérült");
-  if (row.box) details.push("doboz sérült");
-  if (row.product) details.push("termék sérült");
-  if (row.expiry) details.push("lejárat: " + row.expiry);
-
-  return (
-    (row.sn ? "SN " + row.sn + " " : "") +
-    "(" + details.join(", ") + ")"
-  );
+  return (row.sn ? "SN " + row.sn + " " : "") +
+    "(" + parts.join(", ") + ")";
 }
 
 function buildPreviewPages(rows) {
@@ -2006,39 +1656,31 @@ function buildPreviewPages(rows) {
 
   for (const row of rows) {
     const mask = previewTypeMask(row);
-
     if (!row.material || !mask) continue;
 
     if (row.missing && row.surplus) {
       throw new Error("A sor egyszerre hiány és többlet.");
     }
 
-    const qty =
-      String(row.qty ?? "").trim() === ""
-        ? 1
-        : Number(row.qty);
+    const qty = String(row.qty ?? "").trim() === "" ? 1 : Number(row.qty);
 
     if (!Number.isFinite(qty)) {
       throw new Error("Érvénytelen mennyiség: " + row.material);
     }
 
-    if (!types.has(mask)) {
-      types.set(mask, new Map());
-    }
+    if (!types.has(mask)) types.set(mask,new Map());
 
     const products = types.get(mask);
-
     const key = JSON.stringify([
-      String(row.material),
-      String(row.delivery ?? "")
+      String(row.material),String(row.delivery ?? "")
     ]);
 
     if (!products.has(key)) {
-      products.set(key, {
-        material: row.material,
-        delivery: row.delivery,
-        qty: 0,
-        notes: []
+      products.set(key,{
+        material:row.material,
+        delivery:row.delivery,
+        qty:0,
+        notes:[]
       });
     }
 
@@ -2049,19 +1691,18 @@ function buildPreviewPages(rows) {
 
   const pages = [];
 
-  for (const mask of [...types.keys()].sort((a, b) => a - b)) {
+  for (const mask of [...types.keys()].sort((a,b) => a - b)) {
     const products = [...types.get(mask).values()];
     const pageCount = Math.ceil(products.length / PREVIEW_PAGE_SIZE);
 
     for (let page = 0; page < pageCount; page++) {
       pages.push({
         mask,
-        typeName: previewTypeName(mask),
-        typePage: page + 1,
-        typePageCount: pageCount,
-        products: products.slice(
-          page * PREVIEW_PAGE_SIZE,
-          (page + 1) * PREVIEW_PAGE_SIZE
+        typeName:previewTypeName(mask),
+        typePage:page + 1,
+        typePageCount:pageCount,
+        products:products.slice(
+          page * PREVIEW_PAGE_SIZE,(page + 1) * PREVIEW_PAGE_SIZE
         )
       });
     }
@@ -2105,57 +1746,33 @@ function renderPreviewPage() {
 
   document.getElementById("previewRows").innerHTML =
     page.products.map(item =>
-      "<tr><td>" +
-      escapeHTML(item.material) +
-      "</td><td>" +
-      escapeHTML(item.qty) +
-      "</td><td>" +
-      escapeHTML(item.delivery) +
-      "</td></tr>"
+      "<tr><td>" + escapeHTML(item.material) +
+      "</td><td>" + escapeHTML(item.qty) +
+      "</td><td>" + escapeHTML(item.delivery) + "</td></tr>"
     ).join("");
 
   document.getElementById("previewNotes").textContent =
     page.products.map(item =>
-      item.material +
-      " / " +
-      item.delivery +
-      ": " +
-      item.notes.join("; ")
+      item.material + " / " + item.delivery + ": " + item.notes.join("; ")
     ).join("\n");
 
-  document.getElementById("previewTypeName").textContent =
-    page.typeName;
+  document.getElementById("previewTypeName").textContent = page.typeName;
 
   document.getElementById("previewPageNumber").textContent =
-    "Típuson belül: " +
-    page.typePage +
-    " / " +
-    page.typePageCount +
-    " · Összes oldal: " +
-    (previewPageIndex + 1) +
-    " / " +
-    previewPages.length;
+    "Típuson belül: " + page.typePage + " / " + page.typePageCount +
+    " · Összes oldal: " + (previewPageIndex + 1) + " / " + previewPages.length;
 
   document.getElementById("previewPaperType").textContent =
-    page.typeName +
-    " — " +
-    page.typePage +
-    " / " +
-    page.typePageCount +
-    ". oldal";
+    page.typeName + " — " + page.typePage + " / " + page.typePageCount + ". oldal";
 
-  document.getElementById("previewPrevious").disabled =
-    previewPageIndex === 0;
-
+  document.getElementById("previewPrevious").disabled = previewPageIndex === 0;
   document.getElementById("previewNext").disabled =
     previewPageIndex === previewPages.length - 1;
 }
 
 function changePreviewPage(direction) {
   const next = previewPageIndex + direction;
-
   if (next < 0 || next >= previewPages.length) return;
-
   previewPageIndex = next;
   renderPreviewPage();
   document.querySelector(".report-preview").scrollTop = 0;
@@ -2165,14 +1782,13 @@ function closePreview() {
   document.getElementById("previewOverlay").classList.remove("show");
 }
 
-/* RIBBON NAV */
+/* NAVIGATION */
 
 document.querySelectorAll(".ribbon-tab").forEach(tab => {
-  tab.addEventListener("click", () => {
+  tab.addEventListener("click",() => {
     document.querySelectorAll(".ribbon-tab").forEach(item => {
       item.classList.remove("active");
     });
-
     tab.classList.add("active");
 
     document.querySelectorAll(".ribbon-panel").forEach(panel => {
@@ -2184,14 +1800,11 @@ document.querySelectorAll(".ribbon-tab").forEach(tab => {
   });
 });
 
-/* SHEET NAV */
-
 document.querySelectorAll(".sheet-tab-bottom").forEach(tab => {
-  tab.addEventListener("click", () => {
+  tab.addEventListener("click",() => {
     document.querySelectorAll(".sheet-tab-bottom").forEach(item => {
       item.classList.remove("active");
     });
-
     tab.classList.add("active");
 
     document.querySelectorAll(".sheet").forEach(sheet => {
@@ -2203,24 +1816,19 @@ document.querySelectorAll(".sheet-tab-bottom").forEach(tab => {
   });
 });
 
-/* CELL SELECTION */
-
 function bindCellSelection() {
   document.querySelectorAll(".report-grid td").forEach(cell => {
-    cell.addEventListener("click", () => {
+    cell.addEventListener("click",() => {
       document.querySelectorAll(".selected-cell").forEach(item => {
         item.classList.remove("selected-cell");
       });
-
       cell.classList.add("selected-cell");
-
-      document.getElementById("formulaBar").textContent =
-        cell.innerText.trim();
+      document.getElementById("formulaBar").textContent = cell.innerText.trim();
     });
   });
 }
 
-/* DIALOGS */
+/* DIALOGS AND HELPERS */
 
 function showError(message) {
   document.getElementById("errorText").textContent = message;
@@ -2236,41 +1844,353 @@ function closeError() {
   document.getElementById("errorOverlay").classList.remove("show");
 }
 
-/* HELPERS */
-
 function columnLetter(number) {
   let result = "";
-
   while (number > 0) {
     number--;
     result = String.fromCharCode(65 + number % 26) + result;
     number = Math.floor(number / 26);
   }
-
   return result;
 }
 
 function escapeHTML(value) {
   return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 }
 
 function escapeAttr(value) {
   return escapeHTML(value);
 }
 
+/* LANGUAGE: MAGYAR / ENGLISH */
+
+let language = "hu";
+
+try {
+  language = localStorage.getItem("dataworks-language") === "en" ? "en" : "hu";
+} catch (_) {}
+
+const english = {
+  "Ez az interaktív Excel-demó asztali kijelzőre készült.":
+    "This interactive Excel demo is designed for desktop screens.",
+  "Megosztás ▾": "Share ▾",
+  "Gyorselérési eszköztár": "Quick Access Toolbar",
+  "↕ Rendezés": "↕ Sort",
+  "▤ Jegyzőkönyv": "▤ Report",
+  "Fájl": "File",
+  "Kezdőlap": "Home",
+  "Beszúrás": "Insert",
+  "Rajzolás": "Draw",
+  "Lapelrendezés": "Page Layout",
+  "Képletek": "Formulas",
+  "Adatok": "Data",
+  "Véleményezés": "Review",
+  "Nézet": "View",
+  "Fejlesztőeszközök": "Developer",
+  "Súgó": "Help",
+  "Vágólap": "Clipboard",
+  "Betűtípus": "Font",
+  "Igazítás": "Alignment",
+  "Sortöréssel több sorba": "Wrap Text",
+  "Általános ▾": "General ▾",
+  "Szám": "Number",
+  "Stílusok": "Styles",
+  "Fájlműveletek": "File operations",
+  "Nyomtatás és export": "Print and export",
+  "Rajzeszközök": "Drawing tools",
+  "Oldalbeállítás": "Page setup",
+  "Függvénytár": "Function library",
+  "Rendezés és szűrés": "Sort and filter",
+  "Kapcsolatok": "Connections",
+  "Ellenőrzés": "Proofing",
+  "Kód": "Code",
+  "Eset helye": "Case area",
+  "Eset helye / Case Area": "Case Area",
+  "Választható munkafolyamat": "Select workflow",
+  "Áruátvétel / Inbound": "Inbound",
+  "Raktár / Warehouse": "Warehouse",
+  "Áru kiadás / Outbound": "Outbound",
+  "Feltételes átvétel": "Conditional receipt",
+  "Tételes átvétel / Itemised": "Itemised receipt",
+  "Betárolás / Intake": "Intake",
+  "Árumozgatás / Goods move": "Goods movement",
+  "Címkézés / Labelling": "Labelling",
+  "Kiszedés / Picking": "Picking",
+  "Csomagolás / Packaging": "Packaging",
+  "Áru kiadás / Dispatch": "Dispatch",
+  "Riport": "Report",
+  "Adat": "Data",
+  "Többlet": "Surplus",
+  "Hiány": "Shortage",
+  "Sérülés": "Damage",
+  "Lejárat": "Expiry",
+  "Raklap sérült": "Pallet damaged",
+  "Doboz sérült": "Box damaged",
+  "Termék sérült": "Product damaged",
+  "Lejárati dátum": "Expiry date",
+  "↔ Húzd át az oszlopfejléceket másik helyre":
+    "↔ Drag column headers to reorder them",
+  "A keresés fejlécnév alapján működik, nem fix oszlopszám alapján.":
+    "Lookup uses header names rather than fixed column positions.",
+  "Dupla kattintás": "Double-click",
+  "Mégse": "Cancel",
+  "Bezárás": "Close",
+  "Lejárati dátum, például 2026.10.15.":
+    "Expiry date, for example 2026.10.15 (YYYY.MM.DD).",
+  "Üresen hagyva törlöd a korábbi dátumot.":
+    "Leave blank to clear the previous date.",
+  "Árukezelési Jegyzőkönyv • Preview": "Goods Handling Report • Preview",
+  "Jegyzőkönyv lapozása": "Report navigation",
+  "‹ Előző": "‹ Previous",
+  "Következő ›": "Next ›",
+  "Árukezelési Jegyzőkönyv": "Goods Handling Report",
+  "Munkafolyamat / Workflow": "Workflow",
+  "Termék kód / P/N": "Product code / P/N",
+  "Mennyiség / Qty": "Quantity",
+  "Szállítólevél / Delivery Nr.": "Delivery note number",
+  "Megjegyzés / Notes": "Notes",
+  "Dátum-Idő / Date-Time:": "Date and time:",
+  "Nincs rendezhető tétel.": "There are no items to sort.",
+  "Rendezés kész.": "Sorting complete.",
+  "Nincs megjelölt eltérés.": "No discrepancies have been marked.",
+  "A sor egyszerre hiány és többlet.":
+    "A row cannot be both a shortage and a surplus.",
+  "Így add meg: 2026.10.15":
+    "Use YYYY.MM.DD, for example 2026.10.15",
+  "Nem találom együtt a szükséges fejléceket az Adat lapon: Material, Material Description, Manufacturer Part Number, EAN/UPC, DelNote Vendor.":
+    "Required headers are missing from the Data sheet: Material, Material Description, Manufacturer Part Number, EAN/UPC, DelNote Vendor."
+};
+
+function translate(value) {
+  if (language !== "en") return value;
+
+  const text = String(value);
+  if (english[text]) return english[text];
+
+  const prefix = "EAN-keresési hiba: ";
+  if (text.startsWith(prefix)) {
+    return "EAN lookup error: " + translate(text.slice(prefix.length));
+  }
+
+  return text
+    .replace(
+      /^A (\d+)\. sor egyszerre hiány és többlet\.$/,
+      "Row $1 cannot be both a shortage and a surplus."
+    )
+    .replace(/^Érvénytelen mennyiség: /,"Invalid quantity: ")
+    .replace(
+      /^A\(z\) (.+) fejléc többször szerepel az Adat lapon\.$/,
+      "The $1 header occurs more than once on the Data sheet."
+    )
+    .replace(
+      /^Az (.+) EAN több sorban eltérő adatokkal szerepel az Adat lapon\.$/,
+      "EAN $1 has conflicting records on the Data sheet."
+    );
+}
+
+/*
+  Eredeti feliratok megőrzése.
+  Az adatcellák, SN-ek és a forrásadatok nem kerülnek fordításra.
+*/
+const uiSources = new WeakMap();
+
+function translateUI() {
+  const walker = document.createTreeWalker(
+    document.body,NodeFilter.SHOW_TEXT
+  );
+
+  let node;
+
+  while ((node = walker.nextNode())) {
+    if (node.parentElement.closest(
+      "script,style,#languageSelect,#reportBody,#sourceBody," +
+      "#previewRows,#previewNotes,#previewTypeName," +
+      "#previewPageNumber,#previewPaperType"
+    )) {
+      continue;
+    }
+
+    let state = uiSources.get(node);
+
+    if (!state || node.nodeValue !== state.output) {
+      state = {source:node.nodeValue};
+    }
+
+    const trimmed = state.source.trim();
+
+    state.output = trimmed
+      ? state.source.replace(trimmed,translate(trimmed))
+      : state.source;
+
+    node.nodeValue = state.output;
+    uiSources.set(node,state);
+  }
+
+  document.querySelectorAll("[title],[aria-label]").forEach(element => {
+    for (const attribute of ["title","aria-label"]) {
+      if (!element.hasAttribute(attribute)) continue;
+
+      const key = "data-hu-" + attribute;
+
+      if (!element.hasAttribute(key)) {
+        element.setAttribute(key,element.getAttribute(attribute));
+      }
+
+      element.setAttribute(
+        attribute,translate(element.getAttribute(key))
+      );
+    }
+  });
+
+  document.documentElement.lang = language;
+  document.getElementById("languageSelect").value = language;
+}
+
+/* Dinamikus felületek fordítása újrarajzolás után. */
+
+const baseRenderReport = renderReport;
+renderReport = function () {
+  baseRenderReport();
+  translateUI();
+};
+
+const baseWorkflow = updateWorkflowOptions;
+updateWorkflowOptions = function () {
+  baseWorkflow();
+  translateUI();
+};
+
+const baseShowError = showError;
+showError = function (message) {
+  baseShowError(message);
+  translateUI();
+};
+
+const baseShowInfo = showInfo;
+showInfo = function (message) {
+  baseShowInfo(message);
+  translateUI();
+};
+
+/* A jegyzőkönyv típusa és megjegyzése a választott nyelven. */
+
+previewTypeName = function (mask) {
+  return [[1,"Hiány"],[2,"Többlet"],[4,"Sérülés"],[8,"Lejárat"]]
+    .filter(([bit]) => mask & bit)
+    .map(([,name]) => translate(name))
+    .join(" + ");
+};
+
+previewRowNote = function (row) {
+  const parts = [];
+
+  if (row.missing) {
+    parts.push(language === "en" ? "shortage" : "hiány");
+  }
+  if (row.surplus) {
+    parts.push(language === "en" ? "surplus" : "többlet");
+  }
+  if (row.pallet) {
+    parts.push(language === "en" ? "pallet damaged" : "raklap sérült");
+  }
+  if (row.box) {
+    parts.push(language === "en" ? "box damaged" : "doboz sérült");
+  }
+  if (row.product) {
+    parts.push(language === "en" ? "product damaged" : "termék sérült");
+  }
+  if (row.expiry) {
+    parts.push(
+      (language === "en" ? "expiry: " : "lejárat: ") + row.expiry
+    );
+  }
+
+  return (row.sn ? "SN " + row.sn + " " : "") +
+    "(" + parts.join(", ") + ")";
+};
+
+const basePreviewPage = renderPreviewPage;
+
+renderPreviewPage = function () {
+  basePreviewPage();
+
+  const page = previewPages[previewPageIndex];
+  if (!page) return;
+
+  if (language === "en") {
+    document.getElementById("previewPageNumber").textContent =
+      "Within type: " + page.typePage + " / " + page.typePageCount +
+      " · All pages: " + (previewPageIndex + 1) + " / " + previewPages.length;
+
+    document.getElementById("previewPaperType").textContent =
+      page.typeName + " — Page " + page.typePage + " / " + page.typePageCount;
+  }
+
+  translateUI();
+};
+
+let previewCreatedAt = null;
+const baseGeneratePreview = generatePreview;
+
+generatePreview = function () {
+  baseGeneratePreview();
+
+  if (previewPages.length) {
+    previewCreatedAt = new Date();
+
+    document.getElementById("previewDate").textContent =
+      previewCreatedAt.toLocaleString(
+        language === "en" ? "en-GB" : "hu-HU"
+      );
+  }
+};
+
+function setLanguage(value) {
+  language = value === "en" ? "en" : "hu";
+
+  try {
+    localStorage.setItem("dataworks-language",language);
+  } catch (_) {}
+
+  if (document.getElementById("previewOverlay").classList.contains("show")) {
+    const index = previewPageIndex;
+    previewPages = buildPreviewPages(reportRows);
+    previewPageIndex = Math.min(
+      index,Math.max(0,previewPages.length - 1)
+    );
+
+    renderPreviewPage();
+
+    if (previewCreatedAt) {
+      document.getElementById("previewDate").textContent =
+        previewCreatedAt.toLocaleString(
+          language === "en" ? "en-GB" : "hu-HU"
+        );
+    }
+  }
+
+  translateUI();
+}
+
+document.getElementById("languageSelect").addEventListener(
+  "change",event => setLanguage(event.target.value)
+);
+
 /* INIT */
 
-document.getElementById("caseArea")
-  .addEventListener("change", updateWorkflowOptions);
+document.getElementById("caseArea").addEventListener(
+  "change",updateWorkflowOptions
+);
 
 updateWorkflowOptions();
 renderReport();
 renderSource();
+translateUI();
 </script>
 
 </body>
