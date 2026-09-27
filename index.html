@@ -6,9 +6,7 @@
 <title>Bujtás DataWorks | Excel VBA Demo</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body {
   margin: 0;
@@ -20,19 +18,10 @@ html, body {
   overflow: hidden;
 }
 
-button,
-input,
-select {
-  font: inherit;
-}
+button, input, select { font: inherit; }
+button { cursor: pointer; }
 
-button {
-  cursor: pointer;
-}
-
-/* ======================================================
-   EXCEL SHELL
-   ====================================================== */
+/* EXCEL SHELL */
 
 .excel-app {
   height: 100vh;
@@ -89,9 +78,7 @@ button {
   border-radius: 5px;
 }
 
-/* ======================================================
-   QUICK ACCESS
-   ====================================================== */
+/* QUICK ACCESS */
 
 .quickbar {
   height: 29px;
@@ -136,9 +123,7 @@ button {
   margin: 0 5px;
 }
 
-/* ======================================================
-   RIBBON TABS
-   ====================================================== */
+/* RIBBON TABS */
 
 .ribbon-tabs {
   height: 33px;
@@ -165,9 +150,7 @@ button {
   font-weight: 700;
 }
 
-/* ======================================================
-   RIBBON CONTENT
-   ====================================================== */
+/* RIBBON CONTENT */
 
 .ribbon {
   height: 78px;
@@ -184,9 +167,7 @@ button {
   align-items: stretch;
 }
 
-.ribbon-panel.active {
-  display: flex;
-}
+.ribbon-panel.active { display: flex; }
 
 .ribbon-group {
   min-width: 105px;
@@ -198,9 +179,7 @@ button {
   gap: 6px;
 }
 
-.ribbon-group.wide {
-  min-width: 190px;
-}
+.ribbon-group.wide { min-width: 190px; }
 
 .ribbon-group-title {
   position: absolute;
@@ -258,9 +237,7 @@ button {
   gap: 4px;
 }
 
-/* ======================================================
-   FORMULA BAR
-   ====================================================== */
+/* FORMULA BAR */
 
 .formula-area {
   height: 33px;
@@ -301,9 +278,7 @@ button {
   white-space: nowrap;
 }
 
-/* ======================================================
-   WORKBOOK
-   ====================================================== */
+/* WORKBOOK */
 
 .workbook {
   flex: 1;
@@ -321,13 +296,9 @@ button {
   color: #111;
 }
 
-.sheet.active {
-  display: block;
-}
+.sheet.active { display: block; }
 
-/* ======================================================
-   REPORT
-   ====================================================== */
+/* REPORT */
 
 .report-wrap {
   min-width: 1500px;
@@ -364,9 +335,7 @@ button {
   color: #111;
 }
 
-/* ======================================================
-   GRID
-   ====================================================== */
+/* GRID */
 
 .grid {
   border-collapse: collapse;
@@ -375,8 +344,7 @@ button {
   font-size: 12px;
 }
 
-.grid th,
-.grid td {
+.grid th, .grid td {
   border: 1px solid #c9c9c9;
   height: 28px;
   padding: 3px 7px;
@@ -414,13 +382,8 @@ button {
   background: #f3faf6;
 }
 
-.editable {
-  background: #fffdf4;
-}
-
-.center {
-  text-align: center;
-}
+.editable { background: #fffdf4; }
+.center { text-align: center; }
 
 .ean-input {
   width: 100%;
@@ -438,13 +401,8 @@ button {
   user-select: none;
 }
 
-.check-cell.checked {
-  font-weight: 700;
-}
-
-.date-cell {
-  text-align: center;
-}
+.check-cell.checked { font-weight: 700; }
+.date-cell { text-align: center; }
 
 .selected-cell {
   outline: 2px solid #21a366;
@@ -456,9 +414,7 @@ button {
   background: #fff;
 }
 
-/* ======================================================
-   DATA SHEET
-   ====================================================== */
+/* DATA SHEET */
 
 .data-topbar {
   height: 42px;
@@ -483,9 +439,7 @@ button {
   padding: 5px 8px;
 }
 
-.data-note {
-  color: #555;
-}
+.data-note { color: #555; }
 
 .source-wrap {
   min-width: 1700px;
@@ -502,17 +456,13 @@ button {
   z-index: 5;
 }
 
-.source-header.dragging {
-  opacity: .4;
-}
+.source-header.dragging { opacity: .4; }
 
 .source-header.drag-over {
   box-shadow: inset 4px 0 0 #21a366;
 }
 
-/* ======================================================
-   BOTTOM TABS
-   ====================================================== */
+/* BOTTOM TABS */
 
 .bottom-bar {
   height: 34px;
@@ -542,9 +492,7 @@ button {
   position: relative;
 }
 
-.sheet-tab-bottom:hover {
-  background: #e1e1e1;
-}
+.sheet-tab-bottom:hover { background: #e1e1e1; }
 
 .sheet-tab-bottom.active {
   background: white;
@@ -568,9 +516,7 @@ button {
   font-size: 11px;
 }
 
-/* ======================================================
-   DIALOG
-   ====================================================== */
+/* DIALOG */
 
 .overlay {
   position: fixed;
@@ -582,9 +528,7 @@ button {
   z-index: 999;
 }
 
-.overlay.show {
-  display: flex;
-}
+.overlay.show { display: flex; }
 
 .dialog {
   width: 430px;
@@ -610,9 +554,7 @@ button {
   line-height: 1.45;
 }
 
-.dialog-icon {
-  font-size: 30px;
-}
+.dialog-icon { font-size: 30px; }
 
 .dialog-actions {
   padding: 12px 18px 16px;
@@ -628,9 +570,7 @@ button {
   border: 1px solid #999;
 }
 
-.date-dialog-body {
-  display: block;
-}
+.date-dialog-body { display: block; }
 
 .date-dialog-body input {
   width: 100%;
@@ -640,9 +580,7 @@ button {
   padding: 4px 7px;
 }
 
-/* ======================================================
-   REPORT PREVIEW
-   ====================================================== */
+/* REPORT PREVIEW */
 
 .report-preview {
   width: min(860px, 92vw);
@@ -658,9 +596,46 @@ button {
   min-height: 650px;
 }
 
-.paper h2 {
-  text-align: center;
+.paper h2 { text-align: center; }
+
+.preview-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #ccc;
 }
+
+.preview-navigation button {
+  padding: 7px 12px;
+  border: 1px solid #999;
+  background: white;
+  white-space: nowrap;
+}
+
+.preview-navigation button:disabled {
+  opacity: .45;
+  cursor: default;
+}
+
+.preview-page-label { text-align: center; }
+
+.preview-page-label small {
+  display: block;
+  margin-top: 4px;
+}
+
+.preview-type {
+  text-align: center;
+  font-weight: 700;
+}
+
+.paper td, #previewNotes { overflow-wrap: anywhere; }
 
 .paper-meta {
   display: grid;
@@ -679,15 +654,12 @@ button {
   border-collapse: collapse;
 }
 
-.paper th,
-.paper td {
+.paper th, .paper td {
   border: 1px solid #555;
   padding: 8px;
 }
 
-.desktop-warning {
-  display: none;
-}
+.desktop-warning { display: none; }
 
 @media (max-width: 900px) {
   .desktop-warning {
@@ -715,28 +687,18 @@ button {
 
   <div class="titlebar">
     <div class="excel-logo">X</div>
-
     <div class="workbook-name">
       Automated Goods Discrepancy &amp; Damage Reporting System.xlsm
     </div>
-
     <div class="demo-badge">INTERACTIVE DEMO</div>
     <button class="share">Megosztás ▾</button>
   </div>
 
   <div class="quickbar">
     <span class="quick-label">Gyorselérési eszköztár</span>
-
-    <button class="quick-btn" onclick="sortReport()">
-      ↕ Rendezés
-    </button>
-
-    <button class="quick-btn" onclick="generatePreview()">
-      ▤ Jegyzőkönyv
-    </button>
-
+    <button class="quick-btn" onclick="sortReport()">↕ Rendezés</button>
+    <button class="quick-btn" onclick="generatePreview()">▤ Jegyzőkönyv</button>
     <div class="quick-separator"></div>
-
     <button class="quick-btn">💾</button>
     <button class="quick-btn">↶</button>
     <button class="quick-btn">↷</button>
@@ -761,24 +723,20 @@ button {
     <div class="ribbon-panel active" id="ribbon-home">
       <div class="ribbon-group">
         <div class="ribbon-icon big">📋</div>
-
         <div class="small-grid">
           <div class="ribbon-icon">✂</div>
           <div class="ribbon-icon">▣</div>
           <div class="ribbon-icon">🖌</div>
         </div>
-
         <div class="ribbon-group-title">Vágólap</div>
       </div>
 
       <div class="ribbon-group wide">
         <div class="font-stack">
-
           <div class="font-line">
             <div class="ribbon-select" style="width:120px;">Aptos ▾</div>
             <div class="ribbon-select">11 ▾</div>
           </div>
-
           <div class="font-line">
             <div class="ribbon-icon"><b>F</b></div>
             <div class="ribbon-icon"><i>D</i></div>
@@ -786,14 +744,11 @@ button {
             <div class="ribbon-icon">▦</div>
             <div class="ribbon-icon">🖍</div>
           </div>
-
         </div>
-
         <div class="ribbon-group-title">Betűtípus</div>
       </div>
 
       <div class="ribbon-group wide">
-
         <div class="small-grid">
           <div class="ribbon-icon">≡</div>
           <div class="ribbon-icon">☰</div>
@@ -802,21 +757,17 @@ button {
           <div class="ribbon-icon">↔</div>
           <div class="ribbon-icon">↦</div>
         </div>
-
         <div class="ribbon-select">Sortöréssel több sorba</div>
-
         <div class="ribbon-group-title">Igazítás</div>
       </div>
 
       <div class="ribbon-group">
         <div class="ribbon-select">Általános ▾</div>
-
         <div class="small-grid">
           <div class="ribbon-icon">%</div>
           <div class="ribbon-icon">,00</div>
           <div class="ribbon-icon">◀0</div>
         </div>
-
         <div class="ribbon-group-title">Szám</div>
       </div>
 
@@ -824,7 +775,6 @@ button {
         <div class="ribbon-icon big">▦</div>
         <div class="ribbon-icon big">🖌</div>
         <div class="ribbon-icon big">▤</div>
-
         <div class="ribbon-group-title">Stílusok</div>
       </div>
     </div>
@@ -836,7 +786,6 @@ button {
         <div class="ribbon-icon big">💾</div>
         <div class="ribbon-group-title">Fájlműveletek</div>
       </div>
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">🖨</div>
         <div class="ribbon-icon big">📤</div>
@@ -886,7 +835,6 @@ button {
         <div class="ribbon-icon big">⌕</div>
         <div class="ribbon-group-title">Rendezés és szűrés</div>
       </div>
-
       <div class="ribbon-group wide">
         <div class="ribbon-icon big">⟳</div>
         <div class="ribbon-icon big">🔗</div>
@@ -937,45 +885,25 @@ button {
   </div>
 
   <div class="workbook">
-
     <div class="sheet active" id="sheet-riport">
-
       <div class="report-wrap">
 
         <div class="report-config">
-
-          <div class="label">
-            Eset helye / Case Area
-          </div>
-
+          <div class="label">Eset helye / Case Area</div>
           <div>
             <select id="caseArea">
-              <option value="Áruátvétel / Inbound">
-                Áruátvétel / Inbound
-              </option>
-
-              <option value="Raktár / Warehouse">
-                Raktár / Warehouse
-              </option>
-
-              <option value="Áru kiadás / Outbound">
-                Áru kiadás / Outbound
-              </option>
+              <option value="Áruátvétel / Inbound">Áruátvétel / Inbound</option>
+              <option value="Raktár / Warehouse">Raktár / Warehouse</option>
+              <option value="Áru kiadás / Outbound">Áru kiadás / Outbound</option>
             </select>
           </div>
-
-          <div class="label">
-            Választható munkafolyamat
-          </div>
-
+          <div class="label">Választható munkafolyamat</div>
           <div>
             <select id="workflow"></select>
           </div>
-
         </div>
 
         <table class="grid report-grid">
-
           <colgroup>
             <col style="width:44px">
             <col style="width:125px">
@@ -994,7 +922,6 @@ button {
           </colgroup>
 
           <thead>
-
             <tr>
               <th class="col-letter"></th>
               <th class="col-letter">A</th>
@@ -1011,7 +938,6 @@ button {
               <th class="col-letter">L</th>
               <th class="col-letter">M</th>
             </tr>
-
             <tr>
               <th class="row-number">2</th>
               <th class="report-header">SAP Material</th>
@@ -1028,27 +954,21 @@ button {
               <th class="report-header">Termék sérült</th>
               <th class="report-header">Lejárati dátum</th>
             </tr>
-
           </thead>
 
           <tbody id="reportBody"></tbody>
-
         </table>
 
       </div>
     </div>
 
     <div class="sheet" id="sheet-adat">
-
       <div class="source-wrap">
-
         <div class="data-topbar">
           <strong>Dummy SAP export</strong>
-
           <span class="drag-hint">
             ↔ Húzd át az oszlopfejléceket másik helyre
           </span>
-
           <span class="data-note">
             A keresés fejlécnév alapján működik, nem fix oszlopszám alapján.
           </span>
@@ -1059,121 +979,93 @@ button {
             <tr id="sourceLetters"></tr>
             <tr id="sourceHeaders"></tr>
           </thead>
-
           <tbody id="sourceBody"></tbody>
         </table>
-
       </div>
     </div>
-
   </div>
 
   <div class="bottom-bar">
-
-    <div class="sheet-nav">
-      ＋ ◀ ▶
-    </div>
-
-    <div class="sheet-tab-bottom active" data-sheet="riport">
-      Riport
-    </div>
-
-    <div class="sheet-tab-bottom" data-sheet="adat">
-      Adat
-    </div>
-
+    <div class="sheet-nav">＋ ◀ ▶</div>
+    <div class="sheet-tab-bottom active" data-sheet="riport">Riport</div>
+    <div class="sheet-tab-bottom" data-sheet="adat">Adat</div>
     <div class="statusbar">
       Bujtás DataWorks • Interactive portfolio demo
     </div>
-
   </div>
 
 </div>
 
 <div class="overlay" id="errorOverlay">
-
   <div class="dialog">
-
-    <div class="dialog-title">
-      Microsoft Excel
-    </div>
-
+    <div class="dialog-title">Microsoft Excel</div>
     <div class="dialog-body">
       <div class="dialog-icon">⚠️</div>
       <div id="errorText"></div>
     </div>
-
     <div class="dialog-actions">
       <button onclick="closeError()">OK</button>
     </div>
-
   </div>
-
 </div>
 
 <div class="overlay" id="dateOverlay">
-
   <div class="dialog">
-
-    <div class="dialog-title">
-      Lejárati dátum
-    </div>
-
+    <div class="dialog-title">Lejárati dátum</div>
     <div class="dialog-body date-dialog-body">
-
       <div>
         Lejárati dátum, például 2026.10.15.<br>
         Üresen hagyva törlöd a korábbi dátumot.
       </div>
-
-      <input
-        type="text"
-        id="dateInput"
-        placeholder="2026.10.15"
-      >
-
+      <input type="text" id="dateInput" placeholder="2026.10.15">
     </div>
-
     <div class="dialog-actions">
       <button onclick="closeDateDialog()">Mégse</button>
       <button onclick="saveDate()">OK</button>
     </div>
-
   </div>
-
 </div>
 
 <div class="overlay" id="previewOverlay">
-
   <div class="dialog report-preview">
 
     <div class="dialog-title">
       Árukezelési Jegyzőkönyv • Preview
     </div>
 
-    <div class="paper">
+    <nav class="preview-navigation" aria-label="Jegyzőkönyv lapozása">
+      <button id="previewPrevious" onclick="changePreviewPage(-1)">
+        ‹ Előző
+      </button>
+      <div class="preview-page-label" aria-live="polite" aria-atomic="true">
+        <strong id="previewTypeName"></strong>
+        <small id="previewPageNumber"></small>
+      </div>
+      <button id="previewNext" onclick="changePreviewPage(1)">
+        Következő ›
+      </button>
+    </nav>
 
+    <div class="paper">
       <h2>
         Árukezelési Jegyzőkönyv<br>
         <small>Minutes of Goods Handling</small>
       </h2>
 
-      <div class="paper-meta">
+      <p class="preview-type" id="previewPaperType"></p>
 
+      <div class="paper-meta">
         <div class="paper-box">
           <strong>Eset helye / Case Area</strong><br>
           <span id="previewArea"></span>
         </div>
-
         <div class="paper-box">
           <strong>Munkafolyamat / Workflow</strong><br>
           <span id="previewWorkflow"></span>
         </div>
-
       </div>
 
       <table>
-
         <thead>
           <tr>
             <th>Termék kód / P/N</th>
@@ -1181,14 +1073,11 @@ button {
             <th>Szállítólevél / Delivery Nr.</th>
           </tr>
         </thead>
-
         <tbody id="previewRows"></tbody>
-
       </table>
 
       <div class="paper-box" style="margin-top:24px;">
         <strong>Megjegyzés / Notes</strong>
-
         <div
           id="previewNotes"
           style="margin-top:10px; white-space:pre-line;"
@@ -1199,7 +1088,6 @@ button {
         <strong>Dátum-Idő / Date-Time:</strong>
         <span id="previewDate"></span>
       </div>
-
     </div>
 
     <div class="dialog-actions">
@@ -1207,14 +1095,10 @@ button {
     </div>
 
   </div>
-
 </div>
 
 <script>
-
-/* ======================================================
-   SOURCE
-   ====================================================== */
+/* SOURCE */
 
 const sourceColumns = [
   { key: "plant", label: "Plant" },
@@ -1230,8 +1114,7 @@ const sourceColumns = [
   { key: "unit", label: "Base Unit" }
 ];
 
-let columnOrder =
-  sourceColumns.map(item => item.key);
+let columnOrder = sourceColumns.map(item => item.key);
 
 const sourceData = [
   {
@@ -1405,9 +1288,7 @@ const sourceData = [
   }
 ];
 
-/* ======================================================
-   REPORT STATE
-   ====================================================== */
+/* REPORT STATE */
 
 function blankRow() {
   return {
@@ -1428,48 +1309,21 @@ function blankRow() {
 }
 
 const REPORT_ROWS = 24;
-
-let reportRows =
-  Array.from(
-    { length: REPORT_ROWS },
-    () => blankRow()
-  );
-
+let reportRows = Array.from({ length: REPORT_ROWS }, () => blankRow());
 let reportSorted = false;
 let frozenGroups = [];
 
-/* ======================================================
-   HEADER ALIASES
-   ====================================================== */
+/* HEADER ALIASES */
 
 const headerAliases = {
-  material: [
-    "material",
-    "sap material"
-  ],
-
-  description: [
-    "material description"
-  ],
-
-  mpn: [
-    "manufacturer part number"
-  ],
-
-  ean: [
-    "ean/upc",
-    "ean",
-    "ean / upc"
-  ],
-
-  delivery: [
-    "delnote vendor",
-    "delivery note vendor"
-  ]
+  material: ["material", "sap material"],
+  description: ["material description"],
+  mpn: ["manufacturer part number"],
+  ean: ["ean/upc", "ean", "ean / upc"],
+  delivery: ["delnote vendor", "delivery note vendor"]
 };
 
 function normalizeHeader(value) {
-
   return String(value ?? "")
     .replace(/\u00A0/g, " ")
     .replace(/\r/g, " ")
@@ -1480,58 +1334,34 @@ function normalizeHeader(value) {
 }
 
 function detectRequiredColumns() {
-
   const result = {};
 
-  for (
-    const field of Object.keys(headerAliases)
-  ) {
-
+  for (const field of Object.keys(headerAliases)) {
     const hits = [];
 
-    columnOrder.forEach(
-      (key, index) => {
+    columnOrder.forEach((key, index) => {
+      const column = sourceColumns.find(item => item.key === key);
+      if (!column) return;
 
-        const column =
-          sourceColumns.find(
-            item => item.key === key
-          );
+      const normalized = normalizeHeader(column.label);
 
-        if (!column) {
-          return;
-        }
-
-        const normalized =
-          normalizeHeader(column.label);
-
-        if (
-          headerAliases[field]
-            .includes(normalized)
-        ) {
-          hits.push(index);
-        }
-
+      if (headerAliases[field].includes(normalized)) {
+        hits.push(index);
       }
-    );
+    });
 
     if (hits.length === 0) {
-
       throw new Error(
         "Nem találom együtt a szükséges fejléceket az Adat lapon: " +
         "Material, Material Description, Manufacturer Part Number, " +
         "EAN/UPC, DelNote Vendor."
       );
-
     }
 
     if (hits.length > 1) {
-
       throw new Error(
-        "A(z) " +
-        field +
-        " fejléc többször szerepel az Adat lapon."
+        "A(z) " + field + " fejléc többször szerepel az Adat lapon."
       );
-
     }
 
     result[field] = hits[0];
@@ -1541,123 +1371,62 @@ function detectRequiredColumns() {
 }
 
 function getRenderedSourceRows() {
-
   return sourceData.map(
-    record =>
-      columnOrder.map(
-        key => record[key]
-      )
+    record => columnOrder.map(key => record[key])
   );
 }
 
 function lookupEAN(ean) {
-
-  const columns =
-    detectRequiredColumns();
-
-  const rows =
-    getRenderedSourceRows();
-
+  const columns = detectRequiredColumns();
+  const rows = getRenderedSourceRows();
   let found = null;
 
   for (const row of rows) {
+    const sourceEAN = String(row[columns.ean]).trim();
 
-    const sourceEAN =
-      String(
-        row[columns.ean]
-      ).trim();
-
-    if (sourceEAN !== ean) {
-      continue;
-    }
+    if (sourceEAN !== ean) continue;
 
     const candidate = {
-      material:
-        row[columns.material],
-
-      description:
-        row[columns.description],
-
-      mpn:
-        row[columns.mpn],
-
-      delivery:
-        row[columns.delivery]
+      material: row[columns.material],
+      description: row[columns.description],
+      mpn: row[columns.mpn],
+      delivery: row[columns.delivery]
     };
 
     if (!found) {
-
       found = candidate;
-
     } else {
-
       if (
-        String(found.material) !==
-          String(candidate.material) ||
-
-        String(found.description) !==
-          String(candidate.description) ||
-
-        String(found.mpn) !==
-          String(candidate.mpn) ||
-
-        String(found.delivery) !==
-          String(candidate.delivery)
+        String(found.material) !== String(candidate.material) ||
+        String(found.description) !== String(candidate.description) ||
+        String(found.mpn) !== String(candidate.mpn) ||
+        String(found.delivery) !== String(candidate.delivery)
       ) {
-
         throw new Error(
-          "Az " +
-          ean +
+          "Az " + ean +
           " EAN több sorban eltérő adatokkal szerepel az Adat lapon."
         );
-
       }
-
     }
-
   }
 
   return found;
 }
 
-/* ======================================================
-   TYPE
-   ====================================================== */
+/* A munkalap korábbi rendezési sorrendje megmarad. */
 
 function reportType(row) {
-
-  if (row.missing) {
-    return 1;
-  }
-
-  if (row.surplus) {
-    return 2;
-  }
-
-  if (
-    row.pallet ||
-    row.box ||
-    row.product
-  ) {
-    return 3;
-  }
-
-  if (row.expiry) {
-    return 4;
-  }
-
+  if (row.missing) return 1;
+  if (row.surplus) return 2;
+  if (row.pallet || row.box || row.product) return 3;
+  if (row.expiry) return 4;
   return 5;
 }
 
-/* ======================================================
-   GROUP BUILDING
-   ====================================================== */
+/* FROZEN MERGE GROUPS */
 
 function sameGroup(a, b) {
-
-  if (!a.ean || !b.ean) {
-    return false;
-  }
+  if (!a.ean || !b.ean) return false;
 
   return (
     reportType(a) === reportType(b) &&
@@ -1668,276 +1437,137 @@ function sameGroup(a, b) {
 }
 
 function buildFrozenGroups() {
-
   frozenGroups = [];
-
   let index = 0;
 
   while (index < reportRows.length) {
-
     let end = index;
 
     if (reportRows[index].ean) {
-
       while (
         end + 1 < reportRows.length &&
-        sameGroup(
-          reportRows[index],
-          reportRows[end + 1]
-        )
+        sameGroup(reportRows[index], reportRows[end + 1])
       ) {
         end++;
       }
-
     }
 
-    frozenGroups.push({
-      start: index,
-      end: end
-    });
-
-    index =
-      end + 1;
+    frozenGroups.push({ start: index, end: end });
+    index = end + 1;
   }
 }
 
-/* ======================================================
-   REPORT RENDER
-   ====================================================== */
+/* REPORT RENDER */
 
 function renderReport() {
-
   if (reportSorted) {
     renderSortedReport();
   } else {
     renderNormalReport();
   }
-
 }
 
-/* ======================================================
-   NORMAL MODE
-   ====================================================== */
-
 function renderNormalReport() {
-
-  const body =
-    document.getElementById(
-      "reportBody"
-    );
-
+  const body = document.getElementById("reportBody");
   body.innerHTML = "";
 
-  reportRows.forEach(
-    (row, index) => {
+  reportRows.forEach((row, index) => {
+    const tr = document.createElement("tr");
+    tr.className = "data-row";
 
-      const tr =
-        document.createElement("tr");
+    tr.innerHTML = `
+      <td class="row-number">${index + 3}</td>
+      <td>${escapeHTML(row.material)}</td>
+      <td class="center">${escapeHTML(row.qty)}</td>
+      <td>${escapeHTML(row.description)}</td>
+      <td>${escapeHTML(row.mpn)}</td>
 
-      tr.className =
-        "data-row";
-
-      tr.innerHTML = `
-        <td class="row-number">
-          ${index + 3}
-        </td>
-
-        <td>
-          ${escapeHTML(row.material)}
-        </td>
-
-        <td class="center">
-          ${escapeHTML(row.qty)}
-        </td>
-
-        <td>
-          ${escapeHTML(row.description)}
-        </td>
-
-        <td>
-          ${escapeHTML(row.mpn)}
-        </td>
-
-        <td class="editable">
-          <input
-            class="ean-input"
-            value="${escapeAttr(row.ean)}"
-            data-index="${index}"
-            placeholder="EAN"
-          >
-        </td>
-
-        <td>
-          ${escapeHTML(row.delivery)}
-        </td>
-
-        <td class="editable">
-          <input
-            class="ean-input"
-            value="${escapeAttr(row.sn)}"
-            data-sn-index="${index}"
-            placeholder="SN"
-          >
-        </td>
-
-        ${checkCell(
-          index,
-          "surplus",
-          row.surplus
-        )}
-
-        ${checkCell(
-          index,
-          "missing",
-          row.missing
-        )}
-
-        ${checkCell(
-          index,
-          "pallet",
-          row.pallet
-        )}
-
-        ${checkCell(
-          index,
-          "box",
-          row.box
-        )}
-
-        ${checkCell(
-          index,
-          "product",
-          row.product
-        )}
-
-        <td
-          class="date-cell editable"
-          data-date-index="${index}"
-          title="Dupla kattintás"
+      <td class="editable">
+        <input
+          class="ean-input"
+          value="${escapeAttr(row.ean)}"
+          data-index="${index}"
+          placeholder="EAN"
         >
-          ${escapeHTML(row.expiry)}
-        </td>
-      `;
+      </td>
 
-      body.appendChild(tr);
+      <td>${escapeHTML(row.delivery)}</td>
 
-    }
-  );
+      <td class="editable">
+        <input
+          class="ean-input"
+          value="${escapeAttr(row.sn)}"
+          data-sn-index="${index}"
+          placeholder="SN"
+        >
+      </td>
+
+      ${checkCell(index, "surplus", row.surplus)}
+      ${checkCell(index, "missing", row.missing)}
+      ${checkCell(index, "pallet", row.pallet)}
+      ${checkCell(index, "box", row.box)}
+      ${checkCell(index, "product", row.product)}
+
+      <td
+        class="date-cell editable"
+        data-date-index="${index}"
+        title="Dupla kattintás"
+      >${escapeHTML(row.expiry)}</td>
+    `;
+
+    body.appendChild(tr);
+  });
 
   bindReportEvents();
 }
 
-/* ======================================================
-   SORTED / MERGED MODE
-   ====================================================== */
-
 function renderSortedReport() {
-
-  const body =
-    document.getElementById(
-      "reportBody"
-    );
-
+  const body = document.getElementById("reportBody");
   body.innerHTML = "";
 
-  for (
-    const group of frozenGroups
-  ) {
-
-    const start =
-      group.start;
-
-    const end =
-      group.end;
-
-    const first =
-      reportRows[start];
-
-    const size =
-      end - start + 1;
+  for (const group of frozenGroups) {
+    const start = group.start;
+    const end = group.end;
+    const first = reportRows[start];
+    const size = end - start + 1;
 
     let totalQty = 0;
 
-    for (
-      let i = start;
-      i <= end;
-      i++
-    ) {
-
-      const value =
-        Number(
-          reportRows[i].qty
-        );
-
-      if (
-        !Number.isNaN(value)
-      ) {
-        totalQty += value;
-      }
-
+    for (let i = start; i <= end; i++) {
+      const value = Number(reportRows[i].qty);
+      if (!Number.isNaN(value)) totalQty += value;
     }
 
-    for (
-      let rowIndex = start;
-      rowIndex <= end;
-      rowIndex++
-    ) {
-
-      const row =
-        reportRows[rowIndex];
-
-      const tr =
-        document.createElement(
-          "tr"
-        );
-
-      tr.className =
-        "data-row";
+    for (let rowIndex = start; rowIndex <= end; rowIndex++) {
+      const row = reportRows[rowIndex];
+      const tr = document.createElement("tr");
+      tr.className = "data-row";
 
       let html = `
-        <td class="row-number">
-          ${rowIndex + 3}
-        </td>
+        <td class="row-number">${rowIndex + 3}</td>
       `;
 
-      if (
-        rowIndex === start
-      ) {
-
+      if (rowIndex === start) {
         html += `
           <td
             rowspan="${size}"
             class="${size > 1 ? "merged-cell" : ""}"
-          >
-            ${escapeHTML(first.material)}
-          </td>
+          >${escapeHTML(first.material)}</td>
 
           <td
             rowspan="${size}"
             class="center ${size > 1 ? "merged-cell" : ""}"
-          >
-            ${
-              escapeHTML(
-                size > 1
-                  ? totalQty
-                  : first.qty
-              )
-            }
-          </td>
+          >${escapeHTML(size > 1 ? totalQty : first.qty)}</td>
 
           <td
             rowspan="${size}"
             class="${size > 1 ? "merged-cell" : ""}"
-          >
-            ${escapeHTML(first.description)}
-          </td>
+          >${escapeHTML(first.description)}</td>
 
           <td
             rowspan="${size}"
             class="${size > 1 ? "merged-cell" : ""}"
-          >
-            ${escapeHTML(first.mpn)}
-          </td>
+          >${escapeHTML(first.mpn)}</td>
 
           <td
             rowspan="${size}"
@@ -1954,9 +1584,7 @@ function renderSortedReport() {
           <td
             rowspan="${size}"
             class="${size > 1 ? "merged-cell" : ""}"
-          >
-            ${escapeHTML(first.delivery)}
-          </td>
+          >${escapeHTML(first.delivery)}</td>
         `;
       }
 
@@ -1970,257 +1598,111 @@ function renderSortedReport() {
           >
         </td>
 
-        ${checkCell(
-          rowIndex,
-          "surplus",
-          row.surplus
-        )}
-
-        ${checkCell(
-          rowIndex,
-          "missing",
-          row.missing
-        )}
-
-        ${checkCell(
-          rowIndex,
-          "pallet",
-          row.pallet
-        )}
-
-        ${checkCell(
-          rowIndex,
-          "box",
-          row.box
-        )}
-
-        ${checkCell(
-          rowIndex,
-          "product",
-          row.product
-        )}
+        ${checkCell(rowIndex, "surplus", row.surplus)}
+        ${checkCell(rowIndex, "missing", row.missing)}
+        ${checkCell(rowIndex, "pallet", row.pallet)}
+        ${checkCell(rowIndex, "box", row.box)}
+        ${checkCell(rowIndex, "product", row.product)}
 
         <td
           class="date-cell editable"
           data-date-index="${rowIndex}"
           title="Dupla kattintás"
-        >
-          ${escapeHTML(row.expiry)}
-        </td>
+        >${escapeHTML(row.expiry)}</td>
       `;
 
       tr.innerHTML = html;
-
       body.appendChild(tr);
     }
-
   }
 
   bindReportEvents();
 }
 
-/* ======================================================
-   CELLS
-   ====================================================== */
+/* CELLS */
 
-function checkCell(
-  index,
-  field,
-  checked
-) {
-
+function checkCell(index, field, checked) {
   return `
     <td
       class="check-cell editable ${checked ? "checked" : ""}"
       data-check-index="${index}"
       data-check-field="${field}"
       title="Dupla kattintás"
-    >
-      ${checked ? "✓" : ""}
-    </td>
+    >${checked ? "✓" : ""}</td>
   `;
 }
 
 function bindReportEvents() {
+  document.querySelectorAll(".ean-input[data-index]").forEach(input => {
+    input.addEventListener("change", event => {
+      const index = Number(event.target.dataset.index);
 
-  document
-    .querySelectorAll(
-      ".ean-input[data-index]"
-    )
-    .forEach(input => {
+      reportSorted = false;
+      frozenGroups = [];
 
-      input.addEventListener(
-        "change",
-        event => {
+      reportRows[index].ean = event.target.value.trim();
+      clearLookupFields(index);
 
-          const index =
-            Number(
-              event.target.dataset.index
-            );
+      if (!reportRows[index].ean) {
+        renderReport();
+        return;
+      }
 
-          reportSorted = false;
-          frozenGroups = [];
+      try {
+        const result = lookupEAN(reportRows[index].ean);
 
-          reportRows[index].ean =
-            event.target.value.trim();
-
-          clearLookupFields(
-            index
-          );
-
-          if (
-            !reportRows[index].ean
-          ) {
-            renderReport();
-            return;
-          }
-
-          try {
-
-            const result =
-              lookupEAN(
-                reportRows[index].ean
-              );
-
-            if (result) {
-
-              reportRows[index].material =
-                result.material;
-
-              reportRows[index].qty =
-                1;
-
-              reportRows[index].description =
-                result.description;
-
-              reportRows[index].mpn =
-                result.mpn;
-
-              reportRows[index].delivery =
-                result.delivery;
-            }
-
-          } catch (error) {
-
-            showError(
-              "EAN-keresési hiba: " +
-              error.message
-            );
-
-          }
-
-          renderReport();
-
+        if (result) {
+          reportRows[index].material = result.material;
+          reportRows[index].qty = 1;
+          reportRows[index].description = result.description;
+          reportRows[index].mpn = result.mpn;
+          reportRows[index].delivery = result.delivery;
         }
-      );
+      } catch (error) {
+        showError("EAN-keresési hiba: " + error.message);
+      }
 
+      renderReport();
     });
+  });
 
-  document
-    .querySelectorAll(
-      ".ean-input[data-sn-index]"
-    )
-    .forEach(input => {
-
-      input.addEventListener(
-        "input",
-        event => {
-
-          const index =
-            Number(
-              event.target.dataset.snIndex
-            );
-
-          reportRows[index].sn =
-            event.target.value;
-
-        }
-      );
-
+  document.querySelectorAll(".ean-input[data-sn-index]").forEach(input => {
+    input.addEventListener("input", event => {
+      const index = Number(event.target.dataset.snIndex);
+      reportRows[index].sn = event.target.value;
     });
+  });
 
-  document
-    .querySelectorAll(
-      ".check-cell"
-    )
-    .forEach(cell => {
+  document.querySelectorAll(".check-cell").forEach(cell => {
+    cell.addEventListener("dblclick", () => {
+      const index = Number(cell.dataset.checkIndex);
+      const field = cell.dataset.checkField;
 
-      cell.addEventListener(
-        "dblclick",
-        () => {
+      if (field === "missing" && reportRows[index].surplus) {
+        showError("A " + (index + 3) + ". sor egyszerre hiány és többlet.");
+        return;
+      }
 
-          const index =
-            Number(
-              cell.dataset.checkIndex
-            );
+      if (field === "surplus" && reportRows[index].missing) {
+        showError("A " + (index + 3) + ". sor egyszerre hiány és többlet.");
+        return;
+      }
 
-          const field =
-            cell.dataset.checkField;
-
-          if (
-            field === "missing" &&
-            reportRows[index].surplus
-          ) {
-
-            showError(
-              "A " +
-              (index + 3) +
-              ". sor egyszerre hiány és többlet."
-            );
-
-            return;
-          }
-
-          if (
-            field === "surplus" &&
-            reportRows[index].missing
-          ) {
-
-            showError(
-              "A " +
-              (index + 3) +
-              ". sor egyszerre hiány és többlet."
-            );
-
-            return;
-          }
-
-          reportRows[index][field] =
-            !reportRows[index][field];
-
-          renderReport();
-
-        }
-      );
-
+      reportRows[index][field] = !reportRows[index][field];
+      renderReport();
     });
+  });
 
-  document
-    .querySelectorAll(
-      ".date-cell"
-    )
-    .forEach(cell => {
-
-      cell.addEventListener(
-        "dblclick",
-        () => {
-
-          openDateDialog(
-            Number(
-              cell.dataset.dateIndex
-            )
-          );
-
-        }
-      );
-
+  document.querySelectorAll(".date-cell").forEach(cell => {
+    cell.addEventListener("dblclick", () => {
+      openDateDialog(Number(cell.dataset.dateIndex));
     });
+  });
 
   bindCellSelection();
 }
 
 function clearLookupFields(index) {
-
   reportRows[index].material = "";
   reportRows[index].qty = "";
   reportRows[index].description = "";
@@ -2228,433 +1710,192 @@ function clearLookupFields(index) {
   reportRows[index].delivery = "";
 }
 
-/* ======================================================
-   SOURCE TABLE
-   ====================================================== */
+/* SOURCE TABLE */
 
 function renderSource() {
+  const letters = document.getElementById("sourceLetters");
+  const headers = document.getElementById("sourceHeaders");
+  const body = document.getElementById("sourceBody");
 
-  const letters =
-    document.getElementById(
-      "sourceLetters"
-    );
-
-  const headers =
-    document.getElementById(
-      "sourceHeaders"
-    );
-
-  const body =
-    document.getElementById(
-      "sourceBody"
-    );
-
-  letters.innerHTML =
-    `<th class="row-number"></th>`;
-
-  headers.innerHTML =
-    `<th class="row-number">1</th>`;
-
+  letters.innerHTML = `<th class="row-number"></th>`;
+  headers.innerHTML = `<th class="row-number">1</th>`;
   body.innerHTML = "";
 
-  columnOrder.forEach(
-    (key, index) => {
+  columnOrder.forEach((key, index) => {
+    letters.insertAdjacentHTML(
+      "beforeend",
+      `<th class="col-letter">${columnLetter(index + 1)}</th>`
+    );
 
-      letters.insertAdjacentHTML(
+    const column = sourceColumns.find(item => item.key === key);
+
+    headers.insertAdjacentHTML(
+      "beforeend",
+      `<th
+        class="source-header"
+        draggable="true"
+        data-key="${key}"
+      >${escapeHTML(column.label)}</th>`
+    );
+  });
+
+  sourceData.forEach((record, rowIndex) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td class="row-number">${rowIndex + 2}</td>`;
+
+    columnOrder.forEach(key => {
+      tr.insertAdjacentHTML(
         "beforeend",
-        `
-        <th class="col-letter">
-          ${columnLetter(index + 1)}
-        </th>
-        `
+        `<td>${escapeHTML(record[key])}</td>`
       );
+    });
 
-      const column =
-        sourceColumns.find(
-          item => item.key === key
-        );
-
-      headers.insertAdjacentHTML(
-        "beforeend",
-        `
-        <th
-          class="source-header"
-          draggable="true"
-          data-key="${key}"
-        >
-          ${escapeHTML(column.label)}
-        </th>
-        `
-      );
-
-    }
-  );
-
-  sourceData.forEach(
-    (record, rowIndex) => {
-
-      const tr =
-        document.createElement(
-          "tr"
-        );
-
-      tr.innerHTML =
-        `
-        <td class="row-number">
-          ${rowIndex + 2}
-        </td>
-        `;
-
-      columnOrder.forEach(
-        key => {
-
-          tr.insertAdjacentHTML(
-            "beforeend",
-            `
-            <td>
-              ${escapeHTML(record[key])}
-            </td>
-            `
-          );
-
-        }
-      );
-
-      body.appendChild(tr);
-
-    }
-  );
+    body.appendChild(tr);
+  });
 
   bindDragEvents();
 }
 
-/* ======================================================
-   DRAG
-   ====================================================== */
+/* DRAG */
 
 let draggedColumn = null;
 
 function bindDragEvents() {
-
-  document
-    .querySelectorAll(
-      ".source-header"
-    )
-    .forEach(header => {
-
-      header.addEventListener(
-        "dragstart",
-        () => {
-
-          draggedColumn =
-            header.dataset.key;
-
-          header.classList.add(
-            "dragging"
-          );
-
-        }
-      );
-
-      header.addEventListener(
-        "dragend",
-        () => {
-
-          draggedColumn = null;
-
-          document
-            .querySelectorAll(
-              ".source-header"
-            )
-            .forEach(item => {
-
-              item.classList.remove(
-                "dragging"
-              );
-
-              item.classList.remove(
-                "drag-over"
-              );
-
-            });
-
-        }
-      );
-
-      header.addEventListener(
-        "dragover",
-        event => {
-
-          event.preventDefault();
-
-          if (
-            draggedColumn &&
-            draggedColumn !==
-              header.dataset.key
-          ) {
-
-            header.classList.add(
-              "drag-over"
-            );
-
-          }
-
-        }
-      );
-
-      header.addEventListener(
-        "dragleave",
-        () => {
-
-          header.classList.remove(
-            "drag-over"
-          );
-
-        }
-      );
-
-      header.addEventListener(
-        "drop",
-        event => {
-
-          event.preventDefault();
-
-          const target =
-            header.dataset.key;
-
-          if (
-            !draggedColumn ||
-            draggedColumn === target
-          ) {
-            return;
-          }
-
-          const from =
-            columnOrder.indexOf(
-              draggedColumn
-            );
-
-          const to =
-            columnOrder.indexOf(
-              target
-            );
-
-          columnOrder.splice(
-            from,
-            1
-          );
-
-          columnOrder.splice(
-            to,
-            0,
-            draggedColumn
-          );
-
-          renderSource();
-
-        }
-      );
-
+  document.querySelectorAll(".source-header").forEach(header => {
+    header.addEventListener("dragstart", () => {
+      draggedColumn = header.dataset.key;
+      header.classList.add("dragging");
     });
+
+    header.addEventListener("dragend", () => {
+      draggedColumn = null;
+
+      document.querySelectorAll(".source-header").forEach(item => {
+        item.classList.remove("dragging");
+        item.classList.remove("drag-over");
+      });
+    });
+
+    header.addEventListener("dragover", event => {
+      event.preventDefault();
+
+      if (draggedColumn && draggedColumn !== header.dataset.key) {
+        header.classList.add("drag-over");
+      }
+    });
+
+    header.addEventListener("dragleave", () => {
+      header.classList.remove("drag-over");
+    });
+
+    header.addEventListener("drop", event => {
+      event.preventDefault();
+      const target = header.dataset.key;
+
+      if (!draggedColumn || draggedColumn === target) return;
+
+      const from = columnOrder.indexOf(draggedColumn);
+      const to = columnOrder.indexOf(target);
+
+      columnOrder.splice(from, 1);
+      columnOrder.splice(to, 0, draggedColumn);
+
+      renderSource();
+    });
+  });
 }
 
-/* ======================================================
-   WORKFLOW
-   ====================================================== */
+/* WORKFLOW */
 
 const workflows = {
-
   "Áruátvétel / Inbound": [
     "Feltételes átvétel",
     "Tételes átvétel / Itemised",
     "Betárolás / Intake"
   ],
-
   "Raktár / Warehouse": [
     "Árumozgatás / Goods move",
     "Cycle-Count",
     "Címkézés / Labelling"
   ],
-
   "Áru kiadás / Outbound": [
     "Kiszedés / Picking",
     "Csomagolás / Packaging",
     "Áru kiadás / Dispatch"
   ]
-
 };
 
 function updateWorkflowOptions() {
-
-  const area =
-    document.getElementById(
-      "caseArea"
-    ).value;
-
-  const select =
-    document.getElementById(
-      "workflow"
-    );
-
+  const area = document.getElementById("caseArea").value;
+  const select = document.getElementById("workflow");
   select.innerHTML = "";
 
-  workflows[area]
-    .forEach(item => {
-
-      const option =
-        document.createElement(
-          "option"
-        );
-
-      option.value = item;
-      option.textContent = item;
-
-      select.appendChild(option);
-
-    });
+  workflows[area].forEach(item => {
+    const option = document.createElement("option");
+    option.value = item;
+    option.textContent = item;
+    select.appendChild(option);
+  });
 }
 
-/* ======================================================
-   DATE
-   ====================================================== */
+/* DATE */
 
 let dateRowIndex = null;
 
 function openDateDialog(index) {
-
   dateRowIndex = index;
+  document.getElementById("dateInput").value = reportRows[index].expiry || "";
+  document.getElementById("dateOverlay").classList.add("show");
 
-  document.getElementById(
-    "dateInput"
-  ).value =
-    reportRows[index].expiry || "";
-
-  document
-    .getElementById(
-      "dateOverlay"
-    )
-    .classList.add("show");
-
-  setTimeout(
-    () => {
-      document
-        .getElementById(
-          "dateInput"
-        )
-        .focus();
-    },
-    20
-  );
+  setTimeout(() => {
+    document.getElementById("dateInput").focus();
+  }, 20);
 }
 
 function closeDateDialog() {
-
   dateRowIndex = null;
-
-  document
-    .getElementById(
-      "dateOverlay"
-    )
-    .classList.remove("show");
+  document.getElementById("dateOverlay").classList.remove("show");
 }
 
 function saveDate() {
+  if (dateRowIndex === null) return;
 
-  if (
-    dateRowIndex === null
-  ) {
-    return;
-  }
+  let value = document.getElementById("dateInput").value.trim();
 
-  let value =
-    document.getElementById(
-      "dateInput"
-    ).value.trim();
-
-  if (
-    value.endsWith(".")
-  ) {
-    value =
-      value.slice(0, -1);
+  if (value.endsWith(".")) {
+    value = value.slice(0, -1);
   }
 
   if (!value) {
-
-    reportRows[
-      dateRowIndex
-    ].expiry = "";
-
+    reportRows[dateRowIndex].expiry = "";
     closeDateDialog();
     renderReport();
-
     return;
   }
 
-  if (
-    !isValidDate(value)
-  ) {
-
-    showError(
-      "Így add meg: 2026.10.15"
-    );
-
+  if (!isValidDate(value)) {
+    showError("Így add meg: 2026.10.15");
     return;
   }
 
-  reportRows[
-    dateRowIndex
-  ].expiry = value;
-
+  reportRows[dateRowIndex].expiry = value;
   closeDateDialog();
   renderReport();
 }
 
 function isValidDate(value) {
+  const match = /^(\d{4})\.(\d{1,2})\.(\d{1,2})$/.exec(value);
+  if (!match) return false;
 
-  const match =
-    /^(\d{4})\.(\d{1,2})\.(\d{1,2})$/
-      .exec(value);
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
 
-  if (!match) {
-    return false;
-  }
+  if (year < 1900 || year > 9999) return false;
+  if (month < 1 || month > 12) return false;
+  if (day < 1 || day > 31) return false;
 
-  const year =
-    Number(match[1]);
-
-  const month =
-    Number(match[2]);
-
-  const day =
-    Number(match[3]);
-
-  if (
-    year < 1900 ||
-    year > 9999
-  ) {
-    return false;
-  }
-
-  if (
-    month < 1 ||
-    month > 12
-  ) {
-    return false;
-  }
-
-  if (
-    day < 1 ||
-    day > 31
-  ) {
-    return false;
-  }
-
-  const date =
-    new Date(
-      year,
-      month - 1,
-      day
-    );
+  const date = new Date(year, month - 1, day);
 
   return (
     date.getFullYear() === year &&
@@ -2663,543 +1904,354 @@ function isValidDate(value) {
   );
 }
 
-/* ======================================================
-   SORT
-   ====================================================== */
+/* SORT */
 
 function sortReport() {
-
-  const used =
-    reportRows.filter(
-      row =>
-        row.ean ||
-        row.material ||
-        row.sn ||
-        row.surplus ||
-        row.missing ||
-        row.pallet ||
-        row.box ||
-        row.product ||
-        row.expiry
-    );
+  const used = reportRows.filter(row =>
+    row.ean ||
+    row.material ||
+    row.sn ||
+    row.surplus ||
+    row.missing ||
+    row.pallet ||
+    row.box ||
+    row.product ||
+    row.expiry
+  );
 
   if (!used.length) {
-
-    showError(
-      "Nincs rendezhető tétel."
-    );
-
+    showError("Nincs rendezhető tétel.");
     return;
   }
 
-  for (
-    let i = 0;
-    i < used.length;
-    i++
-  ) {
-
-    if (
-      used[i].missing &&
-      used[i].surplus
-    ) {
-
-      showError(
-        "A sor egyszerre hiány és többlet."
-      );
-
+  for (let i = 0; i < used.length; i++) {
+    if (used[i].missing && used[i].surplus) {
+      showError("A sor egyszerre hiány és többlet.");
       return;
     }
-
   }
 
-  used.sort(
-    (a, b) => {
+  used.sort((a, b) => {
+    const typeDiff = reportType(a) - reportType(b);
+    if (typeDiff !== 0) return typeDiff;
 
-      const typeDiff =
-        reportType(a) -
-        reportType(b);
+    const eanDiff = String(a.ean).localeCompare(String(b.ean));
+    if (eanDiff !== 0) return eanDiff;
 
-      if (
-        typeDiff !== 0
-      ) {
-        return typeDiff;
-      }
+    const deliveryDiff = String(a.delivery).localeCompare(String(b.delivery));
+    if (deliveryDiff !== 0) return deliveryDiff;
 
-      const eanDiff =
-        String(a.ean)
-          .localeCompare(
-            String(b.ean)
-          );
+    return String(a.material).localeCompare(String(b.material));
+  });
 
-      if (
-        eanDiff !== 0
-      ) {
-        return eanDiff;
-      }
-
-      const deliveryDiff =
-        String(a.delivery)
-          .localeCompare(
-            String(b.delivery)
-          );
-
-      if (
-        deliveryDiff !== 0
-      ) {
-        return deliveryDiff;
-      }
-
-      return String(a.material)
-        .localeCompare(
-          String(b.material)
-        );
-
-    }
-  );
-
-  while (
-    used.length <
-    REPORT_ROWS
-  ) {
-
-    used.push(
-      blankRow()
-    );
-
+  while (used.length < REPORT_ROWS) {
+    used.push(blankRow());
   }
 
   reportRows = used;
-
   buildFrozenGroups();
-
   reportSorted = true;
-
   renderReport();
+  showInfo("Rendezés kész.");
+}
 
-  showInfo(
-    "Rendezés kész."
+/* PREVIEW
+   A jegyzőkönyvek csoportosítása a fagyasztott munkalapcsoportoktól független.
+   Hiány = 1, Többlet = 2, Sérülés = 4, Lejárat = 8.
+*/
+
+const PREVIEW_PAGE_SIZE = 5;
+let previewPages = [];
+let previewPageIndex = 0;
+
+function previewTypeMask(row) {
+  return (
+    (row.missing ? 1 : 0) |
+    (row.surplus ? 2 : 0) |
+    (row.pallet || row.box || row.product ? 4 : 0) |
+    (row.expiry ? 8 : 0)
   );
 }
 
-/* ======================================================
-   PREVIEW
-   ====================================================== */
+function previewTypeName(mask) {
+  return [
+    [1, "Hiány"],
+    [2, "Többlet"],
+    [4, "Sérülés"],
+    [8, "Lejárat"]
+  ]
+    .filter(([bit]) => mask & bit)
+    .map(([, label]) => label)
+    .join(" + ");
+}
 
-function generatePreview() {
+function previewRowNote(row) {
+  const details = [];
 
-  const used =
-    reportRows.filter(
-      row =>
-        row.material &&
-        (
-          row.surplus ||
-          row.missing ||
-          row.pallet ||
-          row.box ||
-          row.product ||
-          row.expiry
-        )
-    );
+  if (row.missing) details.push("hiány");
+  if (row.surplus) details.push("többlet");
+  if (row.pallet) details.push("raklap sérült");
+  if (row.box) details.push("doboz sérült");
+  if (row.product) details.push("termék sérült");
+  if (row.expiry) details.push("lejárat: " + row.expiry);
 
-  if (!used.length) {
+  return (
+    (row.sn ? "SN " + row.sn + " " : "") +
+    "(" + details.join(", ") + ")"
+  );
+}
 
-    showError(
-      "Nincs megjelölt eltérés."
-    );
+function buildPreviewPages(rows) {
+  const types = new Map();
 
-    return;
-  }
+  for (const row of rows) {
+    const mask = previewTypeMask(row);
 
-  const grouped = [];
+    if (!row.material || !mask) continue;
 
-  for (
-    const row of used
-  ) {
+    if (row.missing && row.surplus) {
+      throw new Error("A sor egyszerre hiány és többlet.");
+    }
 
-    let found =
-      grouped.find(
-        item =>
-          item.material === row.material &&
-          item.delivery === row.delivery &&
-          item.type === reportType(row)
-      );
+    const qty =
+      String(row.qty ?? "").trim() === ""
+        ? 1
+        : Number(row.qty);
 
-    if (!found) {
+    if (!Number.isFinite(qty)) {
+      throw new Error("Érvénytelen mennyiség: " + row.material);
+    }
 
-      found = {
+    if (!types.has(mask)) {
+      types.set(mask, new Map());
+    }
+
+    const products = types.get(mask);
+
+    const key = JSON.stringify([
+      String(row.material),
+      String(row.delivery ?? "")
+    ]);
+
+    if (!products.has(key)) {
+      products.set(key, {
         material: row.material,
         delivery: row.delivery,
         qty: 0,
-        type: reportType(row),
         notes: []
-      };
-
-      grouped.push(found);
+      });
     }
 
-    found.qty +=
-      Number(row.qty || 1);
-
-    const details = [];
-
-    if (row.surplus) {
-      details.push("többlet");
-    }
-
-    if (row.missing) {
-      details.push("hiány");
-    }
-
-    if (row.pallet) {
-      details.push(
-        "raklap sérült"
-      );
-    }
-
-    if (row.box) {
-      details.push(
-        "doboz sérült"
-      );
-    }
-
-    if (row.product) {
-      details.push(
-        "termék sérült"
-      );
-    }
-
-    if (row.expiry) {
-      details.push(
-        "lejárat: " +
-        row.expiry
-      );
-    }
-
-    let note = "";
-
-    if (row.sn) {
-      note +=
-        "SN " +
-        row.sn +
-        " ";
-    }
-
-    note +=
-      "(" +
-      details.join(", ") +
-      ")";
-
-    found.notes.push(note);
+    const product = products.get(key);
+    product.qty += qty;
+    product.notes.push(previewRowNote(row));
   }
 
-  const previewRows =
-    document.getElementById(
-      "previewRows"
-    );
+  const pages = [];
 
-  previewRows.innerHTML = "";
+  for (const mask of [...types.keys()].sort((a, b) => a - b)) {
+    const products = [...types.get(mask).values()];
+    const pageCount = Math.ceil(products.length / PREVIEW_PAGE_SIZE);
 
-  grouped
-    .slice(0, 5)
-    .forEach(item => {
+    for (let page = 0; page < pageCount; page++) {
+      pages.push({
+        mask,
+        typeName: previewTypeName(mask),
+        typePage: page + 1,
+        typePageCount: pageCount,
+        products: products.slice(
+          page * PREVIEW_PAGE_SIZE,
+          (page + 1) * PREVIEW_PAGE_SIZE
+        )
+      });
+    }
+  }
 
-      previewRows.insertAdjacentHTML(
-        "beforeend",
-        `
-        <tr>
-          <td>
-            ${escapeHTML(item.material)}
-          </td>
+  return pages;
+}
 
-          <td>
-            ${escapeHTML(item.qty)}
-          </td>
+function generatePreview() {
+  previewPages = [];
+  previewPageIndex = 0;
 
-          <td>
-            ${escapeHTML(item.delivery)}
-          </td>
-        </tr>
-        `
-      );
+  try {
+    previewPages = buildPreviewPages(reportRows);
+  } catch (error) {
+    showError(error.message);
+    return;
+  }
 
-    });
+  if (!previewPages.length) {
+    showError("Nincs megjelölt eltérés.");
+    return;
+  }
 
-  const notes =
-    grouped
-      .slice(0, 5)
-      .map(
-        item =>
-          item.material +
-          ": " +
-          item.notes.join("; ")
-      );
+  document.getElementById("previewArea").textContent =
+    document.getElementById("caseArea").value;
 
-  document.getElementById(
-    "previewArea"
-  ).textContent =
-    document.getElementById(
-      "caseArea"
-    ).value;
+  document.getElementById("previewWorkflow").textContent =
+    document.getElementById("workflow").value;
 
-  document.getElementById(
-    "previewWorkflow"
-  ).textContent =
-    document.getElementById(
-      "workflow"
-    ).value;
+  document.getElementById("previewDate").textContent =
+    new Date().toLocaleString("hu-HU");
 
-  document.getElementById(
-    "previewNotes"
-  ).textContent =
-    notes.join("\n");
+  renderPreviewPage();
+  document.getElementById("previewOverlay").classList.add("show");
+}
 
-  document.getElementById(
-    "previewDate"
-  ).textContent =
-    new Date()
-      .toLocaleString("hu-HU");
+function renderPreviewPage() {
+  const page = previewPages[previewPageIndex];
+  if (!page) return;
 
-  document
-    .getElementById(
-      "previewOverlay"
-    )
-    .classList.add("show");
+  document.getElementById("previewRows").innerHTML =
+    page.products.map(item =>
+      "<tr><td>" +
+      escapeHTML(item.material) +
+      "</td><td>" +
+      escapeHTML(item.qty) +
+      "</td><td>" +
+      escapeHTML(item.delivery) +
+      "</td></tr>"
+    ).join("");
+
+  document.getElementById("previewNotes").textContent =
+    page.products.map(item =>
+      item.material +
+      " / " +
+      item.delivery +
+      ": " +
+      item.notes.join("; ")
+    ).join("\n");
+
+  document.getElementById("previewTypeName").textContent =
+    page.typeName;
+
+  document.getElementById("previewPageNumber").textContent =
+    "Típuson belül: " +
+    page.typePage +
+    " / " +
+    page.typePageCount +
+    " · Összes oldal: " +
+    (previewPageIndex + 1) +
+    " / " +
+    previewPages.length;
+
+  document.getElementById("previewPaperType").textContent =
+    page.typeName +
+    " — " +
+    page.typePage +
+    " / " +
+    page.typePageCount +
+    ". oldal";
+
+  document.getElementById("previewPrevious").disabled =
+    previewPageIndex === 0;
+
+  document.getElementById("previewNext").disabled =
+    previewPageIndex === previewPages.length - 1;
+}
+
+function changePreviewPage(direction) {
+  const next = previewPageIndex + direction;
+
+  if (next < 0 || next >= previewPages.length) return;
+
+  previewPageIndex = next;
+  renderPreviewPage();
+  document.querySelector(".report-preview").scrollTop = 0;
 }
 
 function closePreview() {
-
-  document
-    .getElementById(
-      "previewOverlay"
-    )
-    .classList.remove("show");
+  document.getElementById("previewOverlay").classList.remove("show");
 }
 
-/* ======================================================
-   RIBBON NAV
-   ====================================================== */
+/* RIBBON NAV */
 
-document
-  .querySelectorAll(
-    ".ribbon-tab"
-  )
-  .forEach(tab => {
+document.querySelectorAll(".ribbon-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".ribbon-tab").forEach(item => {
+      item.classList.remove("active");
+    });
 
-    tab.addEventListener(
-      "click",
-      () => {
+    tab.classList.add("active");
 
-        document
-          .querySelectorAll(
-            ".ribbon-tab"
-          )
-          .forEach(item => {
-            item.classList.remove(
-              "active"
-            );
-          });
+    document.querySelectorAll(".ribbon-panel").forEach(panel => {
+      panel.classList.remove("active");
+    });
 
-        tab.classList.add(
-          "active"
-        );
-
-        document
-          .querySelectorAll(
-            ".ribbon-panel"
-          )
-          .forEach(panel => {
-            panel.classList.remove(
-              "active"
-            );
-          });
-
-        const panel =
-          document.getElementById(
-            "ribbon-" +
-            tab.dataset.ribbon
-          );
-
-        if (panel) {
-          panel.classList.add(
-            "active"
-          );
-        }
-
-      }
-    );
-
+    const panel = document.getElementById("ribbon-" + tab.dataset.ribbon);
+    if (panel) panel.classList.add("active");
   });
+});
 
-/* ======================================================
-   SHEET NAV
-   ====================================================== */
+/* SHEET NAV */
 
-document
-  .querySelectorAll(
-    ".sheet-tab-bottom"
-  )
-  .forEach(tab => {
+document.querySelectorAll(".sheet-tab-bottom").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".sheet-tab-bottom").forEach(item => {
+      item.classList.remove("active");
+    });
 
-    tab.addEventListener(
-      "click",
-      () => {
+    tab.classList.add("active");
 
-        document
-          .querySelectorAll(
-            ".sheet-tab-bottom"
-          )
-          .forEach(item => {
-            item.classList.remove(
-              "active"
-            );
-          });
+    document.querySelectorAll(".sheet").forEach(sheet => {
+      sheet.classList.remove("active");
+    });
 
-        tab.classList.add(
-          "active"
-        );
-
-        document
-          .querySelectorAll(
-            ".sheet"
-          )
-          .forEach(sheet => {
-            sheet.classList.remove(
-              "active"
-            );
-          });
-
-        document
-          .getElementById(
-            "sheet-" +
-            tab.dataset.sheet
-          )
-          .classList.add(
-            "active"
-          );
-
-      }
-    );
-
+    document.getElementById("sheet-" + tab.dataset.sheet)
+      .classList.add("active");
   });
+});
 
-/* ======================================================
-   CELL SELECTION
-   ====================================================== */
+/* CELL SELECTION */
 
 function bindCellSelection() {
+  document.querySelectorAll(".report-grid td").forEach(cell => {
+    cell.addEventListener("click", () => {
+      document.querySelectorAll(".selected-cell").forEach(item => {
+        item.classList.remove("selected-cell");
+      });
 
-  document
-    .querySelectorAll(
-      ".report-grid td"
-    )
-    .forEach(cell => {
+      cell.classList.add("selected-cell");
 
-      cell.addEventListener(
-        "click",
-        () => {
-
-          document
-            .querySelectorAll(
-              ".selected-cell"
-            )
-            .forEach(item => {
-              item.classList.remove(
-                "selected-cell"
-              );
-            });
-
-          cell.classList.add(
-            "selected-cell"
-          );
-
-          document.getElementById(
-            "formulaBar"
-          ).textContent =
-            cell.innerText.trim();
-
-        }
-      );
-
+      document.getElementById("formulaBar").textContent =
+        cell.innerText.trim();
     });
+  });
 }
 
-/* ======================================================
-   DIALOGS
-   ====================================================== */
+/* DIALOGS */
 
 function showError(message) {
-
-  document.getElementById(
-    "errorText"
-  ).textContent =
-    message;
-
-  document
-    .getElementById(
-      "errorOverlay"
-    )
-    .classList.add("show");
+  document.getElementById("errorText").textContent = message;
+  document.getElementById("errorOverlay").classList.add("show");
 }
 
 function showInfo(message) {
-
-  document.getElementById(
-    "errorText"
-  ).textContent =
-    message;
-
-  document
-    .getElementById(
-      "errorOverlay"
-    )
-    .classList.add("show");
+  document.getElementById("errorText").textContent = message;
+  document.getElementById("errorOverlay").classList.add("show");
 }
 
 function closeError() {
-
-  document
-    .getElementById(
-      "errorOverlay"
-    )
-    .classList.remove("show");
+  document.getElementById("errorOverlay").classList.remove("show");
 }
 
-/* ======================================================
-   HELPERS
-   ====================================================== */
+/* HELPERS */
 
 function columnLetter(number) {
-
   let result = "";
 
-  while (
-    number > 0
-  ) {
-
+  while (number > 0) {
     number--;
-
-    result =
-      String.fromCharCode(
-        65 +
-        number % 26
-      ) +
-      result;
-
-    number =
-      Math.floor(
-        number / 26
-      );
-
+    result = String.fromCharCode(65 + number % 26) + result;
+    number = Math.floor(number / 26);
   }
 
   return result;
 }
 
 function escapeHTML(value) {
-
-  return String(
-    value ?? ""
-  )
+  return String(value ?? "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -3211,23 +2263,14 @@ function escapeAttr(value) {
   return escapeHTML(value);
 }
 
-/* ======================================================
-   INIT
-   ====================================================== */
+/* INIT */
 
-document
-  .getElementById(
-    "caseArea"
-  )
-  .addEventListener(
-    "change",
-    updateWorkflowOptions
-  );
+document.getElementById("caseArea")
+  .addEventListener("change", updateWorkflowOptions);
 
 updateWorkflowOptions();
 renderReport();
 renderSource();
-
 </script>
 
 </body>
